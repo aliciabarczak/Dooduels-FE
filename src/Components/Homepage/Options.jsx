@@ -1,8 +1,10 @@
-import "./../Options.css";
+import "./../Homepage.css";
 const Options = () => {
   return (
     <div className="Homepage-Options">
-      <p>Add Room</p>
+      <p onClick={console.log} className="button">
+        Add Room
+      </p>
       <form>
         <label>
           <input type="text" placeholder="Search room..." />
