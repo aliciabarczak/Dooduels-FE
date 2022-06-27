@@ -1,13 +1,12 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Header from "./Components/Header.jsx";
-import BriefIns from "./Components/BriefIns.jsx";
-import Buttons from "./Components/Buttons.jsx";
-import RoomList from "./Components/RoomList.jsx";
-import Leaderboard from "./Components/Leaderboard.jsx";
+import Header from "./Components/Header";
+import BriefIns from "./Components/Homepage/BriefIns";
+import Options from "./Components/Homepage/Options";
+import RoomList from "./Components/Homepage/RoomList";
+import LeaderBoard from "./Components/Homepage/Leaderboard";
 import LoginPage from "./Components/LoginPage.jsx";
-import Roompage from "./Components/Roompage.jsx";
-import UserPage from "./Components/UserPage.jsx";
+import RoomPage from "./Components/Roompage.jsx";
+import UserPage from "./Components/UserPage";
 
 function App() {
   return (
@@ -16,12 +15,12 @@ function App() {
       <main>
         <div className="Homepage">
           <BriefIns />
-          <Buttons />
-          <RoomList.jsx />
-          <Leaderboard />
+          <Options />
+          <RoomList />
+          <LeaderBoard />
         </div>
         <LoginPage />
-        <Roompage />
+        <RoomPage />
         <UserPage />
       </main>
     </div>
