@@ -24,6 +24,11 @@ main {
   border: solid;
 }
 
+.Room li {
+  font-size: 20px;
+  font-weight: bold;
+}
+
 .Leaderboard {
   border: solid;
   height: 300px;
