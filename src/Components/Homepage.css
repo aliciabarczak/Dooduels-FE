@@ -41,3 +41,56 @@ main {
   margin-top: 0px;
   margin-left: -30px;
 }
+
+.RoomName,
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin-top: -10px;
+}
+
+select {
+  width: 100px;
+  margin: auto;
+  padding: 0.5rem;
+}
+
+.RoomName {
+  width: 200px;
+  margin: auto;
+  padding: 0.5rem;
+  margin-top: 0px;
+}
+
+.roomNameInput {
+  padding: 0.5rem;
+}
+
+label {
+  padding: 0.8rem;
+}
+
+form {
+  font-size: 20px;
+}
+
+.AddRoomBox {
+  height: 400px;
+  width: 400px;
+  border: solid;
+  margin: auto;
+  margin-top: 10%;
+}
+
+.AddRoomBox h2 {
+  font-size: 30px;
+}
+
+.submitBtn {
+  margin: auto;
+  margin-top: 40px;
+  padding: 0.5rem;
+  font-size: 15px;
+  width: 100px;
+}
