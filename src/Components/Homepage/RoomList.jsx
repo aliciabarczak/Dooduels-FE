@@ -150,20 +150,21 @@ const RoomList = () => {
   ]);
 
   ///fetch  using useEffect from DB when possible...
-
   return (
     <ul className="RoomList">
+      <h2>Open Rooms</h2>
       {rooms.map((room) => {
-        return (
-          <div className="Room">
-            <div>
-              <li>{room.room_name}</li>
-              <p className="mode">{room.mode}</p>
+        if (!room.full)
+          return (
+            <div className="Room">
+              <div>
+                <li>{room.room_name}</li>
+                <p className="mode">{room.mode}</p>
+              </div>
+              <p className="button">Enter</p>
+              <p>{room.players.length ? `${room.players.length}/5` : "0/5"}</p>
             </div>
-            <p className="button">Enter</p>
-            <p>{room.players.length ? `${room.players.length}/5` : "0/5"}</p>
-          </div>
-        );
+          );
       })}
     </ul>
   );
