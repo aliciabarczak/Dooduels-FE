@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./../Homepage.css";
+import { BsPeopleFill } from "react-icons/bs";
 
 const RoomList = () => {
   const [rooms, setRooms] = useState([
@@ -162,6 +163,9 @@ const RoomList = () => {
                 <p className="mode">{room.mode}</p>
               </div>
               <p className="button">Enter</p>
+              <p>
+                <BsPeopleFill className="peopleIcon" />
+              </p>
               <p>{room.players.length ? `${room.players.length}/5` : "0/5"}</p>
             </div>
           );

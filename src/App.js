@@ -7,15 +7,17 @@ import LeaderBoard from "./Components/Homepage/Leaderboard";
 import LoginPage from "./Components/LoginPage.jsx";
 import RoomPage from "./Components/Roompage.jsx";
 import UserPage from "./Components/UserPage";
+import { useState } from "react";
 
 function App() {
+  const [showPopUp, setShowPopUp] = useState(false);
   return (
     <div className="App">
       <Header />
-      <main>
+      <main className={showPopUp ? "blackOut" : null}>
         <div className="Homepage">
           <BriefIns />
-          <Options />
+          <Options showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
           <RoomList />
           <LeaderBoard />
         </div>
