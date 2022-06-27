@@ -27,6 +27,7 @@ main {
 .Room li {
   font-size: 20px;
   font-weight: bold;
+  margin-left: -30px;
 }
 
 .Leaderboard {
@@ -34,4 +35,9 @@ main {
   height: 300px;
   width: 300px;
   margin: auto;
+}
+
+.mode {
+  margin-top: 0px;
+  margin-left: -30px;
 }

@@ -154,10 +154,12 @@ const RoomList = () => {
   return (
     <ul className="RoomList">
       {rooms.map((room) => {
-        console.log(room.players.length, room.room_name);
         return (
           <div className="Room">
-            <li>{room.room_name}</li>
+            <div>
+              <li>{room.room_name}</li>
+              <p className="mode">{room.mode}</p>
+            </div>
             <p className="button">Enter</p>
             <p>{room.players.length ? `${room.players.length}/5` : "0/5"}</p>
           </div>
