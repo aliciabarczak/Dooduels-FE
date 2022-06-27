@@ -1,5 +1,6 @@
 import "./../Homepage.css";
-export default function AddRoomBox() {
+import { AiOutlineClose } from "react-icons/ai";
+export default function AddRoomBox({ showPopUp, setShowPopUp }) {
   return (
     <div className="AddRoomBox">
       <h2>Add Room</h2>
@@ -18,6 +19,12 @@ export default function AddRoomBox() {
             placeholder="Room Name"
           />
         </div>
+        <AiOutlineClose
+          className="closeButton"
+          onClick={() => {
+            setShowPopUp(false);
+          }}
+        />
         <button type="submit" className="submitBtn">
           Submit
         </button>

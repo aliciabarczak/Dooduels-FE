@@ -23,7 +23,9 @@ const Options = ({ showPopUp, setShowPopUp }) => {
           </label>
         </form>
       </div>
-      {showPopUp ? <AddRoomBox /> : null}
+      {showPopUp ? (
+        <AddRoomBox showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
+      ) : null}
     </>
   );
 };

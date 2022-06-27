@@ -114,3 +114,9 @@ label,
 input {
   z-index: 8;
 }
+
+.closeButton {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
