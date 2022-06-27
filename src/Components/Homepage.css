@@ -10,11 +10,15 @@ main {
   justify-content: space-around;
   list-style: none;
 }
-
+.addButton,
 .button {
   border: solid;
   padding: 0.5rem;
   width: 65px;
+}
+
+.addButton {
+  width: 85px;
 }
 
 .Homepage-Options form input {

@@ -10,7 +10,7 @@ const Options = ({ showPopUp, setShowPopUp }) => {
           onClick={() => {
             setShowPopUp(true);
           }}
-          className="button">
+          className="addButton">
           Add Room
         </p>
         <form className="searchRoom">
