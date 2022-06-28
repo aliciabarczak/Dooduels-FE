@@ -10,6 +10,8 @@ main {
   justify-content: space-around;
   list-style: none;
 }
+
+.showButton,
 .addButton,
 .button {
   border: solid;
@@ -17,8 +19,13 @@ main {
   width: 65px;
 }
 
+.showButton,
 .addButton {
   width: 85px;
+}
+
+.showButton {
+  margin-left: 75px;
 }
 
 .Homepage-Options form input {
@@ -130,4 +137,8 @@ input {
   font-size: 18px;
   margin-right: -40px;
   margin-top: 5px;
+}
+
+.BriefIns {
+  font-size: 25px;
 }
