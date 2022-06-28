@@ -1,0 +1,133 @@
+main {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.Room,
+.Homepage-Options {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+}
+.addButton,
+.button {
+  border: solid;
+  padding: 0.5rem;
+  width: 65px;
+}
+
+.addButton {
+  width: 85px;
+}
+
+.Homepage-Options form input {
+  padding: 0.5rem;
+}
+
+.RoomList {
+  border: solid;
+}
+
+.Room li {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: -30px;
+}
+
+.Leaderboard {
+  border: solid;
+  height: 300px;
+  width: 300px;
+  margin: auto;
+}
+
+.mode {
+  margin-top: 0px;
+  margin-left: -30px;
+}
+
+.RoomName,
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin-top: -10px;
+}
+
+select {
+  width: 100px;
+  margin: auto;
+  padding: 0.5rem;
+}
+
+.RoomName {
+  width: 200px;
+  margin: auto;
+  padding: 0.5rem;
+  margin-top: 0px;
+}
+
+.roomNameInput {
+  padding: 0.5rem;
+}
+
+label {
+  padding: 0.8rem;
+}
+
+form {
+  font-size: 20px;
+}
+
+.AddRoomBox {
+  height: 400px;
+  width: 350px;
+  border: solid;
+  margin: auto;
+  margin-left: -15px;
+  margin-top: 10%;
+  z-index: 9;
+  position: absolute;
+  background-color: white;
+}
+
+.AddRoomBox h2 {
+  font-size: 30px;
+}
+
+.submitBtn {
+  margin: auto;
+  margin-top: 40px;
+  padding: 0.5rem;
+  font-size: 15px;
+  width: 100px;
+}
+
+.blackOut {
+  z-index: 8;
+  background-color: rgb(0, 0, 0, 0.8);
+}
+
+.blackInput {
+  background-color: rgb(58, 57, 57);
+  border: solid rgb(14, 14, 14);
+}
+
+.searchRoom,
+label,
+input {
+  z-index: 8;
+}
+
+.closeButton {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.peopleIcon {
+  font-size: 18px;
+  margin-right: -40px;
+  margin-top: 5px;
+}
