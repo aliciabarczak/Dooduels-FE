@@ -7,23 +7,24 @@ import LeaderBoard from "./Components/Homepage/Leaderboard";
 import LoginPage from "./Components/LoginPage.jsx";
 import RoomPage from "./Components/Roompage.jsx";
 import UserPage from "./Components/UserPage";
+import { useState } from "react";
+import { Routes, Route } from "react-router";
+import userContext from './contexts/userContext';
 
 function App() {
+  const [loggedUser, setLoggedUser] = useState("");
+
   return (
-    <div className="App">
-      <Header />
-      <main>
-        <div className="Homepage">
-          <BriefIns />
-          <Options />
-          <RoomList />
-          <LeaderBoard />
-        </div>
-        <LoginPage />
-        <RoomPage />
-        <UserPage />
-      </main>
-    </div>
+    <userContext.Provider value={{loggedUser, setLoggedUser}}>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />}/>
+          <Route path="/login" element={<LoginPage />}/>
+        </Routes>
+      </div>
+    </userContext.Provider>
+
   );
 }
 
