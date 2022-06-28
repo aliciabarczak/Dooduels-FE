@@ -14,9 +14,9 @@ function App() {
 
   return (
     <userContext.Provider value={{ loggedUser, setLoggedUser }}>
-      <div className="App">
+      <div className={showPopUp || loggedUser === "" ? "blackOutApp" : "App"}>
         <Header />
-        <main className={showPopUp ? "blackOut" : null}>
+        <main>
           <RoomPage />
           <UserPage />
           <Routes>

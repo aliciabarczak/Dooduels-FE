@@ -2,6 +2,35 @@ main {
   padding-left: 2rem;
   padding-right: 2rem;
 }
+.blackOutApp {
+  z-index: 1;
+}
+
+.blackOutApp,
+img {
+  z-index: 1;
+  background-color: rgb(0, 0, 0, 0.8);
+  text-align: center;
+}
+
+.blackOutApp img {
+  filter: brightness(25%);
+}
+
+.blackOutApp a {
+  color: black;
+  background-color: none;
+  text-decoration: none;
+  border: 1px solid;
+  padding: 0.5rem;
+}
+
+.App a {
+  color: black;
+  text-decoration: none;
+  border: 1px solid;
+  padding: 0.5rem;
+}
 
 .Room,
 .Homepage-Options {
@@ -93,7 +122,19 @@ form {
   border: solid;
   margin: auto;
   margin-left: -15px;
-  margin-top: 10%;
+  margin-top: -15%;
+  z-index: 9;
+  position: absolute;
+  background-color: white;
+}
+
+.LogInBox {
+  height: 300px;
+  width: 350px;
+  border: solid;
+  margin: auto;
+  margin-left: -15px;
+  margin-top: -15%;
   z-index: 9;
   position: absolute;
   background-color: white;
@@ -111,13 +152,8 @@ form {
   width: 100px;
 }
 
-.blackOut {
-  z-index: 8;
-  background-color: rgb(0, 0, 0, 0.8);
-}
-
 .blackInput {
-  background-color: rgb(58, 57, 57);
+  filter: brightness(20%);
   border: solid rgb(14, 14, 14);
 }
 

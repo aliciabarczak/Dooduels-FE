@@ -1,9 +1,13 @@
-import { useState } from "react";
 import "./../Homepage.css";
 import { BsPeopleFill } from "react-icons/bs";
 import ExpandibleRooms from "./ExpandibleRooms";
+import { useState } from "react";
+import { useContext } from "react";
+import userContext from "./../../contexts/userContext";
+import LogInPopUpBox from "./LogInPopUpBox";
 
-const RoomList = () => {
+export default function RoomList({ showLogIn, setShowLogIn }) {
+  const { loggedUser } = useContext(userContext);
   const [rooms, setRooms] = useState([
     {
       id: "1",
@@ -152,43 +156,55 @@ const RoomList = () => {
   ]);
   let expandableRooms = [];
   ///fetch  using useEffect from DB when possible...
-  return (
-    <ul className="RoomList">
-      <h2>Open Rooms</h2>
-      {rooms.map((room, index) => {
-        if (index < 5)
-          return (
-            <div className="Room">
-              <div>
-                <li>{room.room_name}</li>
-                <p className="mode">{room.mode}</p>
-              </div>
-              <p className="button">Enter</p>
-              <p>
-                <BsPeopleFill className="peopleIcon" />
-              </p>
-              <p>{room.players.length ? `${room.players.length}/5` : "0/5"}</p>
-            </div>
-          );
-        else {
-          expandableRooms.push(
-            <div className="Room">
-              <div>
-                <li>{room.room_name}</li>
-                <p className="mode">{room.mode}</p>
-              </div>
-              <p className="button">Enter</p>
-              <p>
-                <BsPeopleFill className="peopleIcon" />
-              </p>
-              <p>{room.players.length ? `${room.players.length}/5` : "0/5"}</p>
-            </div>
-          );
-        }
-      })}
-      <ExpandibleRooms>{expandableRooms}</ExpandibleRooms>
-    </ul>
-  );
-};
 
-export default RoomList;
+  return (
+    <>
+      {loggedUser === "" ? <LogInPopUpBox /> : null}
+      <ul className="RoomList">
+        <h2>Open Rooms</h2>
+        {rooms.map((room, index) => {
+          if (index < 5)
+            return (
+              <div className="Room">
+                <div>
+                  <li>{room.room_name}</li>
+                  <p className="mode">{room.mode}</p>
+                </div>
+                <p
+                  className="button"
+                  onClick={() => {
+                    setShowLogIn(true);
+                  }}>
+                  Enter
+                </p>
+                <p>
+                  <BsPeopleFill className="peopleIcon" />
+                </p>
+                <p>
+                  {room.players.length ? `${room.players.length}/5` : "0/5"}
+                </p>
+              </div>
+            );
+          else {
+            expandableRooms.push(
+              <div className="Room">
+                <div>
+                  <li>{room.room_name}</li>
+                  <p className="mode">{room.mode}</p>
+                </div>
+                <p className="button">Enter</p>
+                <p>
+                  <BsPeopleFill className="peopleIcon" />
+                </p>
+                <p>
+                  {room.players.length ? `${room.players.length}/5` : "0/5"}
+                </p>
+              </div>
+            );
+          }
+        })}
+        <ExpandibleRooms>{expandableRooms}</ExpandibleRooms>
+      </ul>
+    </>
+  );
+}
