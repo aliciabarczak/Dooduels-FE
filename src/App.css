@@ -3,11 +3,10 @@
 }
 
 .header {
-  border: 2px solid blue;
-  margin: 1rem;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  font-size: x-large;
 }
 
 .home-profile-pic {
@@ -76,5 +75,5 @@
 b,
 .home-user {
   margin-top: 13px;
-  margin-right: -20px;
+  margin-right: 0px;
 }
