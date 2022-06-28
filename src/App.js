@@ -36,6 +36,6 @@ function App() {
     </div>
     </userContext.Provider>
   )
-}
+};
 
 export default App;
