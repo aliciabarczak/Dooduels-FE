@@ -11,7 +11,7 @@
 }
 
 .home-profile-pic {
-  width: 60px;
+  width: 55px;
   height: 50px;
   border-radius: 100%;
   border: solid 1px black;
@@ -35,21 +35,37 @@
 }
 
 .leaderboard {
-  border: 2px solid pink;
+  border: 3px solid rgb(0, 0, 0);
   padding: 1rem;
+  margin-bottom: 80px;
 }
 
 .leaderboard-user {
-  border: 2px solid red;
-  padding: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  justify-content: space-between;
   margin: 10px;
+}
+
+.userInfo {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-left: 10px;
+  width: 200px;
+}
+
+.userInfo b {
+  margin-left: 5px;
+  margin-top: 16px;
+}
+
+.points {
+  margin-right: 5px;
 }
 
 .leaderboard-list {
   display: flex;
   align-items: center;
+  margin: 5px;
 }
 
 .home-username {
@@ -58,6 +74,7 @@
   margin-top: 0px;
 }
 
+b,
 .home-user {
   margin-top: 13px;
   margin-right: -20px;
