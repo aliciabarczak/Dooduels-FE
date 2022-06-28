@@ -3,7 +3,6 @@
 }
 
 .header {
-  padding: 1rem;
   border: 2px solid blue;
   margin: 1rem;
   display: flex;
@@ -12,9 +11,10 @@
 }
 
 .home-profile-pic {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 50px;
   border-radius: 100%;
+  border: solid 1px black;
 }
 
 .form {
@@ -52,3 +52,13 @@
   align-items: center;
 }
 
+.home-username {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 0px;
+}
+
+.home-user {
+  margin-top: 13px;
+  margin-right: -20px;
+}
