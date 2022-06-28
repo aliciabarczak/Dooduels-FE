@@ -8,10 +8,15 @@ import LoginPage from "./Components/LoginPage.jsx";
 import RoomPage from "./Components/Roompage.jsx";
 import UserPage from "./Components/UserPage";
 import { useState } from "react";
+import { Routes, Route } from "react-router";
+import userContext from './contexts/userContext';
 
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
+  const [loggedUser, setLoggedUser] = useState("");
+
   return (
+    <userContext.Provider value={{loggedUser, setLoggedUser}}>
     <div className="App">
       <Header />
       <main className={showPopUp ? "blackOut" : null}>
@@ -21,12 +26,16 @@ function App() {
           <RoomList />
           <LeaderBoard />
         </div>
-        <LoginPage />
         <RoomPage />
         <UserPage />
+        <Routes>
+          {/* <Route path="/" element={<HomePage />}/> */}
+          <Route path="/login" element={<LoginPage />}/>
+        </Routes>
       </main>
     </div>
-  );
-}
+    </userContext.Provider>
+  )
+};
 
 export default App;
