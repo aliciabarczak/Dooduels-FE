@@ -1,5 +1,4 @@
 import {
-  onValue,
   ref,
   get,
   push,
@@ -34,14 +33,16 @@ export function getAllRooms(setState) {
   get(allRoomsRef)
     .then((snapshot) => {
       const rooms = snapshot.val();
-
       const roomsArray = [];
-
       for (let room in rooms) {
         rooms[room].room_id = room;
+        const playersArray = []
+        for (let player in rooms[room].players) {
+          playersArray.push(rooms[room].players[player])
+        }
+        rooms[room].players = playersArray
         roomsArray.push(rooms[room]);
       }
-
       setState(roomsArray);
     })
     .then(() => {
@@ -64,6 +65,11 @@ export function getRoomById(room_id, setState) {
   get(oneRoomRef)
     .then((snapshot) => {
       const room = snapshot.val();
+      const playersArray = []
+      for (let player in room.players) {
+        playersArray.push(room.players[player])
+      }
+      room.players = playersArray
       setState(room);
     })
     .then(() => {
@@ -203,7 +209,35 @@ export function removePlayerFromRoom(user_id, room_id) {
     });
 }
 
-// removePlayerFromRoom("w23csaedeplz", 1);
+export function addFriendtoUser(user_id, friend) {
+  const username = friend.user_name
+  const profile_pic = friend.avatar_url
+  const friendId = friend.user_id
+  const newFriend = {username, profile_pic}
+  const userFriendRef = ref(db, 'users/' + user_id + `/friends/${friend.user_id}`)
+  
+  set(userFriendRef, newFriend)
+  .then(()=> goOffline(db))
+}
+
+export function removeFriendFromUser(user_id, friend) {
+  const userFriendRef = ref(db, 'users/' + user_id + `/friends/${friend.user_id}`)
+  remove(userFriendRef).then(()=>{
+    goOffline(db)
+  })
+}
+
+export function updateUserStatus(user_id, status) {
+  const userStatusRef = ref(db, 'users/' + user_id + '/status')
+  set(userStatusRef, status).then(()=> goOffline(db))
+}
+
+export function updateUserDescription(user_id, description) {
+  const userDescriptionRef = ref(db, 'users/' + user_id + '/description')
+  set(userDescriptionRef, description).then(()=> goOffline(db))
+}
+
+//removePlayerFromRoom("w23csaedeplz", 1);
 
 // addPlayerToRoom("sparkles", "w23csaedeplz", 1);
 
@@ -224,7 +258,7 @@ export function removePlayerFromRoom(user_id, room_id) {
 
 // getUserById("-N5_Z_EYyZBrivsr1pdL", console.log);
 
-getRoomById("1", console.log);
+// getRoomById("1", console.log);
 
 // awardPointsToUser(-100, 1);
 
