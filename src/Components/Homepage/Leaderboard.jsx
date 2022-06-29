@@ -58,7 +58,7 @@ const LeaderBoard = () => {
 
   return (
     <>
-      <h1>Leaderboard</h1>
+      <h2>Leaderboard</h2>
       <section className="leaderboard">
         {users.map((user) => {
           return (
