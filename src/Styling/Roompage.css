@@ -1,0 +1,25 @@
+.blackOutRoompage,
+.Roompage {
+  height: 100vh;
+}
+
+.RoomPageButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ready-button,
+.exit-button {
+  width: 150px;
+  padding: 1rem;
+  font-size: 18px;
+  color: white;
+}
+
+.ready-button {
+  background-color: green;
+}
+
+.exit-button {
+  background-color: red;
+}

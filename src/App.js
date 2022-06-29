@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router";
 import userContext from "./contexts/userContext";
 import Homepage from "./Components/Homepage";
+import Roompage from "./Components/Roompage.jsx";
 
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
@@ -16,7 +17,6 @@ function App() {
       <div className={showPopUp || loggedUser === "" ? "blackOutApp" : "App"}>
         <Header />
         <main>
-          <RoomPage />
           <Routes>
             <Route
               path="/"
@@ -25,6 +25,7 @@ function App() {
               }
             />
             <Route path="/users/:user_id" element={<UserPage />} />
+            <Route path="/rooms/*" element={<Roompage />} />
           </Routes>
         </main>
       </div>

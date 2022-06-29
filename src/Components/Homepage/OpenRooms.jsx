@@ -1,4 +1,5 @@
 import { BsPeopleFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 export default function OpenRooms({ rooms }) {
   return (
@@ -13,7 +14,15 @@ export default function OpenRooms({ rooms }) {
                   <li>{room.room_name}</li>
                   <p className="mode">{room.mode}</p>
                 </div>
-                <button className="button">Enter</button>
+
+                <button className="button">
+                  <Link
+                    to={`/rooms/${room.id}`}
+                    key="login"
+                    className="login-button">
+                    enter
+                  </Link>
+                </button>
                 <p>
                   <BsPeopleFill className="peopleIcon" />
                 </p>
