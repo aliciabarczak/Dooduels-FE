@@ -4,18 +4,23 @@ import userContext from "../contexts/userContext";
 
 const Header = ({}) => {
   const location = useLocation();
+  console.log(location);
   const { loggedUser } = useContext(userContext);
 
-    if (location.pathname === `/users/${loggedUser.user_id}`) {
-        return <header className="header">
-            <h1>Dooduels</h1>
-        </header>
-    }
-
-    if (!loggedUser) {
-        return <header className="header">
+  if (location.pathname === `/users/${loggedUser.user_id}`) {
+    return (
+      <header className="header">
         <h1>Dooduels</h1>
       </header>
+    );
+  }
+
+  if (!loggedUser) {
+    return (
+      <header className="header">
+        <h1>Dooduels</h1>
+      </header>
+    );
   }
 
   if (!loggedUser) {
@@ -32,8 +37,8 @@ const Header = ({}) => {
   return (
     <header className="header">
       <h1>Dooduels</h1>
-        <Link to={`/users/${loggedUser.user_id}`}>
-          <div className="home-user">
+      <Link to={`/users/${loggedUser.user_id}`}>
+        <div className="home-user">
           <img
             className="home-profile-pic"
             src={loggedUser.profile_pic}

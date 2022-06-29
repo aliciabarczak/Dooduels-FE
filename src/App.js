@@ -1,11 +1,11 @@
 import "./Styling/App.css";
-import Header from "./Components/Header";
+import Header from "./Components/Header.jsx";
 import RoomPage from "./Components/Roompage.jsx";
-import UserPage from "./Components/UserPage";
+import UserPage from "./Components/UserPage.jsx";
 import { useState } from "react";
 import { Routes, Route } from "react-router";
-import userContext from "./contexts/userContext";
-import Homepage from "./Components/Homepage";
+import userContext from "./contexts/userContext.js";
+import Homepage from "./Components/Homepage.jsx";
 import Roompage from "./Components/Roompage.jsx";
 
 function App() {
