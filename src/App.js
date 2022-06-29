@@ -1,12 +1,12 @@
 import "./Styling/App.css";
 import Header from "./Components/Header.jsx";
-import RoomPage from "./Components/Roompage.jsx";
+import Roompage from "./Components/Roompage.jsx";
+import ProfilePic from "./Components/UserPage/ProfilePic.jsx";
 import UserPage from "./Components/UserPage.jsx";
 import { useState } from "react";
 import { Routes, Route } from "react-router";
 import userContext from "./contexts/userContext.js";
 import Homepage from "./Components/Homepage.jsx";
-import Roompage from "./Components/Roompage.jsx";
 
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
