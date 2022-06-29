@@ -18,8 +18,11 @@ export default function LogInPopUpBox() {
       profile_pic:
         "https://i.pinimg.com/originals/fd/14/a4/fd14a484f8e558209f0c2a94bc36b855.png",
       points: 0,
-      friends: [],
-    });
+      friends: [
+        {username: "Phil", profile_pic: "https://i.pinimg.com/originals/fd/14/a4/fd14a484f8e558209f0c2a94bc36b855.png"},
+        {username: "Alicia", profile_pic: "https://i.pinimg.com/originals/fd/14/a4/fd14a484f8e558209f0c2a94bc36b855.png"}
+      ]
+  });
   };
 
   return (

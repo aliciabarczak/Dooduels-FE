@@ -31,18 +31,19 @@ const UserPage = () => {
             <p className="user-description">{defaultDescription}</p>
             <p className="user-points">Points {loggedUser.points}</p>
             <section className="user-friend-section">
+                <p className="user-friend-title">Friends</p>
                 {loggedUser.friends.map((friend) => {
                     return (
                         <article className="user-friend-article">
-                            <li className="user-friend-list">
-                                <img className="user-friend-profile-pic" src={friend.profile_pic} alt="friend profile pic"/>
+                            <li className="leaderboard-list">
+                                <img className="home-profile-pic" src={friend.profile_pic} alt="friend profile pic"/>
                                 <p className="user-friend-username">{friend.username}</p>
                             </li>
                         </article>
                     )
                 })}
             </section>
-            <Link to={`/`}>Back</Link>
+            <Link className="back-button" to={`/`}>Back</Link>
         </div>
     )
 };
