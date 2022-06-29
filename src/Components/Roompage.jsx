@@ -36,8 +36,8 @@ const Roompage = () => {
   return (
     <section>
       <div className="Roompage">
-        <h1>{exampleResponse.room_name}</h1>
-        <p>{exampleResponse.mode}</p>
+        <h1 className="roomTitle">{exampleResponse.room_name}</h1>
+        <p className="mode">mode: {exampleResponse.mode.split("'")}</p>
         <div className="RoomPageButtons">
           <button className="ready-button"> Ready</button>
           <button className="exit-button">Exit</button>
