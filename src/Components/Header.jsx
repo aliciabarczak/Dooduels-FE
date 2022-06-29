@@ -4,7 +4,6 @@ import userContext from "../contexts/userContext";
 
 const Header = ({}) => {
   const location = useLocation();
-  console.log(location);
   const { loggedUser } = useContext(userContext);
 
   if (location.pathname === `/users/${loggedUser.user_id}`) {
