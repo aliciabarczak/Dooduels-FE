@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Routes, Route } from "react-router";
 import userContext from "./contexts/userContext";
 import Homepage from "./Components/Homepage";
+import ProfilePic from "./Components/UserPage/ProfilePic";
 
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
@@ -25,6 +26,7 @@ function App() {
               }
             />
             <Route path="/users/:user_id" element={<UserPage />} />
+            <Route path="/profile_pic" element={<ProfilePic />} />
           </Routes>
         </main>
       </div>
