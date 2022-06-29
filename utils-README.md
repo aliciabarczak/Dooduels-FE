@@ -398,3 +398,23 @@ description: "The best doodler in the world!"
 
 ​
 No return Value
+
+### updateUserImage
+
+​
+Takes two arguments
+
+- 1st: the current user's user_id (String)
+- 2nd: the imageURL to be set (String)
+  ​
+  Creates a new 'avatar_url' key on the current user if they have no avatar_url yet.
+  ​
+  Over-writes the user's 'avatar_url' value to the given avatar_url.
+  ​
+
+```
+avatar_url: "https://gravatar.com/avatar/3a38c506ee9f5bde22f4a9a99a50bba4?s=400&d=robohash&r=x"
+```
+
+​
+No return Value
