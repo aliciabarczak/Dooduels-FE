@@ -12,10 +12,14 @@ const LoginPage = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setLoggedUser(input);
+        setLoggedUser({
+            user_id: 1, 
+            username: input, 
+            profile_pic: "https://efeverde.com/wp-content/uploads/2022/01/ARCHIVO-foca-monje-EFEverde.jpg",
+            points: 0,
+            friends: 0
+        });
     };
-
-    console.log(loggedUser)
 
     return (
         <div>
