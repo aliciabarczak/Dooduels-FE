@@ -14,10 +14,12 @@
   background-color: black;
 }
 
+.profile-pic,
 .home-profile-pic {
   width: 55px;
   height: 50px;
   border-radius: 100%;
+  border: solid 1px;
 }
 
 .form {

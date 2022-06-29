@@ -29,3 +29,8 @@
   border: solid;
   height: 250px;
 }
+
+.playerInfo {
+  display: flex;
+  justify-content: space-evenly;
+}

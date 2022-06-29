@@ -3,7 +3,8 @@ import { useContext, useState, useEffect } from "react";
 import userContext from "../contexts/userContext";
 import LogInPopUpBox from "./Homepage/LogInPopUpBox";
 import { useLocation } from "react-router-dom";
-import { getRoomById, getUserKeyByUsername } from "../db/utils";
+// import { getRoomById, getUserKeyByUsername } from "../db/utils";
+import Playerboard from "./Roompage/Playerboard";
 
 const Roompage = () => {
   const { loggedUser } = useContext(userContext);
@@ -32,26 +33,6 @@ const Roompage = () => {
     room_id: "1",
   };
 
-  const examplePlayers = [
-    {
-      avatar_url:
-        "https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141",
-      description: "A cool lass",
-      friends: [[Object], [Object], [Object]],
-      password: "password123",
-      points: 450,
-      status: "offline",
-      user_name: "jessjelly",
-      user_id: "-N5_Z_EYyZBrivsr1pdL",
-    },
-  ];
-
-  // const players = [];
-  //   exampleResponse.players.map((username) => {
-  //     getUserByUsername(username, setPlayer)
-  //     players.push(player)
-  // })}
-
   return (
     <section>
       <div className="Roompage">
@@ -62,17 +43,7 @@ const Roompage = () => {
           <button className="exit-button">Exit</button>
         </div>
         <h2>Players</h2>
-        <div className="playersBoard">
-          {examplePlayers.map((player) => {
-            return (
-              <>
-                <img src={player.avatar_url} className="profile-pic" />
-                <p>{player.user_name}</p>
-                <p>{player.points}</p>
-              </>
-            );
-          })}
-        </div>
+        <Playerboard />
         <h2>Chat</h2>
         <div className="chat"></div>
         {!loggedUser ? <LogInPopUpBox id="LogBx" /> : null}
