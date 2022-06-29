@@ -22,8 +22,6 @@ const Header = ({}) => {
     );
   }
 
-  console.log(loggedUser)
-
   return (
     <header className="header">
       <h1>Dooduels</h1>
