@@ -9,7 +9,15 @@ export default function LogInPopUpBox() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setLoggedUser(input);
+    setLoggedUser({
+      user_id: 1, 
+      username: input,
+      status: "online",
+      user_description: "",
+      profile_pic: "https://i.pinimg.com/originals/fd/14/a4/fd14a484f8e558209f0c2a94bc36b855.png",
+      points: 0,
+      friends: []
+  });
   };
 
   return (

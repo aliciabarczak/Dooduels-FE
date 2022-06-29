@@ -1,6 +1,5 @@
 import "./App.css";
 import Header from "./Components/Header";
-import LoginPage from "./Components/LoginPage.jsx";
 import RoomPage from "./Components/Roompage.jsx";
 import UserPage from "./Components/UserPage";
 import { useState } from "react";
@@ -18,7 +17,6 @@ function App() {
         <Header />
         <main>
           <RoomPage />
-          <UserPage />
           <Routes>
             <Route
               path="/"
@@ -26,6 +24,7 @@ function App() {
                 <Homepage showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
               }
             />
+            <Route path="/users/:user_id" element={<UserPage />} />
           </Routes>
         </main>
       </div>
