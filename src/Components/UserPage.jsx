@@ -16,33 +16,53 @@ const UserPage = () => {
     }
 
     if (loggedUser.user_description) {
-        setDefaultDescription(loggedUser.user_description);
+        setDefaultDescription(loggedUser.description);
     }
+
+    if (!loggedUser.friends) {
+        return (
+            <div className="user-page">
+                <Link to={`/profile_pic`}>
+                    <img src={loggedUser.avatar_url} alt="user profile pic" className="user-profile-pic"/>
+                </Link>
+                <section className="user-main-section">
+                    <p className="user-username">{loggedUser.user_name}</p>
+                </section>
+                <p className="user-description">{defaultDescription}</p>
+                <p className="user-points">Points {loggedUser.points}</p>
+                <section className="user-friend-section">
+                    <p className="user-friend-title">Friends</p>
+                    <p>This user does not have any friends yet!</p>
+                </section>
+                <Link className="back-button" to={`/`}>Back</Link>
+            </div>
+        );
+    };
 
     return (
         <div className="user-page">
             <Link to={`/profile_pic`}>
-                <img src={loggedUser.profile_pic} alt="user profile pic" className="user-profile-pic"/>
+                <img src={loggedUser.avatar_url} alt="user profile pic" className="user-profile-pic"/>
             </Link>
             <section className="user-main-section">
-                <p className="user-username">{loggedUser.username}</p>
-                <p className="user-status">{loggedUser.status}</p>
+                <p className="user-username">{loggedUser.user_name}</p>
             </section>
             <p className="user-description">{defaultDescription}</p>
             <p className="user-points">Points {loggedUser.points}</p>
             <section className="user-friend-section">
+                <p className="user-friend-title">Friends</p>
                 {loggedUser.friends.map((friend) => {
                     return (
                         <article className="user-friend-article">
-                            <li className="user-friend-list">
-                                <img className="user-friend-profile-pic" src={friend.profile_pic} alt="friend profile pic"/>
-                                <p className="user-friend-username">{friend.username}</p>
+                            <li className="leaderboard-list">
+                                <img className="home-profile-pic" src={friend.avatar_url} alt="friend profile pic"/>
+                                <p className="user-friend-username">{friend.user_name}</p>
                             </li>
                         </article>
                     )
                 })}
             </section>
-            <Link to={`/`}>Back</Link>
+            <Link className="back-button" to={`/`}>Back</Link>
         </div>
     )
 };

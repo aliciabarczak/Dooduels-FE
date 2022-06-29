@@ -125,4 +125,37 @@ b,
   border: solid;
   padding: 1rem;
   text-align: left;
+  margin: 0.5rem;
+}
+
+.user-points {
+  border: solid;
+  padding: 1rem;
+  font-size: 20px;
+  margin: 0.5rem;
+}
+
+.user-friend-section {
+  border: solid;
+  padding: 1rem;
+  margin: 0.5rem;
+}
+
+.user-friend-title {
+  font-size: 20px;
+}
+
+.user-friend-username {
+  margin: 1rem;
+}
+
+.back-button {
+  border: solid;
+  margin-top: 0.5rem;
+}
+
+.error-message {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 15px;
 }
