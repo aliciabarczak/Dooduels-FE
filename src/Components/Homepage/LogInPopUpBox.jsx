@@ -1,28 +1,22 @@
 import { useContext, useState } from "react";
 import userContext from "../../contexts/userContext.js";
+<<<<<<< HEAD
 import "./../../Styling/Roompage.css";
+=======
+import { getAllUsers } from "../../db/utils.js";
+>>>>>>> d983880 (edit handleSubmit Loginbox)
 export default function LogInPopUpBox() {
   const { loggedUser, setLoggedUser } = useContext(userContext);
   const [input, setInput] = useState("");
+  const [users, setUsers] = useState([])
   const handleChange = (event) => {
     setInput(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setLoggedUser({
-      user_id: 1,
-      username: input,
-      status: "online",
-      user_description: "",
-      profile_pic:
-        "https://i.pinimg.com/originals/fd/14/a4/fd14a484f8e558209f0c2a94bc36b855.png",
-      points: 0,
-      friends: [
-        {username: "Phil", profile_pic: "https://i.pinimg.com/originals/fd/14/a4/fd14a484f8e558209f0c2a94bc36b855.png"},
-        {username: "Alicia", profile_pic: "https://i.pinimg.com/originals/fd/14/a4/fd14a484f8e558209f0c2a94bc36b855.png"}
-      ]
-  });
+    getAllUsers(setUsers)
+    console.log(users)
   };
 
   return (
