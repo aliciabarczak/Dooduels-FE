@@ -1,12 +1,12 @@
-import "./App.css";
-import Header from "./Components/Header";
+import "./Styling/App.css";
+import Header from "./Components/Header.jsx";
 import RoomPage from "./Components/Roompage.jsx";
-import UserPage from "./Components/UserPage";
+import UserPage from "./Components/UserPage.jsx";
 import { useState } from "react";
 import { Routes, Route } from "react-router";
-import userContext from "./contexts/userContext";
-import Homepage from "./Components/Homepage";
-import ProfilePic from "./Components/UserPage/ProfilePic";
+import userContext from "./contexts/userContext.js";
+import Homepage from "./Components/Homepage.jsx";
+import Roompage from "./Components/Roompage.jsx";
 
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
@@ -17,7 +17,6 @@ function App() {
       <div className={showPopUp || loggedUser === "" ? "blackOutApp" : "App"}>
         <Header />
         <main>
-          <RoomPage />
           <Routes>
             <Route
               path="/"
@@ -27,6 +26,7 @@ function App() {
             />
             <Route path="/users/:user_id" element={<UserPage />} />
             <Route path="/profile_pic" element={<ProfilePic />} />
+            <Route path="/rooms/*" element={<Roompage />} />
           </Routes>
         </main>
       </div>

@@ -1,4 +1,4 @@
-import "./../Homepage.css";
+import "./../../Styling/Homepage.css";
 import { useState } from "react";
 import { useContext } from "react";
 import userContext from "./../../contexts/userContext";

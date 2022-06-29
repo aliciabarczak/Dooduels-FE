@@ -1,4 +1,4 @@
-import "./../Homepage.css";
+import "./../../Styling/Homepage.css";
 import AddRoomBox from "./AddRoomBox";
 import { useContext } from "react";
 import userContext from "../../contexts/userContext.js";
