@@ -1,12 +1,11 @@
 import { useContext, useState } from "react";
 import userContext from "../../contexts/userContext.js";
 import "./../../Styling/Roompage.css";
-import { getAllUsers } from "../../db/utils.js";
 
 export default function LogInPopUpBox() {
   const { loggedUser, setLoggedUser } = useContext(userContext);
+  const { users } = useContext(userContext);
   const [input, setInput] = useState("");
-  const [users, setUsers] = useState([]);
   const [message, setMessage] = useState(false)
 
   const handleChange = (event) => {
@@ -15,7 +14,6 @@ export default function LogInPopUpBox() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    getAllUsers(setUsers)
     users.map((user) => {
       if (user.user_name === input) {
         setMessage(false)
