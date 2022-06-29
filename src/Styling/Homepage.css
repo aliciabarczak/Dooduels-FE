@@ -73,8 +73,17 @@ img {
   padding: 0.5rem;
 }
 
+.OpenRoomList,
 .RoomList {
   border: solid;
+  overflow-y: scroll;
+  height: 310px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.OpenRoomList {
+  height: 400px;
 }
 
 .Room li {

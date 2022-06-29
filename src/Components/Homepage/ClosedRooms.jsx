@@ -2,8 +2,8 @@ import { BsPeopleFill } from "react-icons/bs";
 export default function ClosedRooms({ rooms }) {
   return (
     <>
+      <h2>Closed Rooms</h2>
       <ul className="RoomList">
-        <h2>Closed Rooms</h2>
         {rooms.map((room, index) => {
           if (room.full)
             return (
