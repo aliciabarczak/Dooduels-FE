@@ -26,7 +26,6 @@ function App() {
                 <Homepage showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
               }
             />
-            <Route path="/login" element={<LoginPage />} />
           </Routes>
         </main>
       </div>

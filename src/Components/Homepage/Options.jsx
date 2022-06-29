@@ -1,8 +1,10 @@
 import "./../Homepage.css";
-import { useState } from "react";
 import AddRoomBox from "./AddRoomBox";
+import { useContext } from "react";
+import userContext from "../../contexts/userContext.js";
 
-const Options = ({ showPopUp, setShowPopUp }) => {
+const Options = ({ showPopUp, setShowPopUp, searchTerm, setSearchTerm }) => {
+  const { loggedUser } = useContext(userContext);
   return (
     <>
       <div className="Homepage-Options">
@@ -18,7 +20,9 @@ const Options = ({ showPopUp, setShowPopUp }) => {
             <input
               type="text"
               placeholder="Search room..."
-              className={showPopUp ? "blackInput" : null}
+              className={showPopUp || loggedUser === "" ? "blackInput" : null}
+              value={searchTerm}
+              onChange={(event) => setSearchTerm(event.target.value)}
             />
           </label>
         </form>

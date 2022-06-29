@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import userContext from "../contexts/userContext";
 
-const Header = () => {
+const Header = ({}) => {
   const location = useLocation();
   const { loggedUser } = useContext(userContext);
 
