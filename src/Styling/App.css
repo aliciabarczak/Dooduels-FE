@@ -153,3 +153,9 @@ b,
   border: solid;
   margin-top: 0.5rem;
 }
+
+.error-message {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 15px;
+}

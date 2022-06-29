@@ -22,16 +22,7 @@ const Header = ({}) => {
     );
   }
 
-  if (!loggedUser) {
-    return (
-      <header className="header">
-        <h1>Dooduels</h1>
-        <Link to={`/login`} key="login" className="login-button">
-          Login
-        </Link>
-      </header>
-    );
-  }
+  console.log(loggedUser)
 
   return (
     <header className="header">
@@ -40,10 +31,10 @@ const Header = ({}) => {
         <div className="home-user">
           <img
             className="home-profile-pic"
-            src={loggedUser.profile_pic}
+            src={loggedUser.avatar_url}
             alt="example"
           />
-          <p className="home-username">{loggedUser.username}</p>
+          <p className="home-username">{loggedUser.user_name}</p>
         </div>
       </Link>
     </header>
