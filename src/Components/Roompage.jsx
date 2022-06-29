@@ -2,7 +2,7 @@ import "./../Styling/Roompage.css";
 import { useContext, useState, useEffect } from "react";
 import userContext from "../contexts/userContext";
 import LogInPopUpBox from "./Homepage/LogInPopUpBox";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 // import { getRoomById, getUserKeyByUsername } from "../db/utils";
 import Playerboard from "./Roompage/Playerboard";
 
@@ -37,10 +37,13 @@ const Roompage = () => {
     <section>
       <div className="Roompage">
         <h1 className="roomTitle">{exampleResponse.room_name}</h1>
-        <p className="mode">mode: {exampleResponse.mode.split("'")}</p>
+        <p className="modeRoompage">mode: {exampleResponse.mode.split("'")}</p>
         <div className="RoomPageButtons">
           <button className="ready-button"> Ready</button>
-          <button className="exit-button">Exit</button>
+          <button className="exit-button">
+            {" "}
+            <Link to="/"> Exit</Link>
+          </button>
         </div>
         <h2>Players</h2>
         <Playerboard />
