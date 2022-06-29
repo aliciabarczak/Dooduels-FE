@@ -1,4 +1,4 @@
-import "./../Homepage.css";
+import "./../../Styling/Homepage.css";
 import { AiOutlineClose } from "react-icons/ai";
 export default function AddRoomBox({ showPopUp, setShowPopUp }) {
   return (

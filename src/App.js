@@ -1,4 +1,4 @@
-import "./App.css";
+import "./Styling/App.css";
 import Header from "./Components/Header";
 import RoomPage from "./Components/Roompage.jsx";
 import UserPage from "./Components/UserPage";
