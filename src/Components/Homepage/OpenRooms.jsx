@@ -17,7 +17,7 @@ export default function OpenRooms({ rooms }) {
 
                 <button className="button">
                   <Link
-                    to={`/rooms/${room.id}`}
+                    to={`/rooms/${room.room_id}`}
                     key="login"
                     className="login-button">
                     enter

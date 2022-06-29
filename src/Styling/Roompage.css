@@ -28,4 +28,23 @@
 .playersBoard {
   border: solid;
   height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.playerInfo {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0.5rem;
+}
+
+p.modeRoompage {
+  border: 1px solid;
+  width: 100px;
+  margin-left: 33%;
+  padding: 0.2rem;
+}
+
+.roomTitle {
+  font-size: 32px;
 }
