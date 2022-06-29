@@ -25,6 +25,7 @@ function App() {
               }
             />
             <Route path="/users/:user_id" element={<UserPage />} />
+            <Route path="/profile_pic" element={<ProfilePic />} />
             <Route path="/rooms/*" element={<Roompage />} />
           </Routes>
         </main>
