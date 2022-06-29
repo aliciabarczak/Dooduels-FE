@@ -28,9 +28,12 @@
 .playersBoard {
   border: solid;
   height: 250px;
+  display: flex;
+  flex-direction: column;
 }
 
 .playerInfo {
   display: flex;
   justify-content: space-evenly;
+  padding: 0.5rem;
 }
