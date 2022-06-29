@@ -25,6 +25,14 @@ img {
   padding: 0.5rem;
 }
 
+.blackOutApp button {
+  filter: brightness(20%);
+}
+
+.blackOutApp .login-submit-button {
+  filter: brightness(100%);
+}
+
 .App a {
   color: black;
   text-decoration: none;
@@ -177,4 +185,15 @@ input {
 
 .BriefIns {
   font-size: 25px;
+}
+
+.disabledButton {
+  border: solid grey;
+  padding: 0.5rem;
+  width: 65px;
+  background-color: rgb(220, 220, 220);
+}
+
+button {
+  background-color: white;
 }
