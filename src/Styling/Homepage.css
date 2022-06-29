@@ -29,6 +29,10 @@ img {
   filter: brightness(20%);
 }
 
+.blackOutApp .submitBtn {
+  filter: brightness(100%);
+}
+
 .blackOutApp .login-submit-button {
   filter: brightness(100%);
 }
@@ -130,7 +134,7 @@ form {
   border: solid;
   margin: auto;
   margin-left: -15px;
-  margin-top: -15%;
+  margin-top: -40%;
   z-index: 9;
   position: absolute;
   background-color: white;
@@ -142,7 +146,7 @@ form {
   border: solid;
   margin: auto;
   margin-left: -15px;
-  margin-top: -15%;
+  margin-top: -40%;
   z-index: 9;
   position: absolute;
   background-color: white;
