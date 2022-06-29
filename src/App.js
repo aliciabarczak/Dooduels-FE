@@ -17,7 +17,6 @@ function App() {
         <Header />
         <main>
           <RoomPage />
-          <UserPage />
           <Routes>
             <Route
               path="/"
