@@ -21,7 +21,9 @@ const UserPage = () => {
 
     return (
         <div className="user-page">
-            <img src={loggedUser.profile_pic} alt="user profile pic" className="user-profile-pic"/>
+            <Link to={`/profile_pic`}>
+                <img src={loggedUser.profile_pic} alt="user profile pic" className="user-profile-pic"/>
+            </Link>
             <section className="user-main-section">
                 <p className="user-username">{loggedUser.username}</p>
                 <p className="user-status">{loggedUser.status}</p>
