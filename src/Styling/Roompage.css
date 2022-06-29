@@ -23,3 +23,9 @@
 .exit-button {
   background-color: red;
 }
+
+.chat,
+.playersBoard {
+  border: solid;
+  height: 250px;
+}

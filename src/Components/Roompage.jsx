@@ -6,6 +6,8 @@ import LogInPopUpBox from "./Homepage/LogInPopUpBox";
 const Roompage = () => {
   const { loggedUser } = useContext(userContext);
 
+  //fetch room by id
+
   return (
     <section>
       <div className="Roompage">
@@ -16,6 +18,7 @@ const Roompage = () => {
         </div>
         <h2>Players</h2>
         <div className="playersBoard"></div>
+        <h2>Chat</h2>
         <div className="chat"></div>
         {!loggedUser ? <LogInPopUpBox id="LogBx" /> : null}
       </div>
