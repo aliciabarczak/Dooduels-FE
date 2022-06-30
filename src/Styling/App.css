@@ -164,6 +164,12 @@ b,
   font-size: 15px;
 }
 
+#chat-window {
+  height: 150px;
+ 
+  overflow: auto;
+}
+
 .edit-description-button {
   border: 0;
   padding: 5px;
@@ -176,3 +182,4 @@ b,
 .edit-description-icon {
   font-size: 20px;
 }
+

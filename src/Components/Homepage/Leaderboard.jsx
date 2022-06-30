@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import userContext from "../../contexts/userContext";
 
 const LeaderBoard = () => {
-  const { users } = useContext(userContext)
+  const { users } = useContext(userContext);
 
   return (
     <>

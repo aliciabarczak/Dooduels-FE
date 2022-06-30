@@ -19,7 +19,8 @@ export default function OpenRooms({ rooms }) {
                   <Link
                     to={`/rooms/${room.room_id}`}
                     key="login"
-                    className="login-button">
+                    className="login-button"
+                  >
                     enter
                   </Link>
                 </button>

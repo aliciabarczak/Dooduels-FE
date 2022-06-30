@@ -11,7 +11,7 @@ export default function Playerboard() {
       points: 450,
       status: "offline",
       user_name: "jessjelly",
-      user_id: "-N5_Z_EYyZBrivsr1pdL",
+      user_id: "-N5_Z_EYyZBrivsr1pdL1",
     },
     {
       avatar_url:
@@ -22,7 +22,7 @@ export default function Playerboard() {
       points: 350,
       status: "offline",
       user_name: "jessy",
-      user_id: "-N5_Z_EYyZBrivsr1pdL",
+      user_id: "-N5_Z_EYyZBrivsr1pdL2",
     },
     {
       avatar_url:
@@ -33,7 +33,7 @@ export default function Playerboard() {
       points: 50,
       status: "offline",
       user_name: "jellyjessy",
-      user_id: "-N5_Z_EYyZBrivsr1pdL",
+      user_id: "-N5_Z_EYyZBrivsr1pdL3",
     },
   ];
 
