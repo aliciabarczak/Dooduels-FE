@@ -46,10 +46,11 @@
   margin-bottom: 2.5rem;
 }
 
+.playerboard,
 .leaderboard {
   border: 3px solid rgb(0, 0, 0);
   padding: 1rem;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
   overflow-y: scroll;
   height: 250px;
 }

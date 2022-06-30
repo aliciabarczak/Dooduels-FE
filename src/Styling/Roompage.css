@@ -24,8 +24,7 @@
   background-color: red;
 }
 
-.chat,
-.playersBoard {
+.chat {
   border: solid;
   height: 250px;
   display: flex;
