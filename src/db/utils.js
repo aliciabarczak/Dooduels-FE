@@ -16,9 +16,7 @@ export function getAllUsers(setState) {
 
       setState(usersArray);
     })
-    .then(() => {
-      goOffline(db);
-    });
+    .then(() => {});
 }
 
 export function getAllRooms(setState) {
@@ -38,9 +36,7 @@ export function getAllRooms(setState) {
       }
       setState(roomsArray);
     })
-    .then(() => {
-      goOffline(db);
-    });
+    .then(() => {});
 }
 
 export function getUserById(user_id, setState) {
@@ -49,7 +45,6 @@ export function getUserById(user_id, setState) {
     const user = snapshot.val();
     user.user_id = snapshot.key;
     setState(user);
-    goOffline(db);
   });
 }
 
@@ -66,17 +61,13 @@ export function getRoomById(room_id, setState) {
       room.room_id = snapshot.key;
       setState(room);
     })
-    .then(() => {
-      goOffline(db);
-    });
+    .then(() => {});
 }
 
 export function addUser(user) {
   const allUsersRef = ref(db, "users/");
 
-  push(allUsersRef, user).then(() => {
-    goOffline(db);
-  });
+  push(allUsersRef, user).then(() => {});
 }
 
 export function awardPointsToUser(points, user_id) {
@@ -84,17 +75,13 @@ export function awardPointsToUser(points, user_id) {
   const userPointsRef = ref(db, "users/" + user_id + "/points");
   get(oneUserRef).then((snapshot) => {
     const user = snapshot.val();
-    set(userPointsRef, user.points + points).then(() => {
-      goOffline(db);
-    });
+    set(userPointsRef, user.points + points).then(() => {});
   });
 }
 
 export function updateUserAvatar(avatar_url, user_id) {
   const userAvatarRef = ref(db, "users/" + user_id + "/avatar_url");
-  set(userAvatarRef, avatar_url).then(() => {
-    goOffline(db);
-  });
+  set(userAvatarRef, avatar_url).then(() => {});
 }
 
 export function getUserKeyByUsername(user_name, setState) {
@@ -111,9 +98,7 @@ export function getUserKeyByUsername(user_name, setState) {
       }
       setState(thisUserId);
     })
-    .then(() => {
-      goOffline(db);
-    });
+    .then(() => {});
 }
 
 export function addRoom(host, room_name, mode) {
@@ -124,9 +109,7 @@ export function addRoom(host, room_name, mode) {
     players: [],
     full: false,
     mode,
-  }).then(() => {
-    goOffline(db);
-  });
+  }).then(() => {});
 }
 
 export function addPlayerToRoom(user_name, user_id, room_id) {
@@ -146,11 +129,8 @@ export function addPlayerToRoom(user_name, user_id, room_id) {
 
           if (Object.keys(room.players).length === 4) {
             const thisRoomFullRef = ref(db, "rooms/" + room_id + "/full");
-            set(thisRoomFullRef, true).then(() => {
-              goOffline(db);
-            });
+            set(thisRoomFullRef, true).then(() => {});
           } else {
-            goOffline(db);
           }
         }
       } else {
@@ -158,28 +138,20 @@ export function addPlayerToRoom(user_name, user_id, room_id) {
           db,
           "rooms/" + room_id + `/players/${user_id}`
         );
-        set(thisPlayerRef, user_name).then(() => {
-          goOffline(db);
-        });
+        set(thisPlayerRef, user_name).then(() => {});
       }
     })
-    .then(() => {
-      goOffline(db);
-    });
+    .then(() => {});
 }
 
 export function deleteRoom(room_id) {
   const oneRoomRef = ref(db, "rooms/" + room_id);
-  remove(oneRoomRef).then(() => {
-    goOffline(db);
-  });
+  remove(oneRoomRef).then(() => {});
 }
 
 export function deleteUser(user_id) {
   const oneUserRef = ref(db, "users/" + user_id);
-  remove(oneUserRef).then(() => {
-    goOffline(db);
-  });
+  remove(oneUserRef).then(() => {});
 }
 
 export function removePlayerFromRoom(user_id, room_id) {
@@ -201,9 +173,7 @@ export function removePlayerFromRoom(user_id, room_id) {
         }
       }
     })
-    .then(() => {
-      goOffline(db);
-    });
+    .then(() => {});
 }
 
 export function addFriendtoUser(user_id, friend) {
@@ -224,9 +194,7 @@ export function removeFriendFromUser(user_id, friend) {
     db,
     "users/" + user_id + `/friends/${friend.user_id}`
   );
-  remove(userFriendRef).then(() => {
-    goOffline(db);
-  });
+  remove(userFriendRef).then(() => {});
 }
 
 export function updateUserStatus(user_id, status) {
