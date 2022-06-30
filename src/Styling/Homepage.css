@@ -157,7 +157,7 @@ form {
   margin-left: -15px;
   margin-top: -30%;
   z-index: 9;
-  position: absolute;
+  position: fixed;
   background-color: white;
 }
 
