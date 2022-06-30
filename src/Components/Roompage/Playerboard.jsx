@@ -44,10 +44,10 @@ export default function Playerboard() {
   // })}
   return (
     <>
-      <div className="playersBoard">
+      <div className="playerboard">
         {examplePlayers.map((player) => {
           return (
-            <div className="playerInfo">
+            <div className="playerInfo" key={player.user_id}>
               <img src={player.avatar_url} className="profile-pic" />
               <b>{player.user_name}</b>
               <p>points: {player.points}</p>

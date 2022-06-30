@@ -7,7 +7,7 @@ export default function ClosedRooms({ rooms }) {
         {rooms.map((room, index) => {
           if (room.full)
             return (
-              <div className="Room">
+              <div className="Room" key={room.room_id}>
                 <div>
                   <li>{room.room_name}</li>
                   <p className="mode">{room.mode}</p>

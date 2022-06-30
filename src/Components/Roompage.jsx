@@ -1,12 +1,12 @@
 import "./../Styling/Roompage.css";
 import { useContext, useState, useEffect } from "react";
-import userContext from "../contexts/userContext";
+import userContext from "../contexts/userContext.js";
 import LogInPopUpBox from "./Homepage/LogInPopUpBox";
 import { useLocation, Link } from "react-router-dom";
 // import { getRoomById, getUserKeyByUsername } from "../db/utils";
 import Playerboard from "./Roompage/Playerboard";
 
-const Roompage = () => {
+const Roompage = ({ rooms }) => {
   const { loggedUser } = useContext(userContext);
   const location = useLocation();
   const roomID = location.pathname.split("/")[2];
@@ -39,9 +39,28 @@ const Roompage = () => {
         <h1 className="roomTitle">{exampleResponse.room_name}</h1>
         <p className="modeRoompage">mode: {exampleResponse.mode.split("'")}</p>
         <div className="RoomPageButtons">
-          <button className="ready-button"> Ready</button>
+          {loggedUser === exampleResponse.host ? (
+            <button
+              className="ready-button"
+              onClick={() => {
+                console.log(
+                  "should take to the game page and start the game as the person drawing"
+                );
+              }}>
+              Start Game!
+            </button>
+          ) : (
+            <button
+              className="ready-button"
+              onClick={() => {
+                console.log(
+                  "should take to the game page and make them game participants"
+                );
+              }}>
+              Ready!
+            </button>
+          )}
           <button className="exit-button">
-            {" "}
             <Link to="/"> Exit</Link>
           </button>
         </div>
@@ -49,7 +68,7 @@ const Roompage = () => {
         <Playerboard />
         <h2>Chat</h2>
         <div className="chat"></div>
-        {!loggedUser ? <LogInPopUpBox id="LogBx" /> : null}
+        {!loggedUser ? <LogInPopUpBox /> : null}
       </div>
     </section>
   );
