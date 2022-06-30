@@ -220,7 +220,7 @@ No return value.
 ​
 Takes three arguments
 
-- 1st: the host's user_name (string)
+- 1st: the host user (Object)
 - 2nd: the chosen room_name (string)
 - 3rd: the chosen mode (string)
   ​
@@ -252,13 +252,12 @@ Rooms are initially 'empty'...
 ​
 Takes three arguments
 
-- 1st: the joining player's user_name (String)
-- 2nd: the joining player's user_id (String)
-- 3rd: the room's room_id (String)
+- 1st: the joining player (Object)
+- 2nd: the room's room_id (String)
   ​
   Creates a new 'players' key if no players are in the room yet.
   ​
-  Adds the player's user_name to the list of players.
+  Adds the whole player object to the list of players.
   ​
   Updates the 'full' property to true when 5 players have joined.
   ​
@@ -416,5 +415,15 @@ Takes two arguments
 avatar_url: "https://gravatar.com/avatar/3a38c506ee9f5bde22f4a9a99a50bba4?s=400&d=robohash&r=x"
 ```
 
-​
 No return Value
+
+### changeHost ###
+
+
+Takes two arguments
+
+- 1st: the room_id (String)
+- 2nd: the new host (Object)
+  ​
+  Over-writes the previous host with the new host.
+ 

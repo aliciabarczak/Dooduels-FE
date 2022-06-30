@@ -64,7 +64,6 @@ export function getUserByUsername(user_name, setState) {
   });
 }
 
-getUserByUsername("Lewis", console.log);
 
 export async function getRoomById(room_id) {
   const oneRoomRef = ref(db, "rooms/" + room_id);
@@ -128,7 +127,7 @@ export function addRoom(host, room_name, mode) {
   }).then(() => {});
 }
 
-export function addPlayerToRoom(user_name, user_id, room_id) {
+export function addPlayerToRoom(user, room_id) {
   const oneRoomRef = ref(db, "rooms/" + room_id);
   let newPlayer;
   get(oneRoomRef)
@@ -139,9 +138,9 @@ export function addPlayerToRoom(user_name, user_id, room_id) {
         if (Object.keys(room.players).length < 5) {
           const thisPlayerRef = ref(
             db,
-            "rooms/" + room_id + `/players/${user_id}`
+            "rooms/" + room_id + `/players/${user.user_id}`
           );
-          set(thisPlayerRef, user_name);
+          set(thisPlayerRef, user);
 
           if (Object.keys(room.players).length === 4) {
             const thisRoomFullRef = ref(db, "rooms/" + room_id + "/full");
@@ -152,13 +151,20 @@ export function addPlayerToRoom(user_name, user_id, room_id) {
       } else {
         const thisPlayerRef = ref(
           db,
-          "rooms/" + room_id + `/players/${user_id}`
+          "rooms/" + room_id + `/players/${user.user_id}`
         );
-        set(thisPlayerRef, user_name).then(() => {});
+        set(thisPlayerRef, user).then(() => {});
       }
     })
     .then(() => {});
 }
+
+
+function changeHost(room_id, newHost) {
+  const hostRef = ref(db, "rooms/" + room_id + "/host")
+  set(hostRef, newHost)
+}
+
 
 export function deleteRoom(room_id) {
   const oneRoomRef = ref(db, "rooms/" + room_id);
@@ -176,9 +182,7 @@ export function removePlayerFromRoom(user_id, room_id) {
     .then((snapshot) => {
       const room = snapshot.val();
       for (let player in room.players) {
-        console.log(room.players[player]);
         if (player === user_id) {
-          console.log(player);
           const playerToRemoveRef = ref(
             db,
             "rooms/" + room_id + `/players/${player}`
