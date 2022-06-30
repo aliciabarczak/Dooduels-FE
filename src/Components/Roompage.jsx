@@ -6,7 +6,7 @@ import { useLocation, Link } from "react-router-dom";
 // import { getRoomById, getUserKeyByUsername } from "../db/utils";
 import Playerboard from "./Roompage/Playerboard";
 
-const Roompage = () => {
+const Roompage = ({ rooms }) => {
   const { loggedUser } = useContext(userContext);
   const location = useLocation();
   const roomID = location.pathname.split("/")[2];
@@ -41,7 +41,6 @@ const Roompage = () => {
         <div className="RoomPageButtons">
           <button className="ready-button"> Ready</button>
           <button className="exit-button">
-            {" "}
             <Link to="/"> Exit</Link>
           </button>
         </div>
