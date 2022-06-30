@@ -2,14 +2,20 @@ import { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import userContext from "../contexts/userContext";
 
-const Header = ({}) => {
+const Header = () => {
   const location = useLocation();
-  const { loggedUser } = useContext(userContext);
+  const { loggedUser, setLoggedUser } = useContext(userContext);
+
+  const handleClick = () => {
+    setLoggedUser("")
+    location.pathname = `/`
+  }
 
   if (location.pathname === `/users/${loggedUser.user_id}`) {
     return (
       <header className="header">
         <h1>Dooduels</h1>
+        <button onClick={handleClick}>Logout</button>
       </header>
     );
   }

@@ -15,7 +15,7 @@ function App() {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     getAllUsers(setUsers)
-  });
+  }, [users]);
 
   return (
     <userContext.Provider value={{ loggedUser, setLoggedUser, users }}>
