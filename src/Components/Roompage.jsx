@@ -3,20 +3,29 @@ import { useContext, useState, useEffect } from "react";
 import userContext from "../contexts/userContext.js";
 import LogInPopUpBox from "./Homepage/LogInPopUpBox";
 import { useLocation, Link } from "react-router-dom";
-// import { getRoomById, getUserKeyByUsername } from "../db/utils";
+import { getRoomById, getUserbuUsername } from "../db/utils";
 import Playerboard from "./Roompage/Playerboard";
 
-const Roompage = ({ rooms }) => {
+const Roompage = () => {
   const { loggedUser } = useContext(userContext);
   const location = useLocation();
   const roomID = location.pathname.split("/")[2];
-  console.log(roomID);
-  const [roompageRoom, setRoompageRoom] = useState({});
-  // const [player, setPlayer] = useState([])
 
-  // useEffect(() => {
-  //   getRoomById(roomID, setRoompageRoom);
-  // }, [roomID]);
+  const [roompageRoom, setRoompageRoom] = useState({});
+  // const [players, setPlayers] = useState([]);
+
+  useEffect(() => {
+    getRoomById(roomID, setRoompageRoom);
+  }, []);
+
+  // roompageRoom.players.map((player) => {
+  //   getUserKeyByUsername(
+  //     player,
+  //     setPlayers((currPlayers) => {
+  //       return [player, ...currPlayers];
+  //     })
+  //   );
+  // });
 
   const exampleResponse = {
     full: false,
