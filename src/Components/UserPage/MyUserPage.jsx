@@ -1,40 +1,43 @@
-import { useContext, useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import userContext from "../contexts/userContext";
-import { getUserById } from "../db/utils";
-import MyUserPage from "./UserPage/MyUserPage";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import userContext from "../../contexts/userContext";
+import { AiFillEdit } from "react-icons/ai"
 
-const UserPage = () => {
+const MyUserPage = () => {
     const { loggedUser } = useContext(userContext);
-    const location = useLocation();
-    const [ currUserId, setCurrUserId ] = useState("");
-    const [ currUser, setCurrUser ] = useState({});
     const [defaultDescription, setDefaultDescription] = useState("A brief description of yourself shown on your profile.");
 
-    useEffect(() => {
-        setCurrUserId(location.pathname.substring(7));
-        getUserById(currUserId, setCurrUser);
-    });
+    const handleClick = () => {
+        
+    }
 
-    if (currUserId === loggedUser.user_id) {
+    if (!loggedUser) {
         return (
-            <MyUserPage/>
+            <div className="form">
+                <p>You logged out!</p>
+                <Link to={`/`} className="back-button">Back</Link>
+            </div>
         )
     }
 
-    if (currUser.user_description) {
-        setDefaultDescription(currUser.description);
+    if (loggedUser.user_description) {
+        setDefaultDescription(loggedUser.description);
     }
 
-    if (!currUser.friends) {
+    if (!loggedUser.friends) {
         return (
             <div className="user-page">
-                <img src={currUser.avatar_url} alt="user profile pic" className="user-profile-pic"/>
+                <Link to={`/profile_pic`}>
+                    <img src={loggedUser.avatar_url} alt="user profile pic" className="user-profile-pic"/>
+                </Link>
                 <section className="user-main-section">
-                    <p className="user-username">{currUser.user_name}</p>
+                    <p className="user-username">{loggedUser.user_name}</p>
                 </section>
-                <p className="user-description">{defaultDescription}</p>
-                <p className="user-points">Points {currUser.points}</p>
+                <section className="user-description">
+                    <p>{defaultDescription}</p>
+                    <button onClick={handleClick} className="edit-description-button"><AiFillEdit className="edit-description-icon"/></button>
+                </section>
+                <p className="user-points">Points {loggedUser.points}</p>
                 <section className="user-friend-section">
                     <p className="user-friend-title">Friends</p>
                     <p>This user does not have any friends yet!</p>
@@ -46,15 +49,17 @@ const UserPage = () => {
 
     return (
         <div className="user-page">
-            <img src={currUser.avatar_url} alt="user profile pic" className="user-profile-pic"/>
+            <Link to={`/profile_pic`}>
+                <img src={loggedUser.avatar_url} alt="user profile pic" className="user-profile-pic"/>
+            </Link>
             <section className="user-main-section">
-                <p className="user-username">{currUser.user_name}</p>
+                <p className="user-username">{loggedUser.user_name}</p>
             </section>
             <p className="user-description">{defaultDescription}</p>
-            <p className="user-points">Points {currUser.points}</p>
+            <p className="user-points">Points {loggedUser.points}</p>
             <section className="user-friend-section">
                 <p className="user-friend-title">Friends</p>
-                {currUser.friends.map((friend) => {
+                {loggedUser.friends.map((friend) => {
                     return (
                         <article className="user-friend-article">
                             <li className="leaderboard-list">
@@ -70,4 +75,4 @@ const UserPage = () => {
     )
 };
 
-export default UserPage;
+export default MyUserPage;

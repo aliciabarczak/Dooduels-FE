@@ -24,28 +24,6 @@ export default function LogInPopUpBox() {
     })
   };
 
-  if (message) {
-    return (
-      <div className="LogInBox">
-        <h2>Please log in</h2>
-        <div>
-          <form onSubmit={handleSubmit} className="form">
-            <label className="login-label">Enter your username:</label>
-            <input
-              className="username-input"
-              type="text"
-              onChange={handleChange}
-            />
-            <p className="error-message">We couldn't find a user with that name. Please try again.</p>
-            <button type="submit" className="login-submit-button">
-              Submit
-            </button>
-          </form>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="LogInBox">
       <h2>Please log in</h2>
@@ -57,6 +35,9 @@ export default function LogInPopUpBox() {
             type="text"
             onChange={handleChange}
           />
+          {message ? (
+            <p className="error-message">We couldn't find a user with that name. Please try again.</p>
+          ) : null}
           <button type="submit" className="login-submit-button">
             Submit
           </button>
