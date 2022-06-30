@@ -9,7 +9,7 @@ export default function OpenRooms({ rooms }) {
         {rooms.map((room, index) => {
           if (!room.full)
             return (
-              <div className="Room" key={room.room_id}>
+              <section className="Room" key={room.room_id}>
                 <div>
                   <li>{room.room_name}</li>
                   <p className="mode">{room.mode}</p>
@@ -29,7 +29,7 @@ export default function OpenRooms({ rooms }) {
                 <p>
                   {room.players.length ? `${room.players.length}/5` : "0/5"}
                 </p>
-              </div>
+              </section>
             );
         })}
       </ul>
