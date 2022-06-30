@@ -14,6 +14,7 @@ function App() {
   const [loggedUser, setLoggedUser] = useState("");
   const [users, setUsers] = useState([]);
   useEffect(() => {
+
     getAllUsers(setUsers);
   }, []);
 
