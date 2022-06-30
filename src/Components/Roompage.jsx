@@ -3,8 +3,11 @@ import { useContext, useState, useEffect } from "react";
 import userContext from "../contexts/userContext.js";
 import LogInPopUpBox from "./Homepage/LogInPopUpBox";
 import { useLocation, Link } from "react-router-dom";
-import { getRoomById, getUserbuUsername } from "../db/utils";
+import { getRoomById, getUserbyUsername } from "../db/utils";
 import Playerboard from "./Roompage/Playerboard";
+import Chat from "./Chatrooms/Chat";
+import { goOffline } from "firebase/database";
+import db from "../db/db";
 
 const Roompage = () => {
   const { loggedUser } = useContext(userContext);
@@ -55,7 +58,8 @@ const Roompage = () => {
                 console.log(
                   "should take to the game page and start the game as the person drawing"
                 );
-              }}>
+              }}
+            >
               Start Game!
             </button>
           ) : (
@@ -65,7 +69,8 @@ const Roompage = () => {
                 console.log(
                   "should take to the game page and make them game participants"
                 );
-              }}>
+              }}
+            >
               Ready!
             </button>
           )}
@@ -76,7 +81,9 @@ const Roompage = () => {
         <h2>Players</h2>
         <Playerboard />
         <h2>Chat</h2>
-        <div className="chat"></div>
+        <div className="chat">
+          <Chat roomID={roomID} />
+        </div>
         {!loggedUser ? <LogInPopUpBox /> : null}
       </div>
     </section>

@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import userContext from "../../contexts/userContext";
 
 const LeaderBoard = () => {
-  const { users } = useContext(userContext)
+  const { users } = useContext(userContext);
 
   return (
     <>

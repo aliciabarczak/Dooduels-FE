@@ -48,20 +48,36 @@ export function getUserById(user_id, setState) {
   });
 }
 
-export function getRoomById(room_id, setState) {
-  const oneRoomRef = ref(db, "rooms/" + room_id);
-  get(oneRoomRef)
-    .then((snapshot) => {
-      const room = snapshot.val();
-      const playersArray = [];
-      for (let player in room.players) {
-        playersArray.push(room.players[player]);
+// getAllUsers(console.log);
+// getUserById("-N5igFAsPoqwrMS0Q-zy", console.log);
+
+export function getUserByUsername(user_name, setState) {
+  const usersRef = ref(db, "users/");
+  get(usersRef).then((snapshot) => {
+    const users = snapshot.val();
+    for (let user in users) {
+      if (users[user].user_name === user_name) {
+        users[user].user_id = user;
+        setState(users[user]);
       }
-      room.players = playersArray;
-      room.room_id = snapshot.key;
-      setState(room);
-    })
-    .then(() => {});
+    }
+  });
+}
+
+getUserByUsername("Lewis", console.log);
+
+export async function getRoomById(room_id) {
+  const oneRoomRef = ref(db, "rooms/" + room_id);
+  await get(oneRoomRef).then((snapshot) => {
+    const room = snapshot.val();
+    const playersArray = [];
+    for (let player in room.players) {
+      playersArray.push(room.players[player]);
+    }
+    room.players = playersArray;
+    room.room_id = snapshot.key;
+    return room;
+  });
 }
 
 export function addUser(user) {
