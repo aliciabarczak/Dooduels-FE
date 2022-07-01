@@ -1,7 +1,13 @@
+import { useEffect, useState } from "react";
 import { BsPeopleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { getRoomById } from "../../db/utils";
+
+
+
 
 export default function OpenRooms({ rooms }) {
+
   return (
     <>
       <h2>Open Rooms</h2>
