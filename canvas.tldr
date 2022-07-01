@@ -1,0 +1,640 @@
+{
+  "document": {
+    "id": "doc",
+    "name": "New Document",
+    "version": 15.3,
+    "pages": {
+      "page": {
+        "id": "page",
+        "name": "Page 1",
+        "childIndex": 1,
+        "shapes": {
+          "c93cee08-5844-4770-1c17-17c96ada281f": {
+            "id": "c93cee08-5844-4770-1c17-17c96ada281f",
+            "type": "text",
+            "name": "Text",
+            "parentId": "page",
+            "childIndex": 1,
+            "point": [
+              15.98,
+              52.3
+            ],
+            "rotation": 0,
+            "text": "Aims: \n- Host can draw on the canvas using mouse\n- That canvas is shared with other players\n-The 'guessing word' should display on host's screen (only)\n-Timer visible for all\n-Correct guess detection => some behaviour (eg points awarded, next word) \n- host can be swapped",
+            "style": {
+              "color": "black",
+              "size": "small",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1,
+              "font": "script",
+              "textAlign": "middle"
+            }
+          },
+          "c5ff63a6-e80c-4ad8-0edb-b18a82cba44c": {
+            "id": "c5ff63a6-e80c-4ad8-0edb-b18a82cba44c",
+            "type": "text",
+            "name": "Text",
+            "parentId": "page",
+            "childIndex": 2,
+            "point": [
+              734.5,
+              56.83
+            ],
+            "rotation": 0,
+            "text": "Host Can Draw on a canvas: TODO...\n \nCreate path to Gamepage\nRender a canvas\nEnable free-drawing on the canvas",
+            "style": {
+              "color": "indigo",
+              "size": "small",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1,
+              "font": "script",
+              "textAlign": "middle"
+            }
+          },
+          "be3bca0a-229a-450c-0b3c-21c8daad75a8": {
+            "id": "be3bca0a-229a-450c-0b3c-21c8daad75a8",
+            "type": "arrow",
+            "name": "Arrow",
+            "parentId": "page",
+            "childIndex": 3,
+            "point": [
+              575.07,
+              85.5
+            ],
+            "rotation": 0,
+            "bend": -0.00005226791318160057,
+            "handles": {
+              "start": {
+                "id": "start",
+                "index": 0,
+                "point": [
+                  159.43,
+                  0
+                ],
+                "canBind": true,
+                "bindingId": "3f19482d-0aaa-4a5b-1e0c-09da14c406e7"
+              },
+              "end": {
+                "id": "end",
+                "index": 1,
+                "point": [
+                  0,
+                  17.12
+                ],
+                "canBind": true
+              },
+              "bend": {
+                "id": "bend",
+                "index": 2,
+                "point": [
+                  79.72,
+                  8.56
+                ]
+              }
+            },
+            "decorations": {
+              "end": "arrow"
+            },
+            "style": {
+              "color": "indigo",
+              "size": "small",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1
+            },
+            "label": "",
+            "labelPoint": [
+              0.5,
+              0.5
+            ]
+          },
+          "66b573a7-aeab-47a9-3fe6-6b65e818973e": {
+            "id": "66b573a7-aeab-47a9-3fe6-6b65e818973e",
+            "type": "text",
+            "name": "Text",
+            "parentId": "page",
+            "childIndex": 4,
+            "point": [
+              445.51,
+              264.84
+            ],
+            "rotation": 0,
+            "text": "Canvas is shared: TODO...\n- when any change of canvas component -> send to DB\n -onValue (/room/:room_id/canvas) => update the player's canvas with this value\n ",
+            "style": {
+              "color": "cyan",
+              "size": "small",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1,
+              "font": "script",
+              "textAlign": "middle"
+            },
+            "isAspectRatioLocked": true
+          },
+          "ca6495f7-c9b1-4338-0a4a-919adabfae02": {
+            "id": "ca6495f7-c9b1-4338-0a4a-919adabfae02",
+            "type": "arrow",
+            "name": "Arrow",
+            "parentId": "page",
+            "childIndex": 5,
+            "point": [
+              546.66,
+              130
+            ],
+            "rotation": 0,
+            "bend": -0.0000402179942839636,
+            "handles": {
+              "start": {
+                "id": "start",
+                "index": 0,
+                "point": [
+                  0,
+                  134.84
+                ],
+                "canBind": true,
+                "bindingId": "bb4f0458-a049-413c-2aee-fab956f7abe6"
+              },
+              "end": {
+                "id": "end",
+                "index": 1,
+                "point": [
+                  20.84,
+                  0
+                ],
+                "canBind": true
+              },
+              "bend": {
+                "id": "bend",
+                "index": 2,
+                "point": [
+                  10.42,
+                  67.42
+                ]
+              }
+            },
+            "decorations": {
+              "end": "arrow"
+            },
+            "style": {
+              "color": "cyan",
+              "size": "small",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1
+            },
+            "label": "",
+            "labelPoint": [
+              0.5,
+              0.5
+            ]
+          },
+          "a6c29aa5-0d6b-428f-3f7d-742f20264902": {
+            "id": "a6c29aa5-0d6b-428f-3f7d-742f20264902",
+            "type": "arrow",
+            "name": "Arrow",
+            "parentId": "page",
+            "childIndex": 6,
+            "point": [
+              1083.67,
+              316.34,
+              0.5
+            ],
+            "rotation": 0,
+            "bend": 0.0004336996709152558,
+            "handles": {
+              "start": {
+                "id": "start",
+                "index": 0,
+                "point": [
+                  0,
+                  0
+                ],
+                "canBind": true
+              },
+              "end": {
+                "id": "end",
+                "index": 1,
+                "point": [
+                  11.33,
+                  13.66
+                ],
+                "canBind": true
+              },
+              "bend": {
+                "id": "bend",
+                "index": 2,
+                "point": [
+                  5.67,
+                  6.83
+                ]
+              }
+            },
+            "decorations": {
+              "end": "arrow"
+            },
+            "style": {
+              "color": "cyan",
+              "size": "small",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1
+            },
+            "label": "",
+            "labelPoint": [
+              0.5,
+              0.5
+            ]
+          },
+          "11020f88-f56e-49c7-33ee-7836fa5b66dd": {
+            "id": "11020f88-f56e-49c7-33ee-7836fa5b66dd",
+            "type": "arrow",
+            "name": "Arrow",
+            "parentId": "page",
+            "childIndex": 7,
+            "point": [
+              742.01,
+              355
+            ],
+            "rotation": 0,
+            "bend": -0.0005653298265708998,
+            "handles": {
+              "start": {
+                "id": "start",
+                "index": 0,
+                "point": [
+                  0,
+                  17.17
+                ],
+                "canBind": true
+              },
+              "end": {
+                "id": "end",
+                "index": 1,
+                "point": [
+                  0.49,
+                  0
+                ],
+                "canBind": true
+              },
+              "bend": {
+                "id": "bend",
+                "index": 2,
+                "point": [
+                  0.25,
+                  8.59
+                ]
+              }
+            },
+            "decorations": {
+              "end": "arrow"
+            },
+            "style": {
+              "color": "green",
+              "size": "small",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1
+            },
+            "label": "",
+            "labelPoint": [
+              0.5,
+              0.5
+            ]
+          },
+          "4e43a3d6-0b19-473c-1afd-e8f26111e518": {
+            "id": "4e43a3d6-0b19-473c-1afd-e8f26111e518",
+            "type": "draw",
+            "name": "Draw",
+            "parentId": "page",
+            "childIndex": 8,
+            "point": [
+              1027.5,
+              100
+            ],
+            "rotation": 0,
+            "style": {
+              "color": "green",
+              "size": "small",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1
+            },
+            "points": [
+              [
+                0.34,
+                25.51,
+                0.5
+              ],
+              [
+                0.34,
+                25.51,
+                0.5
+              ],
+              [
+                0,
+                25.83,
+                0.5
+              ],
+              [
+                3.33,
+                30,
+                0.5
+              ],
+              [
+                4.17,
+                31.67,
+                0.5
+              ],
+              [
+                5,
+                32.5,
+                0.5
+              ],
+              [
+                6.67,
+                35,
+                0.5
+              ],
+              [
+                7.5,
+                35.83,
+                0.5
+              ],
+              [
+                8.33,
+                35,
+                0.5
+              ],
+              [
+                9.17,
+                33.33,
+                0.5
+              ],
+              [
+                15,
+                25.83,
+                0.5
+              ],
+              [
+                15.83,
+                23.33,
+                0.5
+              ],
+              [
+                17.5,
+                20,
+                0.5
+              ],
+              [
+                21.67,
+                12.5,
+                0.5
+              ],
+              [
+                22.5,
+                10.83,
+                0.5
+              ],
+              [
+                22.5,
+                10,
+                0.5
+              ],
+              [
+                29.17,
+                3.33,
+                0.5
+              ],
+              [
+                30.83,
+                0.83,
+                0.5
+              ],
+              [
+                31.67,
+                0,
+                0.5
+              ]
+            ],
+            "isComplete": true
+          },
+          "4c243747-7be6-41a3-216b-67762d01121e": {
+            "id": "4c243747-7be6-41a3-216b-67762d01121e",
+            "type": "draw",
+            "name": "Draw",
+            "parentId": "page",
+            "childIndex": 9,
+            "point": [
+              979.51,
+              151.67
+            ],
+            "rotation": 0,
+            "style": {
+              "color": "green",
+              "size": "small",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1
+            },
+            "points": [
+              [
+                0,
+                5.5,
+                0.5
+              ],
+              [
+                0,
+                5.5,
+                0.5
+              ],
+              [
+                0.49,
+                5.83,
+                0.5
+              ],
+              [
+                0.49,
+                6.66,
+                0.5
+              ],
+              [
+                1.32,
+                6.66,
+                0.5
+              ],
+              [
+                2.16,
+                7.5,
+                0.5
+              ],
+              [
+                3.82,
+                7.5,
+                0.5
+              ],
+              [
+                10.49,
+                3.33,
+                0.5
+              ],
+              [
+                12.99,
+                1.66,
+                0.5
+              ],
+              [
+                13.82,
+                0.83,
+                0.5
+              ],
+              [
+                14.66,
+                0,
+                0.5
+              ],
+              [
+                15.49,
+                0,
+                0.5
+              ]
+            ],
+            "isComplete": true
+          },
+          "fe904c06-8c81-4db5-2cc4-309926ce5cbe": {
+            "id": "fe904c06-8c81-4db5-2cc4-309926ce5cbe",
+            "type": "draw",
+            "name": "Draw",
+            "parentId": "page",
+            "childIndex": 10,
+            "point": [
+              1063.33,
+              166.67
+            ],
+            "rotation": 0,
+            "style": {
+              "color": "green",
+              "size": "small",
+              "isFilled": false,
+              "dash": "draw",
+              "scale": 1
+            },
+            "points": [
+              [
+                0.34,
+                20.5,
+                0.5
+              ],
+              [
+                0.34,
+                20.5,
+                0.5
+              ],
+              [
+                0,
+                20.83,
+                0.5
+              ],
+              [
+                0,
+                21.66,
+                0.5
+              ],
+              [
+                0,
+                24.16,
+                0.5
+              ],
+              [
+                0,
+                25,
+                0.5
+              ],
+              [
+                0.84,
+                25,
+                0.5
+              ],
+              [
+                22.5,
+                12.5,
+                0.5
+              ],
+              [
+                32.5,
+                6.66,
+                0.5
+              ],
+              [
+                38.34,
+                2.5,
+                0.5
+              ],
+              [
+                40,
+                1.66,
+                0.5
+              ],
+              [
+                41.67,
+                0,
+                0.5
+              ],
+              [
+                42.5,
+                0,
+                0.5
+              ]
+            ],
+            "isComplete": true
+          }
+        },
+        "bindings": {
+          "3f19482d-0aaa-4a5b-1e0c-09da14c406e7": {
+            "id": "3f19482d-0aaa-4a5b-1e0c-09da14c406e7",
+            "type": "arrow",
+            "fromId": "be3bca0a-229a-450c-0b3c-21c8daad75a8",
+            "toId": "c5ff63a6-e80c-4ad8-0edb-b18a82cba44c",
+            "handleId": "start",
+            "point": [
+              0.25,
+              0.17
+            ],
+            "distance": 8
+          },
+          "bb4f0458-a049-413c-2aee-fab956f7abe6": {
+            "id": "bb4f0458-a049-413c-2aee-fab956f7abe6",
+            "type": "arrow",
+            "fromId": "ca6495f7-c9b1-4338-0a4a-919adabfae02",
+            "toId": "66b573a7-aeab-47a9-3fe6-6b65e818973e",
+            "handleId": "start",
+            "point": [
+              0.13,
+              0.58
+            ],
+            "distance": 8
+          }
+        }
+      }
+    },
+    "pageStates": {
+      "page": {
+        "id": "page",
+        "selectedIds": [
+          "c93cee08-5844-4770-1c17-17c96ada281f"
+        ],
+        "camera": {
+          "point": [
+            0,
+            0
+          ],
+          "zoom": 1
+        },
+        "editingId": null
+      }
+    },
+    "assets": {}
+  },
+  "assets": {}
+}

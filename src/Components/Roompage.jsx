@@ -28,7 +28,12 @@ const Roompage = () => {
         <h1 className="roomTitle">{roompageRoom.room_name}</h1>
         <p className="modeRoompage">mode: {roompageRoom.mode}</p>
         <div className="RoomPageButtons">
+
+          <Link to={`/games/${roomID}`}>
+            <button>Start</button>
+          </Link>
           <button className="ready-button">Ready!</button>
+
           <button className="exit-button">
             <Link to="/"> Exit</Link>
           </button>
