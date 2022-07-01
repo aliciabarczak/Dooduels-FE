@@ -57,12 +57,11 @@ img {
 .button {
   border: solid;
   padding: 0.5rem;
-  width: 65px;
+  width: 80px;
 }
 
-.showButton,
-.addButton {
-  width: 85px;
+.dropDownBtn {
+  margin-left: 50px;
 }
 
 .showButton {
@@ -190,10 +189,20 @@ input {
   top: 15px;
 }
 
+.peopleInfo {
+  width: 100px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 8px;
+}
+.peopleInfo p {
+  margin-left: 5px;
+}
 .peopleIcon {
   font-size: 18px;
-  margin-right: -40px;
   margin-top: 5px;
+  margin-left: 10px;
 }
 
 .BriefIns {
