@@ -16,8 +16,8 @@ const Roompage = () => {
   const [roompageRoom, setRoompageRoom] = useState({});
   useEffect(() => {
     getRoomById(roomID, setRoompageRoom);
-    // addPlayerToRoom(loggedUser, roomID);
-  }, []);
+    addPlayerToRoom(loggedUser, roomID);
+  }, [roomID]);
 
   console.log(roompageRoom);
 
@@ -28,12 +28,9 @@ const Roompage = () => {
         <h1 className="roomTitle">{roompageRoom.room_name}</h1>
         <p className="modeRoompage">mode: {roompageRoom.mode}</p>
         <div className="RoomPageButtons">
-
           <Link to={`/games/${roomID}`}>
-            <button>Start</button>
+            <button className="ready-button">Start</button>
           </Link>
-          <button className="ready-button">Ready!</button>
-
           <button className="exit-button">
             <Link to="/"> Exit</Link>
           </button>
