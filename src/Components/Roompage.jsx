@@ -3,11 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import userContext from "../contexts/userContext.js";
 import LogInPopUpBox from "./Homepage/LogInPopUpBox";
 import { useLocation, Link } from "react-router-dom";
-<<<<<<< HEAD
 import { getRoomById, getUserbyUsername, addPlayerToRoom } from "../db/utils";
-=======
-import { getRoomById, getUserbyUsername } from "../db/utils";
->>>>>>> 469afd21de75df4dcccf8f58fde3f0508931926a
 import Playerboard from "./Roompage/Playerboard";
 import Chat from "./Chatrooms/Chat";
 import { goOffline } from "firebase/database";
