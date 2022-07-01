@@ -14,12 +14,11 @@ function App() {
   const [loggedUser, setLoggedUser] = useState("");
   const [users, setUsers] = useState([]);
   useEffect(() => {
-
     getAllUsers(setUsers);
   }, []);
 
   return (
-    <userContext.Provider value={{ loggedUser, setLoggedUser, users }}>
+    <userContext.Provider value={{ loggedUser, setLoggedUser, users, showPopUp, setShowPopUp }}>
       <div className={showPopUp || loggedUser === "" ? "blackOutApp" : "App"}>
         <Header />
         <main>
