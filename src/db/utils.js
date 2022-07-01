@@ -223,12 +223,12 @@ export function updateUserStatus(user_id, status) {
 
 export function updateUserDescription(user_id, description) {
   const userDescriptionRef = ref(db, "users/" + user_id + "/description");
-  set(userDescriptionRef, description).then(() => goOffline(db));
+  set(userDescriptionRef, description);
 }
 
 export function updateUserImage(user_id, newImg) {
   const userImageRef = ref(db, "users/" + user_id + "/avatar_url");
-  set(userImageRef, newImg).then(() => goOffline(db));
+  set(userImageRef, newImg);
 }
 
 export function getUserbyUsername(user_name, setState) {

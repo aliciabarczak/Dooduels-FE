@@ -42,7 +42,7 @@ const Roompage = () => {
         {
           Object.keys(roompageRoom).length ? <Playerboard roompageRoom={roompageRoom} /> : null
         }
-        
+        <Playerboard roompageRoom={roompageRoom} />
         <h2>Chat</h2>
         <div className="chat"></div>
       </div>
