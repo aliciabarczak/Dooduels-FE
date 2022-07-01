@@ -1,35 +1,40 @@
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import userContext from "../contexts/userContext";
+import { getUserById } from "../db/utils";
+import MyUserPage from "./UserPage/MyUserPage";
 
 const UserPage = () => {
     const { loggedUser } = useContext(userContext);
+    const location = useLocation();
+    const [ currUserId, setCurrUserId ] = useState("");
+    const [ currUser, setCurrUser ] = useState({});
     const [defaultDescription, setDefaultDescription] = useState("A brief description of yourself shown on your profile.");
 
-    if (!loggedUser) {
+    useEffect(() => {
+        setCurrUserId(location.pathname.substring(7));
+        getUserById(currUserId, setCurrUser);
+    }, [currUser]);
+
+    if (currUserId === loggedUser.user_id) {
         return (
-            <div className="form">
-                <p>You logged out!</p>
-                <Link to={`/`} className="back-button">Back</Link>
-            </div>
+            <MyUserPage/>
         )
     }
 
-    if (loggedUser.user_description) {
-        setDefaultDescription(loggedUser.description);
+    if (currUser.user_description) {
+        setDefaultDescription(currUser.description);
     }
 
-    if (!loggedUser.friends) {
+    if (!currUser.friends) {
         return (
             <div className="user-page">
-                <Link to={`/profile_pic`}>
-                    <img src={loggedUser.avatar_url} alt="user profile pic" className="user-profile-pic"/>
-                </Link>
+                <img src={currUser.avatar_url} alt="user profile pic" className="user-profile-pic"/>
                 <section className="user-main-section">
-                    <p className="user-username">{loggedUser.user_name}</p>
+                    <p className="user-username">{currUser.user_name}</p>
                 </section>
                 <p className="user-description">{defaultDescription}</p>
-                <p className="user-points">Points {loggedUser.points}</p>
+                <p className="user-points">Points {currUser.points}</p>
                 <section className="user-friend-section">
                     <p className="user-friend-title">Friends</p>
                     <p>This user does not have any friends yet!</p>
@@ -41,17 +46,15 @@ const UserPage = () => {
 
     return (
         <div className="user-page">
-            <Link to={`/profile_pic`}>
-                <img src={loggedUser.avatar_url} alt="user profile pic" className="user-profile-pic"/>
-            </Link>
+            <img src={currUser.avatar_url} alt="user profile pic" className="user-profile-pic"/>
             <section className="user-main-section">
-                <p className="user-username">{loggedUser.user_name}</p>
+                <p className="user-username">{currUser.user_name}</p>
             </section>
             <p className="user-description">{defaultDescription}</p>
-            <p className="user-points">Points {loggedUser.points}</p>
+            <p className="user-points">Points {currUser.points}</p>
             <section className="user-friend-section">
                 <p className="user-friend-title">Friends</p>
-                {loggedUser.friends.map((friend) => {
+                {currUser.friends.map((friend) => {
                     return (
                         <article className="user-friend-article">
                             <li className="leaderboard-list">

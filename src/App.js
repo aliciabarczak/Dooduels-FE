@@ -14,8 +14,9 @@ function App() {
   const [loggedUser, setLoggedUser] = useState("");
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    getAllUsers(setUsers)
-  });
+
+    getAllUsers(setUsers);
+  }, []);
 
   return (
     <userContext.Provider value={{ loggedUser, setLoggedUser, users }}>
@@ -30,7 +31,7 @@ function App() {
               }
             />
             <Route path="/users/:user_id" element={<UserPage />} />
-            <Route path="/rooms/*" element={<Roompage />} />
+            <Route path="/rooms/:room_id" element={<Roompage />} />
             <Route path="/profile_pic" element={<ProfilePic />} />
           </Routes>
         </main>

@@ -48,20 +48,35 @@ export function getUserById(user_id, setState) {
   });
 }
 
-export function getRoomById(room_id, setState) {
-  const oneRoomRef = ref(db, "rooms/" + room_id);
-  get(oneRoomRef)
-    .then((snapshot) => {
-      const room = snapshot.val();
-      const playersArray = [];
-      for (let player in room.players) {
-        playersArray.push(room.players[player]);
+// getAllUsers(console.log);
+// getUserById("-N5igFAsPoqwrMS0Q-zy", console.log);
+
+export function getUserByUsername(user_name, setState) {
+  const usersRef = ref(db, "users/");
+  get(usersRef).then((snapshot) => {
+    const users = snapshot.val();
+    for (let user in users) {
+      if (users[user].user_name === user_name) {
+        users[user].user_id = user;
+        setState(users[user]);
       }
-      room.players = playersArray;
-      room.room_id = snapshot.key;
-      setState(room);
-    })
-    .then(() => {});
+    }
+  });
+}
+
+
+export async function getRoomById(room_id) {
+  const oneRoomRef = ref(db, "rooms/" + room_id);
+  await get(oneRoomRef).then((snapshot) => {
+    const room = snapshot.val();
+    const playersArray = [];
+    for (let player in room.players) {
+      playersArray.push(room.players[player]);
+    }
+    room.players = playersArray;
+    room.room_id = snapshot.key;
+    return room;
+  });
 }
 
 export function addUser(user) {
@@ -112,7 +127,7 @@ export function addRoom(host, room_name, mode) {
   }).then(() => {});
 }
 
-export function addPlayerToRoom(user_name, user_id, room_id) {
+export function addPlayerToRoom(user, room_id) {
   const oneRoomRef = ref(db, "rooms/" + room_id);
   let newPlayer;
   get(oneRoomRef)
@@ -123,9 +138,9 @@ export function addPlayerToRoom(user_name, user_id, room_id) {
         if (Object.keys(room.players).length < 5) {
           const thisPlayerRef = ref(
             db,
-            "rooms/" + room_id + `/players/${user_id}`
+            "rooms/" + room_id + `/players/${user.user_id}`
           );
-          set(thisPlayerRef, user_name);
+          set(thisPlayerRef, user);
 
           if (Object.keys(room.players).length === 4) {
             const thisRoomFullRef = ref(db, "rooms/" + room_id + "/full");
@@ -136,13 +151,20 @@ export function addPlayerToRoom(user_name, user_id, room_id) {
       } else {
         const thisPlayerRef = ref(
           db,
-          "rooms/" + room_id + `/players/${user_id}`
+          "rooms/" + room_id + `/players/${user.user_id}`
         );
-        set(thisPlayerRef, user_name).then(() => {});
+        set(thisPlayerRef, user).then(() => {});
       }
     })
     .then(() => {});
 }
+
+
+function changeHost(room_id, newHost) {
+  const hostRef = ref(db, "rooms/" + room_id + "/host")
+  set(hostRef, newHost)
+}
+
 
 export function deleteRoom(room_id) {
   const oneRoomRef = ref(db, "rooms/" + room_id);
@@ -160,9 +182,7 @@ export function removePlayerFromRoom(user_id, room_id) {
     .then((snapshot) => {
       const room = snapshot.val();
       for (let player in room.players) {
-        console.log(room.players[player]);
         if (player === user_id) {
-          console.log(player);
           const playerToRemoveRef = ref(
             db,
             "rooms/" + room_id + `/players/${player}`

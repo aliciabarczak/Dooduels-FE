@@ -5,6 +5,9 @@ import LogInPopUpBox from "./Homepage/LogInPopUpBox";
 import { useLocation, Link } from "react-router-dom";
 import { getRoomById, addPlayerToRoom } from "../db/utils";
 import Playerboard from "./Roompage/Playerboard";
+import Chat from "./Chatrooms/Chat";
+import { goOffline } from "firebase/database";
+import db from "../db/db";
 
 const Roompage = () => {
   const { loggedUser } = useContext(userContext);
