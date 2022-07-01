@@ -8,6 +8,7 @@ import userContext from "./contexts/userContext.js";
 import Homepage from "./Components/Homepage.jsx";
 import ProfilePic from "./Components/UserPage/ProfilePic.jsx";
 import { getAllUsers } from "./db/utils.js";
+import Gamepage from "./Components/Gamepage/Gamepage.js";
 
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
@@ -33,6 +34,7 @@ function App() {
             <Route path="/users/:user_id" element={<UserPage />} />
             <Route path="/rooms/:room_id" element={<Roompage />} />
             <Route path="/profile_pic" element={<ProfilePic />} />
+            <Route path="/games/:room_id" element={<Gamepage />} />
           </Routes>
         </main>
       </div>
