@@ -7,10 +7,10 @@ import { getRoomById, addPlayerToRoom } from "../db/utils";
 import Playerboard from "./Roompage/Playerboard";
 import Chat from "./Chatrooms/Chat";
 import { goOffline } from "firebase/database";
-import db from "../db/db";
 
 const Roompage = () => {
   const { loggedUser } = useContext(userContext);
+
   const location = useLocation();
   const roomID = location.pathname.split("/")[2];
   const [roompageRoom, setRoompageRoom] = useState({});
@@ -19,6 +19,8 @@ const Roompage = () => {
     addPlayerToRoom(loggedUser, roomID);
   }, [roomID]);
 
+  console.log(roompageRoom);
+
   return (
     <section>
       {!loggedUser ? <LogInPopUpBox /> : null}
@@ -26,12 +28,9 @@ const Roompage = () => {
         <h1 className="roomTitle">{roompageRoom.room_name}</h1>
         <p className="modeRoompage">mode: {roompageRoom.mode}</p>
         <div className="RoomPageButtons">
-
           <Link to={`/games/${roomID}`}>
-            <button>Start</button>
+            <button className="ready-button">Start</button>
           </Link>
-          <button className="ready-button">Ready!</button>
-
           <button className="exit-button">
             <Link to="/"> Exit</Link>
           </button>

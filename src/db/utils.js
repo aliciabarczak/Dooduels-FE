@@ -64,8 +64,7 @@ export function getUserByUsername(user_name, setState) {
   });
 }
 
-
-export async function getRoomById(room_id) {
+export async function getRoomById(room_id, setState) {
   const oneRoomRef = ref(db, "rooms/" + room_id);
   await get(oneRoomRef).then((snapshot) => {
     const room = snapshot.val();
@@ -75,7 +74,7 @@ export async function getRoomById(room_id) {
     }
     room.players = playersArray;
     room.room_id = snapshot.key;
-    return room;
+    setState(room);
   });
 }
 
@@ -159,12 +158,10 @@ export function addPlayerToRoom(user, room_id) {
     .then(() => {});
 }
 
-
 function changeHost(room_id, newHost) {
-  const hostRef = ref(db, "rooms/" + room_id + "/host")
-  set(hostRef, newHost)
+  const hostRef = ref(db, "rooms/" + room_id + "/host");
+  set(hostRef, newHost);
 }
-
 
 export function deleteRoom(room_id) {
   const oneRoomRef = ref(db, "rooms/" + room_id);

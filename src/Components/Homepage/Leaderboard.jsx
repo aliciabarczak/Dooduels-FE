@@ -9,9 +9,12 @@ const LeaderBoard = () => {
     <>
       <h2>Leaderboard</h2>
       <section className="leaderboard">
-        {users.map((user) => {
+        {users.map((user, index) => {
           return (
-            <Link to={`/users/${user.user_id}`} className="leaderboard-user">
+            <Link
+              to={`/users/${user.user_id}`}
+              className="leaderboard-user"
+              key={index}>
               <li className="leaderboard-list">
                 <img
                   className="home-profile-pic"
