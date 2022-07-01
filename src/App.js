@@ -12,7 +12,7 @@ import Gamepage from "./Components/Gamepage/Gamepage.js";
 
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
-  const [loggedUser, setLoggedUser] = useState("");
+  const [loggedUser, setLoggedUser] = useState("Phil");
   const [users, setUsers] = useState([]);
   useEffect(() => {
 
