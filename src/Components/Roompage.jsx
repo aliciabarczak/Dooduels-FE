@@ -16,7 +16,33 @@ const Roompage = () => {
   const [roompageRoom, setRoompageRoom] = useState({});
   useEffect(() => {
     getRoomById(roomID, setRoompageRoom);
-  }, [roomID]);
+  }, []);
+
+  console.log(setRoompageRoom);
+
+  // roompageRoom.players.map((player) => {
+  //   getUserKeyByUsername(
+  //     player,
+  //     setPlayers((currPlayers) => {
+  //       return [player, ...currPlayers];
+  //     })
+  //   );
+  // });
+
+  const exampleResponse = {
+    full: false,
+    host: "tomtickle",
+    messages: {
+      "-N5iVlC-p5xgUItrAMGV": "Hi mum, i'm on TV",
+      "-N5iVo0GHu537d7YNEDg": "hello world",
+      "-N5iVsWCXjTPWzay13ha": "howdy",
+      "-N5iVzxwc9rGrq0LZHNf": "bananas in pjamas",
+    },
+    mode: "'easy'",
+    players: ["jessjelly", "sparkles", "sparkles"],
+    room_name: "Room 1",
+    room_id: "1",
+  };
 
   return (
     <section>
