@@ -221,7 +221,7 @@ export function updateUserStatus(user_id, status) {
 
 export function updateUserDescription(user_id, description) {
   const userDescriptionRef = ref(db, "users/" + user_id + "/description");
-  set(userDescriptionRef, description).then(() => goOffline(db));
+  set(userDescriptionRef, description);
 }
 
 export function updateUserImage(user_id, newImg) {
