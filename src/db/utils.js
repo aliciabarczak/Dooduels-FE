@@ -211,3 +211,16 @@ export function updateUserImage(user_id, newImg) {
   const userImageRef = ref(db, "users/" + user_id + "/avatar_url");
   set(userImageRef, newImg).then(() => goOffline(db));
 }
+
+export function getUserbyUsername(user_name, setState) {
+  const usersRef = ref(db, "users/");
+  get(usersRef).then((snapshot) => {
+    const users = snapshot.val();
+    for (let user in users) {
+      if (users[user].user_name === user_name) {
+        users[user].user_id = user;
+        setState(users[user]);
+      }
+    }
+  });
+}
