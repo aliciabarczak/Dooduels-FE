@@ -1,36 +1,26 @@
 import * as filestack from 'filestack-js';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import userContext from '../../contexts/userContext';
-import { getUserById, updateUserImage } from '../../db/utils';
+import { updateUserImage } from '../../db/utils';
 
 const ProfilePic = () => {
-    const { loggedUser, setLoggedUser, users } = useContext(userContext);
-    const [ currUser, setCurrUser ] = useState({})
-    const client = filestack.init("An1BmavtPQxOZ9tAQhqAPz");
+    const { loggedUser } = useContext(userContext);
     const options = {
         onFileUploadFinished(file) {
-            console.log("Hello")
             updateUserImage(loggedUser.user_id, file.url);
-        },
-        onClose() {
-            getUserById(loggedUser.user_id, setCurrUser);
-            setLoggedUser(currUser);
-            window.localStorage.setItem("loggedUser", JSON.stringify(currUser))
+            loggedUser.avatar_url = file.url;
+            window.localStorage.setItem("loggedUser", JSON.stringify(loggedUser))
         }
     };
     
-    const picker = client.picker(options)
-
-
-    useEffect(() => {
-        picker.open();
-    })
+    const filestack_apikey = "An1BmavtPQxOZ9tAQhqAPz"
+    const client = filestack.init(filestack_apikey, options);
+    client.picker(options).open();
     
     return (
         <div>
             <Link to={`/`} className="back-button">Back to Home</Link>
-            <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
         </div>
     )
 }
