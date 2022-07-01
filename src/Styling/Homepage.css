@@ -44,14 +44,22 @@ img {
   padding: 0.5rem;
 }
 
-.Room,
 .Homepage-Options {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+  width: 100%;
+}
+
+section.Room {
   display: flex;
   align-items: center;
   justify-content: space-around;
   list-style: none;
 }
 
+.disabledButton,
 .showButton,
 .addButton,
 .button {
@@ -62,6 +70,7 @@ img {
 
 .dropDownBtn {
   margin-left: 50px;
+  position: relative;
 }
 
 .showButton {
@@ -85,22 +94,23 @@ img {
   height: 400px;
 }
 
-.Room li {
-  font-size: 20px;
-  font-weight: bold;
-  margin-left: -30px;
+ul.RoomList {
+  padding: 0px;
+}
+
+.buttons p {
+  font-size: 12px;
+  border: solid;
+  padding: 0.5rem;
+  margin: 1px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 .Leaderboard {
   border: solid;
   height: 300px;
   width: 300px;
-  margin: auto;
-}
-
-.mode {
-  margin-top: 0px;
-  margin-left: -30px;
 }
 
 .RoomName,
@@ -190,15 +200,12 @@ input {
 }
 
 .peopleInfo {
-  width: 100px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   margin-right: 8px;
 }
-.peopleInfo p {
-  margin-left: 5px;
-}
+
 .peopleIcon {
   font-size: 18px;
   margin-top: 5px;
@@ -211,8 +218,6 @@ input {
 
 .disabledButton {
   border: solid grey;
-  padding: 0.5rem;
-  width: 65px;
   background-color: rgb(220, 220, 220);
 }
 
@@ -224,4 +229,41 @@ button {
   display: flex;
   justify-content: space-around;
   border: 1px solid;
+}
+
+.buttons button {
+  margin: 1px;
+}
+
+.buttons {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  display: flex;
+  flex-direction: column;
+}
+
+ul.OpenRoomList {
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.roomInfo {
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 13px;
+}
+
+.mode {
+  margin-top: 5px;
+}
+
+.roomInfo li {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.dark {
+  background-color: rgba(184, 184, 184, 0.3);
 }
