@@ -11,7 +11,7 @@ const LeaderBoard = () => {
       <section className="leaderboard">
         {users.map((user) => {
           return (
-            <Link to={`/users/${user.user_id}`} className="leaderboard-user" key={user.user_id}>
+            <Link to={`/users/${user.user_id}`} className="leaderboard-user">
               <li className="leaderboard-list">
                 <img
                   className="home-profile-pic"
