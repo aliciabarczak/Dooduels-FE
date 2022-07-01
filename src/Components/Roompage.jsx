@@ -36,7 +36,9 @@ const Roompage = () => {
           </button>
         </div>
         <h2>Players</h2>
+
         <Playerboard roompageRoom={roompageRoom} />
+
         <h2>Chat</h2>
         <div className="chat"></div>
       </div>
