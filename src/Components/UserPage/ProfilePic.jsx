@@ -1,19 +1,16 @@
 import * as filestack from 'filestack-js';
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const ProfilePic = () => {
     // const client = filestack.init("An1BmavtPQxOZ9tAQhqAPz");
-
     // const options = {
     //     onFileUploadFinished(file) {
     //         console.log(file);
     //     }
     // };
+    // const picker = client.picker(options);
 
-    useEffect(() => {
-        // client.picker(options).open();
-    })
+    // picker.open();
 
     return (
         <div>

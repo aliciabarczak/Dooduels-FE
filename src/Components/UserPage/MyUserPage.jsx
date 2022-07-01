@@ -8,7 +8,26 @@ const MyUserPage = () => {
     const [defaultDescription, setDefaultDescription] = useState("A brief description of yourself shown on your profile.");
 
     const handleClick = () => {
-        
+        return (
+        <div className="LogInBox">
+            <h2>Please log in</h2>
+            <div>
+                <form className="form">
+                    <label className="login-label">Enter your username:</label>
+                    <input
+                    className="username-input"
+                    type="text"
+                    />
+                    {loggedUser ? (
+                        <p className="error-message">We couldn't find a user with that name. Please try again.</p>
+                    ) : null}
+                    <button type="submit" className="login-submit-button">
+                    Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+        )
     }
 
     if (!loggedUser) {
@@ -55,7 +74,10 @@ const MyUserPage = () => {
             <section className="user-main-section">
                 <p className="user-username">{loggedUser.user_name}</p>
             </section>
-            <p className="user-description">{defaultDescription}</p>
+            <section className="user-description">
+                <p>{defaultDescription}</p>
+                <button onClick={handleClick} className="edit-description-button"><AiFillEdit className="edit-description-icon"/></button>
+            </section>
             <p className="user-points">Points {loggedUser.points}</p>
             <section className="user-friend-section">
                 <p className="user-friend-title">Friends</p>
