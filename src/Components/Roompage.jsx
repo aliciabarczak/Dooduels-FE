@@ -74,6 +74,9 @@ const Roompage = () => {
               Ready!
             </button>
           )}
+          <Link to={`/games/${roomID}`}>
+            <button>Start Game</button>
+          </Link>
           <button className="exit-button">
             <Link to="/"> Exit</Link>
           </button>
