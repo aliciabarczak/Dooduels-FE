@@ -7,15 +7,17 @@ const Header = () => {
   const { loggedUser, setLoggedUser } = useContext(userContext);
 
   const handleClick = () => {
-    setLoggedUser("")
-    window.localStorage.setItem("loggedUser", JSON.stringify(""))
-  }
+    setLoggedUser("");
+    window.localStorage.setItem("loggedUser", JSON.stringify(""));
+  };
 
   if (location.pathname === `/users/${loggedUser.user_id}`) {
     return (
       <header className="header">
         <h1>Dooduels</h1>
-        <button onClick={handleClick}>Logout</button>
+        <button onClick={handleClick} className="button">
+          Logout
+        </button>
       </header>
     );
   }
