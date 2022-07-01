@@ -1,13 +1,10 @@
 import "./../../Styling/Roompage.css";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import userContext from "../../contexts/userContext.js";
-import { addPlayerToRoom } from "../../db/utils";
 
 export default function Playerboard({ roompageRoom }) {
   const { loggedUser } = useContext(userContext);
   const [players, setPlayers] = useState([]);
-
-  console.log(roompageRoom);
 
   return (
     <>
