@@ -5,6 +5,7 @@ import userContext from "../contexts/userContext";
 const Header = () => {
   const location = useLocation();
   const { loggedUser, setLoggedUser } = useContext(userContext);
+  console.log(loggedUser)
 
   const handleClick = () => {
     setLoggedUser("")
@@ -21,6 +22,7 @@ const Header = () => {
   }
 
   if (!loggedUser) {
+    console.log("hello")
     return (
       <header className="header">
         <h1>Dooduels</h1>
