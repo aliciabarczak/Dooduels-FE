@@ -203,13 +203,12 @@ input {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-right: 8px;
 }
 
 .peopleIcon {
   font-size: 18px;
   margin-top: 5px;
-  margin-left: 10px;
+  margin-right: 3px;
 }
 
 .BriefIns {
