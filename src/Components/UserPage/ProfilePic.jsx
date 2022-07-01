@@ -7,24 +7,25 @@ import { getUserById, updateUserImage } from '../../db/utils';
 const ProfilePic = () => {
     const { loggedUser, setLoggedUser, users } = useContext(userContext);
     const [ currUser, setCurrUser ] = useState({})
-    // const client = filestack.init("An1BmavtPQxOZ9tAQhqAPz");
-    // const options = {
-    //     onFileUploadFinished(file) {
-    //         updateUserImage(loggedUser.user_id, file.url);
-    //     },
-    //     onClose() {
-    //         getUserById(loggedUser.user_id, setCurrUser);
-    //         setLoggedUser(currUser);
-    //         window.localStorage.setItem("loggedUser", JSON.stringify(currUser))
-    //     }
-    // };
+    const client = filestack.init("An1BmavtPQxOZ9tAQhqAPz");
+    const options = {
+        onFileUploadFinished(file) {
+            console.log("Hello")
+            updateUserImage(loggedUser.user_id, file.url);
+        },
+        onClose() {
+            getUserById(loggedUser.user_id, setCurrUser);
+            setLoggedUser(currUser);
+            window.localStorage.setItem("loggedUser", JSON.stringify(currUser))
+        }
+    };
     
-    // const picker = client.picker(options)
+    const picker = client.picker(options)
 
 
-    // useEffect(() => {
-    //     picker.open();
-    // })
+    useEffect(() => {
+        picker.open();
+    })
     
     return (
         <div>
