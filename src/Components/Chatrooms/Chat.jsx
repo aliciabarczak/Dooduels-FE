@@ -26,7 +26,7 @@ export default function Chat({ roomID }) {
       setMessages(messagesArray);
     });
     chatWindow.current.scrollTo({ bottom: 0, behaviour: "smooth" });
-  }, [chatWindow.current.height]);
+  }, []);
 
   return (
     <div>
