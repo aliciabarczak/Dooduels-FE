@@ -7,17 +7,19 @@ import { getRoomById, addPlayerToRoom } from "../db/utils";
 import Playerboard from "./Roompage/Playerboard";
 import Chat from "./Chatrooms/Chat";
 import { goOffline } from "firebase/database";
-import db from "../db/db";
 
 const Roompage = () => {
   const { loggedUser } = useContext(userContext);
+
   const location = useLocation();
   const roomID = location.pathname.split("/")[2];
   const [roompageRoom, setRoompageRoom] = useState({});
   useEffect(() => {
     getRoomById(roomID, setRoompageRoom);
-    addPlayerToRoom(loggedUser, roomID);
-  }, [roomID]);
+    // addPlayerToRoom(loggedUser, roomID);
+  }, []);
+
+  console.log(roompageRoom);
 
   return (
     <section>
