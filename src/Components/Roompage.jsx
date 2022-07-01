@@ -21,6 +21,8 @@ const Roompage = () => {
     getRoomById(roomID, setRoompageRoom);
   }, []);
 
+  console.log(setRoompageRoom);
+
   // roompageRoom.players.map((player) => {
   //   getUserKeyByUsername(
   //     player,

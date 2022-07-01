@@ -8,7 +8,7 @@ const Header = () => {
 
   const handleClick = () => {
     setLoggedUser("")
-    location.pathname = `/`
+    window.localStorage.setItem("loggedUser", JSON.stringify(""))
   }
 
   if (location.pathname === `/users/${loggedUser.user_id}`) {

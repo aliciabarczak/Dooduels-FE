@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import userContext from "../../contexts/userContext.js";
 import "./../../Styling/Roompage.css";
 
@@ -6,7 +6,12 @@ export default function LogInPopUpBox() {
   const { loggedUser, setLoggedUser } = useContext(userContext);
   const { users } = useContext(userContext);
   const [input, setInput] = useState("");
-  const [message, setMessage] = useState(false)
+  const [message, setMessage] = useState(false);
+
+  useEffect(() => {
+    const data = window.localStorage.getItem("loggedUser");
+    setLoggedUser(JSON.parse(data));
+  }, []);
 
   const handleChange = (event) => {
     setInput(event.target.value);
@@ -17,7 +22,8 @@ export default function LogInPopUpBox() {
     users.map((user) => {
       if (user.user_name === input) {
         setMessage(false)
-        setLoggedUser(user);
+        setLoggedUser(user)
+        window.localStorage.setItem("loggedUser", JSON.stringify(user))
       } else {
         setMessage(true)
       }

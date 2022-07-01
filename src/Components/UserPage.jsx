@@ -14,7 +14,7 @@ const UserPage = () => {
     useEffect(() => {
         setCurrUserId(location.pathname.substring(7));
         getUserById(currUserId, setCurrUser);
-    });
+    }, [currUser]);
 
     if (currUserId === loggedUser.user_id) {
         return (
