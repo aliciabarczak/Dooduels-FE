@@ -9,7 +9,7 @@ export default function OpenRooms({ rooms }) {
         {rooms.map((room, index) => {
           if (!room.full)
             return (
-              <section className="Room">
+              <section className="Room" key={index}>
                 <div>
                   <li>{room.room_name}</li>
                   <p className="mode">{room.mode}</p>
@@ -19,8 +19,7 @@ export default function OpenRooms({ rooms }) {
                   <Link
                     to={`/rooms/${room.room_id}`}
                     key="login"
-                    className="login-button"
-                  >
+                    className="login-button">
                     enter
                   </Link>
                 </button>
