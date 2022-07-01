@@ -17,7 +17,7 @@ export default function RoomList() {
 
   return (
     <>
-      {loggedUser === "" ? <LogInPopUpBox /> : null}
+      {!loggedUser ? <LogInPopUpBox /> : null}
       <OpenRooms rooms={rooms} />
       <ClosedRooms rooms={rooms} />
     </>
