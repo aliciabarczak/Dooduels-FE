@@ -1,5 +1,9 @@
+import { useEffect, useState } from "react";
 import { BsPeopleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+
+export default function OpenRooms({ rooms }) {
+
 import { useContext, useState } from "react";
 import userContext from "../../contexts/userContext.js";
 import { deleteRoom } from "../../db/utils.js";
@@ -10,6 +14,7 @@ export default function OpenRooms({ rooms }) {
   const sendMsg = () => {
     return <p>Cannot delete room</p>;
   };
+
 
   return (
     <>

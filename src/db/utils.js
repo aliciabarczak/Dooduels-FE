@@ -64,9 +64,9 @@ export function getUserByUsername(user_name, setState) {
   });
 }
 
-export async function getRoomById(room_id, setState) {
+export function getRoomById(room_id, setState) {
   const oneRoomRef = ref(db, "rooms/" + room_id);
-  await get(oneRoomRef).then((snapshot) => {
+  get(oneRoomRef).then((snapshot) => {
     const room = snapshot.val();
     const playersArray = [];
     for (let player in room.players) {
@@ -77,6 +77,8 @@ export async function getRoomById(room_id, setState) {
     setState(room);
   });
 }
+
+getRoomById("-N5o30X67TDGeYJQg_K7", console.log)
 
 export function addUser(user) {
   const allUsersRef = ref(db, "users/");

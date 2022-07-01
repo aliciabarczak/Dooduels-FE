@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import userContext from "../contexts/userContext.js";
 import LogInPopUpBox from "./Homepage/LogInPopUpBox";
 import { useLocation, Link } from "react-router-dom";
-import { getRoomById, addPlayerToRoom } from "../db/utils";
+import { getRoomById, addPlayerToRoom } from "../db/utils.js";
 import Playerboard from "./Roompage/Playerboard";
 import Chat from "./Chatrooms/Chat";
 import { goOffline } from "firebase/database";
@@ -15,9 +15,12 @@ const Roompage = () => {
   const roomID = location.pathname.split("/")[2];
   const [roompageRoom, setRoompageRoom] = useState({});
   useEffect(() => {
+    console.log(">>>>", roomID)
     getRoomById(roomID, setRoompageRoom);
-    addPlayerToRoom(loggedUser, roomID);
-  }, [roomID]);
+    if (loggedUser) {
+      addPlayerToRoom(loggedUser, roomID);
+    }
+  }, []);
 
   console.log(roompageRoom);
 
@@ -36,9 +39,10 @@ const Roompage = () => {
           </button>
         </div>
         <h2>Players</h2>
-
+        {
+          Object.keys(roompageRoom).length ? <Playerboard roompageRoom={roompageRoom} /> : null
+        }
         <Playerboard roompageRoom={roompageRoom} />
-
         <h2>Chat</h2>
         <div className="chat"></div>
       </div>
