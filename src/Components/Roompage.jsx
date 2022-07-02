@@ -15,7 +15,7 @@ const Roompage = () => {
   const roomID = location.pathname.split("/")[2];
   const [roompageRoom, setRoompageRoom] = useState({});
   useEffect(() => {
-    console.log(">>>>", roomID)
+    console.log(">>>>", roomID);
     getRoomById(roomID, setRoompageRoom);
     if (loggedUser) {
       addPlayerToRoom(loggedUser, roomID);
@@ -39,10 +39,9 @@ const Roompage = () => {
           </button>
         </div>
         <h2>Players</h2>
-        {
-          Object.keys(roompageRoom).length ? <Playerboard roompageRoom={roompageRoom} /> : null
-        }
-        <Playerboard roompageRoom={roompageRoom} />
+        {Object.keys(roompageRoom).length ? (
+          <Playerboard roompageRoom={roompageRoom} />
+        ) : null}
         <h2>Chat</h2>
         <div className="chat"></div>
       </div>
