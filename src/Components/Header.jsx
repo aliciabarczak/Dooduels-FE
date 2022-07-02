@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import userContext from "../contexts/userContext";
+import "../Styling/HeaderAnimation.css";
+import HeaderAnimation from "./../Components/UserPage/HeaderAnimation.jsx";
 
 const Header = () => {
   const location = useLocation();
@@ -14,7 +16,7 @@ const Header = () => {
   if (location.pathname === `/users/${loggedUser.user_id}`) {
     return (
       <header className="header">
-        <h1>Dooduels</h1>
+        <HeaderAnimation />
         <button onClick={handleClick} className="button">
           Logout
         </button>
@@ -25,14 +27,14 @@ const Header = () => {
   if (!loggedUser) {
     return (
       <header className="header">
-        <h1>Dooduels</h1>
+        <HeaderAnimation />
       </header>
     );
   }
 
   return (
     <header className="header">
-      <h1>Dooduels</h1>
+      <HeaderAnimation />
       <Link to={`/users/${loggedUser.user_id}`}>
         <div className="home-user">
           <img
