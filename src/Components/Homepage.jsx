@@ -4,8 +4,9 @@ import RoomList from "./Homepage/RoomList";
 import LeaderBoard from "./Homepage/Leaderboard";
 import { useState } from "react";
 import KeyInfo from "./Homepage/KeyInfo";
-export default function Homepage ({ showPopUp, setShowPopUp }) {
+export default function Homepage({ showPopUp, setShowPopUp }) {
   const [showLogIn, setShowLogIn] = useState(false);
+
   return (
     <div className="Homepage">
       <BriefIns />
