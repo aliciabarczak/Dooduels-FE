@@ -47,7 +47,9 @@ export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
                             delete
                           </button>
                         ) : (
-                          <p>Host: {room.host.user_name}</p>
+                          <p className="hostButton">
+                            <span>Host: {room.host.user_name}</span>
+                          </p>
                         )
                       ) : null}
                     </div>
