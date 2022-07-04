@@ -1,9 +1,11 @@
-import { get, onChildAdded, onValue, push, ref } from "firebase/database";
+import { onValue, push, ref } from "firebase/database";
 import { useEffect, useState, useRef, useContext } from "react";
 import db from "../../db/db";
 import userContext from "../../contexts/userContext.js";
+
 export default function Chat({ roomID }) {
   const [messageText, setMessageText] = useState("");
+
   const [messages, setMessages] = useState([]);
   const messagesRef = ref(db, "rooms/" + roomID + "/messages");
 
@@ -34,7 +36,7 @@ export default function Chat({ roomID }) {
           {messages.length
             ? messages.map((msg) => {
                 return (
-                  <li>
+                  <li key="index">
                     {msg.sender}: {msg.message}
                   </li>
                 );

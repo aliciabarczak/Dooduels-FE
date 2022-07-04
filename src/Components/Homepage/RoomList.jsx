@@ -13,16 +13,18 @@ export default function RoomList({ showPopUp, setShowPopUp }) {
 
   useEffect(() => {
     getAllRooms(setRooms);
-  }, [rooms]);
+  }, []);
 
   return (
     <>
-      {!loggedUser ? <LogInPopUpBox /> : null}
+
+
       <OpenRooms
         rooms={rooms}
         showPopUp={showPopUp}
         setShowPopUp={setShowPopUp}
       />
+
       <ClosedRooms rooms={rooms} />
     </>
   );

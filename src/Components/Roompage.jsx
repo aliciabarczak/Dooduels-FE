@@ -6,7 +6,7 @@ import { useLocation, Link } from "react-router-dom";
 import { getRoomById, addPlayerToRoom } from "../db/utils.js";
 import Playerboard from "./Roompage/Playerboard";
 import Chat from "./Chatrooms/Chat";
-import { goOffline } from "firebase/database";
+
 // import BottomBorder from "../Components/Homepage/BottomBorder.jsx";
 
 const Roompage = () => {
@@ -21,8 +21,6 @@ const Roompage = () => {
       addPlayerToRoom(loggedUser, roomID);
     }
   }, []);
-
-  console.log(roompageRoom);
 
   return (
     <section>
