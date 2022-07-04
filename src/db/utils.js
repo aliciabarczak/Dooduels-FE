@@ -48,9 +48,6 @@ export function getUserById(user_id, setState) {
   });
 }
 
-// getAllUsers(console.log);
-// getUserById("-N5igFAsPoqwrMS0Q-zy", console.log);
-
 export function getUserByUsername(user_name, setState) {
   const usersRef = ref(db, "users/");
   get(usersRef).then((snapshot) => {
@@ -68,17 +65,28 @@ export function getRoomById(room_id, setState) {
   const oneRoomRef = ref(db, "rooms/" + room_id);
   get(oneRoomRef).then((snapshot) => {
     const room = snapshot.val();
+
+    if (room === null) {
+      return;
+    }
+    if (typeof room !== "object") {
+      return;
+    }
+    if (!Object.keys(room).length) {
+      return;
+    }
     const playersArray = [];
-    for (let player in room.players) {
-      playersArray.push(room.players[player]);
+    if (room.hasOwnProperty("players")) {
+      for (let player in room.players) {
+        playersArray.push(room.players[player]);
+      }
     }
     room.players = playersArray;
     room.room_id = snapshot.key;
+
     setState(room);
   });
 }
-
-getRoomById("-N5o30X67TDGeYJQg_K7", console.log)
 
 export function addUser(user) {
   const allUsersRef = ref(db, "users/");
@@ -130,6 +138,7 @@ export function addRoom(host, room_name, mode) {
 
 export function addPlayerToRoom(user, room_id) {
   const oneRoomRef = ref(db, "rooms/" + room_id);
+
   let newPlayer;
   get(oneRoomRef)
     .then((snapshot) => {

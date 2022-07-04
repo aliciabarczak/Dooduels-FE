@@ -1,13 +1,25 @@
 import Canvas from "./Canvas.js";
-import "../../Styling/Game-page.css"
+import "../../Styling/Game-page.css";
 import { useParams } from "react-router";
+import { useEffect, useState } from "react";
+import { getRoomById } from "../../db/utils.js";
 
 export default function Gamepage() {
+  const { room_id } = useParams();
+  const [room, setRoom] = useState();
 
-    const {room_id} = useParams()
+  useEffect(() => {
+    getRoomById(room_id, setRoom);
+    console.log("hello");
+  }, []);
 
-    return <>
-    <h1>This will be a game page</h1>
-    <Canvas room_id={room_id}/>
+  console.log(room, "<<<room in gamepage");
+  return (
+    <>
+      <h1>This will be a game page</h1>
+      {typeof room === "object" ? (
+        <Canvas room_id={room_id} room={room} />
+      ) : null}
     </>
+  );
 }

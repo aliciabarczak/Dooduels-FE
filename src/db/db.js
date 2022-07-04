@@ -3,15 +3,15 @@ import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBe3ElmhQiRZIye8JqruqtqlZ2BEqNG5_8",
-  authDomain: "dooduel-lw.firebaseapp.com",
+  apiKey: "AIzaSyC750zFfrLEjsZLwICM4LG69DzUFYbvkNQ",
+  authDomain: "dooduel-2.firebaseapp.com",
   databaseURL:
-    "https://dooduel-lw-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "dooduel-lw",
-  storageBucket: "dooduel-lw.appspot.com",
-  messagingSenderId: "766980820124",
-  appId: "1:766980820124:web:583a2d2001bd5385a5f159",
-  measurementId: "G-9K2XBBV1K7",
+    "https://dooduel-2-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "dooduel-2",
+  storageBucket: "dooduel-2.appspot.com",
+  messagingSenderId: "806133482818",
+  appId: "1:806133482818:web:d98e1320c8e938052234db",
+  measurementId: "G-FSNPZVVV5C",
 };
 
 // Initialize Firebase

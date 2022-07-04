@@ -13,11 +13,10 @@ export default function RoomList() {
 
   useEffect(() => {
     getAllRooms(setRooms);
-  }, [rooms]);
+  }, []);
 
   return (
     <>
-      {!loggedUser ? <LogInPopUpBox /> : null}
       <OpenRooms rooms={rooms} />
       <ClosedRooms rooms={rooms} />
     </>
