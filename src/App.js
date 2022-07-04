@@ -19,8 +19,12 @@ function App() {
   }, []);
 
   return (
-    <userContext.Provider value={{ loggedUser, setLoggedUser, users, showPopUp, setShowPopUp }}>
-      <div className={showPopUp || loggedUser === "" ? "blackOutApp" : "App"}>
+    <userContext.Provider
+      value={{ loggedUser, setLoggedUser, users, showPopUp, setShowPopUp }}>
+      <div
+        className={
+          showPopUp || !Object.keys(loggedUser).length ? "blackOutApp" : "App"
+        }>
         <Header />
         <main>
           <Routes>

@@ -10,9 +10,13 @@ export default function Homepage({ showPopUp, setShowPopUp }) {
   return (
     <div className="Homepage">
       <BriefIns />
-      <Options showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
       <KeyInfo />
-      <RoomList showLogIn={showLogIn} setShowLogIn={setShowLogIn} />
+      <RoomList
+        showLogIn={showLogIn}
+        setShowLogIn={setShowLogIn}
+        showPopUp={showPopUp}
+        setShowPopUp={setShowPopUp}
+      />
       <LeaderBoard />
     </div>
   );

@@ -15,7 +15,6 @@ const Roompage = () => {
   const roomID = location.pathname.split("/")[2];
   const [roompageRoom, setRoompageRoom] = useState({});
   useEffect(() => {
-    console.log(">>>>", roomID);
     getRoomById(roomID, setRoompageRoom);
     if (loggedUser) {
       addPlayerToRoom(loggedUser, roomID);
@@ -26,7 +25,7 @@ const Roompage = () => {
 
   return (
     <section>
-      {!loggedUser ? <LogInPopUpBox /> : null}
+      {!Object.keys(loggedUser).length ? <LogInPopUpBox /> : null}
       <div className="Roompage">
         <h1 className="roomTitle">{roompageRoom.room_name}</h1>
         <p className="modeRoompage">mode: {roompageRoom.mode}</p>
@@ -44,6 +43,7 @@ const Roompage = () => {
         ) : null}
         <h2>Chat</h2>
         <div className="chat"></div>
+        <Chat />
       </div>
     </section>
   );

@@ -3,15 +3,18 @@ import { BsPeopleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import userContext from "../../contexts/userContext.js";
 import { deleteRoom } from "../../db/utils.js";
+import Options from "./Options.jsx";
 
-export default function OpenRooms({ rooms }) {
+export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
   const { loggedUser } = useContext(userContext);
 
   return (
     <>
-      <h2>Open Rooms</h2>
+      <h2 className="OpenRooms">Open Rooms</h2>
+      <Options showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
       <ul className="OpenRoomList">
         {rooms.map((room, index) => {
+          console.log(room);
           if (!room.full)
             return (
               <section
@@ -27,7 +30,7 @@ export default function OpenRooms({ rooms }) {
                       to={`/rooms/${room.room_id}`}
                       key="login"
                       className="login-button">
-                      enter
+                      <span className="buttonTxt">enter</span>
                     </Link>
                   </button>
                   {loggedUser.user_id === room.host.user_id ? (
@@ -40,7 +43,7 @@ export default function OpenRooms({ rooms }) {
                           ? () => deleteRoom(room.room_id)
                           : null
                       }>
-                      delete
+                      <span className="buttonTxt">delete</span>
                     </button>
                   ) : (
                     <p>Host: {room.host.user_name}</p>
