@@ -13,7 +13,7 @@ import LogInPopUpBox from "./Components/Homepage/LogInPopUpBox.jsx";
 
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
-  const [loggedUser, setLoggedUser] = useState({});
+  const [loggedUser, setLoggedUser] = useState("");
   const [users, setUsers] = useState([]);
   useEffect(() => {
     getAllUsers(setUsers);
