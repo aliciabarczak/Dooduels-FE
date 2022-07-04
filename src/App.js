@@ -13,7 +13,7 @@ import LogInPopUpBox from "./Components/Homepage/LogInPopUpBox.jsx";
 
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
-  const [loggedUser, setLoggedUser] = useState("");
+  const [loggedUser, setLoggedUser] = useState({});
   const [users, setUsers] = useState([]);
   useEffect(() => {
     getAllUsers(setUsers);
@@ -21,7 +21,6 @@ function App() {
 
   return (
     <userContext.Provider
-
       value={{ loggedUser, setLoggedUser, users, showPopUp, setShowPopUp }}
     >
       <div className={showPopUp || loggedUser === "" ? "blackOutApp" : "App"}>
@@ -49,7 +48,6 @@ function App() {
             </main>{" "}
           </>
         )}
-
       </div>
     </userContext.Provider>
   );

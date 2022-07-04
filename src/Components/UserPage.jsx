@@ -39,7 +39,6 @@ const UserPage = () => {
           This user does not have a description.
         </p>
       )}
-      <p className="user-points">Points {currUser.points}</p>
       <section className="user-friend-section">
         <p className="user-friend-title">Friends</p>
         {currUser.friends ? (

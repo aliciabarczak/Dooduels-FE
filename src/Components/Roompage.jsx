@@ -7,6 +7,8 @@ import { getRoomById, addPlayerToRoom } from "../db/utils.js";
 import Playerboard from "./Roompage/Playerboard";
 import Chat from "./Chatrooms/Chat";
 
+// import BottomBorder from "../Components/Homepage/BottomBorder.jsx";
+
 const Roompage = () => {
   const { loggedUser } = useContext(userContext);
 
@@ -39,12 +41,11 @@ const Roompage = () => {
           <Playerboard roompageRoom={roompageRoom} />
         ) : null}
         <h2>Chat</h2>
-
         <div className="chat">
           <Chat />
         </div>
-
       </div>
+      {/* <BottomBorder /> */}
     </section>
   );
 };

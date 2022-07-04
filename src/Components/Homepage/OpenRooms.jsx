@@ -13,7 +13,6 @@ export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
       <h2 className="OpenRooms">Open Rooms</h2>
       <Options showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
       <ul className="OpenRoomList">
-
         {!rooms.length
           ? null
           : rooms.map((room, index) => {
@@ -71,7 +70,6 @@ export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
                   </section>
                 );
             })}
-
       </ul>
     </>
   );

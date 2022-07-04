@@ -7,7 +7,7 @@ const LeaderBoard = () => {
 
   return (
     <>
-      <h2>Leaderboard</h2>
+      <h2 className="leaderboardHeader">Leaderboard</h2>
       <section className="leaderboard">
         {users.map((user, index) => {
           return (
@@ -23,6 +23,7 @@ const LeaderBoard = () => {
                 />
                 <div className="userInfo">
                   <b>{user.user_name}</b>
+
                   <p className="points">points: {user.points}</p>
                 </div>
               </li>
