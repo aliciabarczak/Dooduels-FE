@@ -1,9 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
 main {
   padding-left: 2rem;
   padding-right: 2rem;
 }
 .blackOutApp {
   z-index: 1;
+}
+
+body {
+  font-family: "Bebas Neue", cursive;
 }
 
 .blackOutApp,
@@ -38,11 +44,11 @@ img {
 }
 
 .App {
-  background-color: rgb(255, 239, 57);
+  background-color: yellow;
+  height: 220vh;
 }
 
 .App a {
-  color: black;
   text-decoration: none;
   padding: 0.5rem;
 }
@@ -71,6 +77,10 @@ section.Room {
   width: 80px;
 }
 
+.buttonTxt {
+  font-family: "Bebas Neue", cursive;
+}
+
 .dropDownBtn {
   margin-left: 50px;
   position: relative;
@@ -91,6 +101,7 @@ section.Room {
   height: 310px;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  background-color: rgb(255, 255, 116);
 }
 
 .OpenRoomList {
@@ -173,8 +184,8 @@ form {
   background-color: white;
 }
 
-.AddRoomBox h2 {
-  font-size: 30px;
+h2 {
+  font-size: 38px;
 }
 
 .submitBtn {
@@ -215,7 +226,10 @@ input {
 }
 
 .BriefIns {
+  margin-top: -10px;
   font-size: 25px;
+  color: #e8332e;
+  font-weight: 400;
 }
 
 .disabledButton {
@@ -230,7 +244,11 @@ button {
 .KeyInfo {
   display: flex;
   justify-content: space-around;
-  border: 1px solid;
+  border: 3px solid;
+  background-color: #0040ff;
+  color: rgb(255, 244, 87);
+  font-size: 22px;
+  margin-top: 32px;
 }
 
 .buttons button {
@@ -268,4 +286,9 @@ ul.OpenRoomList {
 
 .dark {
   background-color: rgba(184, 184, 184, 0.3);
+}
+
+.OpenRooms {
+  margin-top: 35px;
+  margin-bottom: 5px;
 }
