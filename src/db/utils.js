@@ -91,7 +91,20 @@ export function getRoomById(room_id, setState) {
 export function addUser(user) {
   const allUsersRef = ref(db, "users/");
 
-  push(allUsersRef, user).then(() => {});
+  if (
+    user.hasOwnProperty("user_name") &&
+    user.hasOwnProperty("password") &&
+    user.hasOwnProperty("points")
+  ) {
+    if (
+      typeof user.user_name === "string" &&
+      user.user_name.length &&
+      user.password.length &&
+      typeof user.password === "string" &&
+      typeof user.points === "number"
+    )
+      push(allUsersRef, user).then(() => {});
+  }
 }
 
 export function awardPointsToUser(points, user_id) {
@@ -127,13 +140,32 @@ export function getUserKeyByUsername(user_name, setState) {
 
 export function addRoom(host, room_name, mode) {
   const allRoomsRef = ref(db, "rooms/");
-  push(allRoomsRef, {
-    host,
-    room_name,
-    players: [],
-    full: false,
-    mode,
-  }).then(() => {});
+
+  if (host && room_name && mode) {
+    if (
+      typeof host === "object" &&
+      typeof room_name === "string" &&
+      typeof mode === "string"
+    ) {
+      if (
+        host.hasOwnProperty("user_name") &&
+        typeof host.user_name === "string" &&
+        host.user_name.length > 0 &&
+        host.hasOwnProperty("points") &&
+        typeof host.points === "number" &&
+        host.hasOwnProperty("password") &&
+        typeof host.password === "string"
+      ) {
+        push(allRoomsRef, {
+          host,
+          room_name,
+          players: [],
+          full: false,
+          mode,
+        });
+      }
+    }
+  }
 }
 
 export function addPlayerToRoom(user, room_id) {

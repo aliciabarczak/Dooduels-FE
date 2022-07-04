@@ -1,8 +1,8 @@
 import "./../../Styling/HeaderAnimation.css";
 export default function HeaderAnimation() {
   return (
-    <div class="animatedHeader">
-      <div class="graphic-header">
+    <div className="animatedHeader">
+      <div className="graphic-header">
         <span></span>
         <span></span>
         <span></span>
