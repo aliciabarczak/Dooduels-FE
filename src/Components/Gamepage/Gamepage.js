@@ -3,6 +3,7 @@ import "../../Styling/Game-page.css";
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { getRoomById } from "../../db/utils.js";
+import { GameDisplay } from "./GameDisplay.js";
 import GuessBox from "./GuessBox.jsx";
 
 export default function Gamepage() {
@@ -15,9 +16,11 @@ export default function Gamepage() {
 
   return (
     <>
-      <h1>This will be a game page</h1>
       {typeof room === "object" ? (
-        <Canvas room_id={room_id} room={room} />
+        <section id="game-page">
+          <GameDisplay host={room.host} players={room.players} />
+          <Canvas room_id={room_id} room={room} />
+        </section>
       ) : null}
       <GuessBox />
     </>
