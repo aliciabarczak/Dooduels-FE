@@ -33,7 +33,7 @@ const MyUserPage = () => {
             ) : (
               <p>A brief description of yourself shown on your profile.</p>
             )}
-            <button onClick={handleClick} className="button">
+            <button onClick={handleClick} className="edit-description-button">
               <AiFillEdit className="edit-description-icon" />
             </button>
           </section>
@@ -71,6 +71,9 @@ const MyUserPage = () => {
           </Link>
         </div>
       )}
+      {descriptionBox ? (
+        <EditDescriptionBox setDescriptionBox={setDescriptionBox} />
+      ) : null}
     </div>
   );
 };

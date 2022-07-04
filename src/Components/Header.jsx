@@ -8,7 +8,6 @@ import { updateUserStatus } from "../db/utils";
 const Header = () => {
   const location = useLocation();
   const { loggedUser, setLoggedUser } = useContext(userContext);
-  console.log(loggedUser)
 
   const handleClick = () => {
     updateUserStatus(loggedUser.user_id, "Offline");
@@ -28,7 +27,6 @@ const Header = () => {
   }
 
   if (!loggedUser) {
-    console.log("hello")
     return (
       <header className="header">
         <HeaderAnimation />
