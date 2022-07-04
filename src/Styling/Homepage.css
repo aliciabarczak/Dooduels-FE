@@ -12,6 +12,10 @@ body {
   font-family: "Bebas Neue", cursive;
 }
 
+.enterButton span {
+  font-family: "Bebas Neue", cursive;
+}
+
 .blackOutApp,
 img {
   z-index: 1;

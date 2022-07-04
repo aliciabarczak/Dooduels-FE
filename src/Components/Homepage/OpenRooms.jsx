@@ -20,20 +20,15 @@ export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
                 return (
                   <section
                     key={index}
-                    className={index % 2 === 1 ? "Room dark" : "Room"}
-                  >
+                    className={index % 2 === 1 ? "Room dark" : "Room"}>
                     <div className="roomInfo">
                       <li>{room.room_name}</li>
                       <p className="mode">{room.mode}</p>
                     </div>
                     <div className="buttons">
-                      <button className="button">
-                        <Link
-                          to={`/rooms/${room.room_id}`}
-                          key="login"
-                          className="login-button"
-                        >
-                          enter
+                      <button className="enterButton">
+                        <Link to={`/rooms/${room.room_id}`} key="login">
+                          <span>enter</span>
                         </Link>
                       </button>
                       {loggedUser && room ? (
@@ -48,8 +43,7 @@ export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
                               room.players.length === 0
                                 ? () => deleteRoom(room.room_id)
                                 : null
-                            }
-                          >
+                            }>
                             delete
                           </button>
                         ) : (
