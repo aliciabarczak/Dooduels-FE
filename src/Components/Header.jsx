@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import userContext from "../contexts/userContext";
 import "../Styling/HeaderAnimation.css";
 import HeaderAnimation from "./../Components/UserPage/HeaderAnimation.jsx";
+import { updateUserStatus } from "../db/utils";
 
 const Header = () => {
   const location = useLocation();
@@ -10,9 +11,10 @@ const Header = () => {
   console.log(loggedUser)
 
   const handleClick = () => {
+    updateUserStatus(loggedUser.user_id, "Offline");
     setLoggedUser("");
-    window.localStorage.setItem("loggedUser", JSON.stringify(""));
-  };
+    window.localStorage.setItem("loggedUser", JSON.stringify(""))
+  }
 
   if (location.pathname === `/users/${loggedUser.user_id}`) {
     return (

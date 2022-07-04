@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import userContext from "../../contexts/userContext.js";
+import { updateUserStatus } from "../../db/utils.js";
 import "./../../Styling/Roompage.css";
 
 export default function LogInPopUpBox() {
@@ -21,9 +22,10 @@ export default function LogInPopUpBox() {
     event.preventDefault();
     users.map((user) => {
       if (user.user_name === input) {
-        setMessage(false)
-        setLoggedUser(user)
-        window.localStorage.setItem("loggedUser", JSON.stringify(user))
+        setMessage(false);
+        updateUserStatus(user.user_id, "Online");
+        setLoggedUser(user);
+        window.localStorage.setItem("loggedUser", JSON.stringify(user));
       } else {
         setMessage(true)
       }

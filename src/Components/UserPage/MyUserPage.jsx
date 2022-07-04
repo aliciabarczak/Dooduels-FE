@@ -25,6 +25,7 @@ const MyUserPage = () => {
           </Link>
           <section className="user-main-section">
             <p className="user-username">{loggedUser.user_name}</p>
+            <p className="user-points">Points {loggedUser.points}</p>
           </section>
           <section className="user-description">
             {loggedUser.description ? (
