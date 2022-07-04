@@ -1,4 +1,36 @@
+
+
+#game-page{
+    display: grid;
+    grid-template-areas: "display canvas";
+    grid-template-columns: 30% auto;
+    grid-template-rows: auto auto;
+
+}
+
+#game-display {
+    grid-area: display;
+    padding-top: none;
+}
+
 #canvas {
-    border: 1px solid
-    
+    grid-area: canvas;
+    border: 1px solid;
+    margin: auto
+}
+
+#host-display {
+    background-color: rgb(228, 76, 236);;
+}
+
+#players-display {
+    background-color: rgb(106, 181, 2);;
+}
+
+#display--name {
+    color: white
+}
+
+#display--points {
+    color: white
 }
