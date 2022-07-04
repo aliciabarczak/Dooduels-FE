@@ -6,7 +6,10 @@ const GuessBox = () => {
     const [ input, setInput ] = useState("");
     const [ regex, setRegex ] = useState(new RegExp(currWord, "gi"));
 
+    console.log(words)
+
     useEffect(() => {
+        setWords(words.filter(filterWords));
         setRegex(new RegExp(currWord, "gi"));
     }, [currWord]);
 
@@ -24,7 +27,6 @@ const GuessBox = () => {
         event.preventDefault();
         if (regex.test(input)) {
             console.log("You guessed correctly!");
-            setWords(words.filter(filterWords));
             setCurrWord(words[Math.floor(Math.random() * words.length)]);
         };
     };
