@@ -104,8 +104,6 @@ export default function Canvas({ room_id, room }) {
 
   return (
     <>
-      <h2>This will be the canvas</h2>
-
       {loggedUser.user_id === room.host.user_id ? (
         <canvas
           id="canvas"
