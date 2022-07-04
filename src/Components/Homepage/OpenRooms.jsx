@@ -3,14 +3,17 @@ import { BsPeopleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import userContext from "../../contexts/userContext.js";
 import { deleteRoom } from "../../db/utils.js";
+import Options from "./Options.jsx";
 
-export default function OpenRooms({ rooms }) {
+export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
   const { loggedUser } = useContext(userContext);
 
   return (
     <>
-      <h2>Open Rooms</h2>
+      <h2 className="OpenRooms">Open Rooms</h2>
+      <Options showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
       <ul className="OpenRoomList">
+
         {!rooms.length
           ? null
           : rooms.map((room, index) => {
@@ -68,6 +71,7 @@ export default function OpenRooms({ rooms }) {
                   </section>
                 );
             })}
+
       </ul>
     </>
   );

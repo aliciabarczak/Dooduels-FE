@@ -20,7 +20,9 @@ export default function ClosedRooms({ rooms }) {
                   <p className="mode">{room.mode}</p>
                 </div>
                 <div className="buttons">
-                  <button className="disabledButton">enter</button>
+                  <button className="disabledButton">
+                    <span className="buttonTxt">enter</span>
+                  </button>
                   {loggedUser.user_id === room.host.user_id ? (
                     <button
                       className={
@@ -31,7 +33,7 @@ export default function ClosedRooms({ rooms }) {
                           ? () => deleteRoom(room.room_id)
                           : null
                       }>
-                      delete
+                      <span className="buttonTxt">delete</span>
                     </button>
                   ) : (
                     <p>Host: {room.host.user_name}</p>

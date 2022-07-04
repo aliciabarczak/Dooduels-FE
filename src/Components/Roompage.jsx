@@ -22,7 +22,7 @@ const Roompage = () => {
 
   return (
     <section>
-      {!loggedUser ? <LogInPopUpBox /> : null}
+      {!Object.keys(loggedUser).length ? <LogInPopUpBox /> : null}
       <div className="Roompage">
         <h1 className="roomTitle">{roompageRoom.room_name}</h1>
         <p className="modeRoompage">mode: {roompageRoom.mode}</p>
@@ -39,9 +39,11 @@ const Roompage = () => {
           <Playerboard roompageRoom={roompageRoom} />
         ) : null}
         <h2>Chat</h2>
+
         <div className="chat">
           <Chat />
         </div>
+
       </div>
     </section>
   );

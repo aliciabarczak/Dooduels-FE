@@ -50,8 +50,7 @@ export default function Chat({ roomID }) {
         type="text"
         onChange={(event) => {
           setMessageText(event.target.value);
-        }}
-      ></input>
+        }}></input>
       <button onClick={handleMessage}>SEND</button>
       <div></div>
     </div>

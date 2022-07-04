@@ -227,7 +227,7 @@ export function removeFriendFromUser(user_id, friend) {
 
 export function updateUserStatus(user_id, status) {
   const userStatusRef = ref(db, "users/" + user_id + "/status");
-  set(userStatusRef, status).then(() => goOffline(db));
+  set(userStatusRef, status);
 }
 
 export function updateUserDescription(user_id, description) {

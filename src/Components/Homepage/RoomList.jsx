@@ -6,7 +6,7 @@ import OpenRooms from "./OpenRooms";
 import ClosedRooms from "./ClosedRooms";
 import { getAllRooms } from "./../../db/utils.js";
 
-export default function RoomList() {
+export default function RoomList({ showPopUp, setShowPopUp }) {
   const { loggedUser } = useContext(userContext);
 
   const [rooms, setRooms] = useState([]);
@@ -17,7 +17,14 @@ export default function RoomList() {
 
   return (
     <>
-      <OpenRooms rooms={rooms} />
+
+
+      <OpenRooms
+        rooms={rooms}
+        showPopUp={showPopUp}
+        setShowPopUp={setShowPopUp}
+      />
+
       <ClosedRooms rooms={rooms} />
     </>
   );

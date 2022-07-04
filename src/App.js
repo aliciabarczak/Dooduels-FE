@@ -21,6 +21,7 @@ function App() {
 
   return (
     <userContext.Provider
+
       value={{ loggedUser, setLoggedUser, users, showPopUp, setShowPopUp }}
     >
       <div className={showPopUp || loggedUser === "" ? "blackOutApp" : "App"}>
@@ -48,6 +49,7 @@ function App() {
             </main>{" "}
           </>
         )}
+
       </div>
     </userContext.Provider>
   );
