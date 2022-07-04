@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { getRoomById } from "../../db/utils.js";
 import { GameDisplay } from "./GameDisplay.js";
+import GuessBox from "./GuessBox.jsx";
 
 export default function Gamepage() {
   const { room_id } = useParams();
@@ -11,10 +12,8 @@ export default function Gamepage() {
 
   useEffect(() => {
     getRoomById(room_id, setRoom);
-    console.log("hello");
   }, []);
 
-  console.log(room, "<<<room in gamepage");
   return (
     <>
       {typeof room === "object" ? (
@@ -23,6 +22,7 @@ export default function Gamepage() {
           <Canvas room_id={room_id} room={room} />
         </section>
       ) : null}
+      <GuessBox />
     </>
   );
 }

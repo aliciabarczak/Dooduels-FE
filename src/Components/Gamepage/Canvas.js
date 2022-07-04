@@ -19,8 +19,6 @@ export default function Canvas({ room_id, room }) {
 
   useEffect(() => {
     //get the 'current' property of the canvas element
-    console.log(loggedUser.user_name);
-    console.log(room.host.user_name);
     if (loggedUser.user_name === room.host.user_name) {
       const canvas = canvasRef.current;
 
@@ -42,7 +40,6 @@ export default function Canvas({ room_id, room }) {
     } else {
       onValue(roomCanvasRef, (snapshot) => {
         const tracker = snapshot.val();
-        console.log(tracker);
         const secondCanvas = secondCanvasRef.current;
         const secondCanvasContext = secondCanvas.getContext("2d");
 
