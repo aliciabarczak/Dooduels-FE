@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import userContext from "../../contexts/userContext";
 import { updateUserDescription } from "../../db/utils";
+import { AiOutlineClose } from "react-icons/ai";
+
 
 const EditDescriptionBox = ({ setDescriptionBox }) => {
     const { loggedUser } = useContext(userContext);
@@ -31,6 +33,7 @@ const EditDescriptionBox = ({ setDescriptionBox }) => {
                 {message ? (
                     <p className="error-message">Please, try again.</p>
                 ) : null}
+                <AiOutlineClose className="closeButton" onClick={() => {setDescriptionBox(false);}}/>
                 <button type="submit" className="submitBtn">Submit</button>
             </form>
         </div>

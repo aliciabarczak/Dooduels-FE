@@ -30,6 +30,7 @@ const UserPage = () => {
       />
       <section className="user-main-section">
         <p className="user-username">{currUser.user_name}</p>
+        <p className="user-points">Points {currUser.points}</p>
       </section>
       {currUser.description ? (
         <p className="user-description">{currUser.description}</p>
