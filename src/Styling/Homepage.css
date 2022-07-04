@@ -361,3 +361,7 @@ ul.OpenRoomList {
 .leaderboardHeader {
   color: white;
 }
+
+canvas {
+  background-color: white;
+}
