@@ -7,7 +7,7 @@ export default function ClosedRooms({ rooms }) {
   const { loggedUser } = useContext(userContext);
   return (
     <>
-      <h2>Closed Rooms</h2>
+      <h2 className="closedRoomsHeader">Closed Rooms</h2>
       <ul className="RoomList">
         {rooms.map((room, index) => {
           if (room.full)
@@ -20,13 +20,15 @@ export default function ClosedRooms({ rooms }) {
                   <p className="mode">{room.mode}</p>
                 </div>
                 <div className="buttons">
-                  <button className="disabledButton">
+                  <button className="enterButton">
                     <span className="buttonTxt">enter</span>
                   </button>
                   {loggedUser.user_id === room.host.user_id ? (
                     <button
                       className={
-                        room.players.length === 0 ? "button" : "disabledButton"
+                        room.players.length === 0
+                          ? "deleteButton"
+                          : "disabledButton"
                       }
                       onClick={
                         room.players.length === 0
@@ -36,7 +38,9 @@ export default function ClosedRooms({ rooms }) {
                       <span className="buttonTxt">delete</span>
                     </button>
                   ) : (
-                    <p>Host: {room.host.user_name}</p>
+                    <p className="hostButton">
+                      <span>Host: {room.host.user_name}</span>
+                    </p>
                   )}
                 </div>
                 <div className="peopleInfo">

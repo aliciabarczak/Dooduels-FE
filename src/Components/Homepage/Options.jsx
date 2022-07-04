@@ -8,19 +8,21 @@ const Options = ({ showPopUp, setShowPopUp, searchTerm, setSearchTerm }) => {
   return (
     <>
       <div className="Homepage-Options">
-        <p
+        <button
           onClick={() => {
             setShowPopUp(true);
           }}
           className="addButton">
-          Add Room
-        </p>
+          <span>Add Room</span>
+        </button>
         <form className="searchRoom">
           <label>
             <input
               type="text"
               placeholder="Search room..."
-              className={showPopUp || loggedUser === "" ? "blackInput" : null}
+              className={
+                showPopUp || loggedUser === "" ? "blackInput" : "searchBox"
+              }
               value={searchTerm}
               onChange={(event) => setSearchTerm(event.target.value)}
             />

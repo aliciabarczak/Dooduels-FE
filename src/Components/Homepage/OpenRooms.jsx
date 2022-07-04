@@ -14,7 +14,6 @@ export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
       <Options showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
       <ul className="OpenRoomList">
         {rooms.map((room, index) => {
-          console.log(room);
           if (!room.full)
             return (
               <section
@@ -25,18 +24,20 @@ export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
                   <p className="mode">{room.mode}</p>
                 </div>
                 <div className="buttons">
-                  <button className="button">
-                    <Link
-                      to={`/rooms/${room.room_id}`}
-                      key="login"
-                      className="login-button">
-                      <span className="buttonTxt">enter</span>
-                    </Link>
+                  <button className="enterButton">
+                    {Object.keys(loggedUser).length > 0 ? (
+                      <Link to={`/rooms/${room.room_id}`} key="login">
+                        <span className="buttonTxt">enter</span>
+                      </Link>
+                    ) : null}
                   </button>
-                  {loggedUser.user_id === room.host.user_id ? (
+                  {Object.keys(loggedUser).length > 0 &&
+                  loggedUser.user_id === room.host.user_id ? (
                     <button
                       className={
-                        room.players.length === 0 ? "button" : "disabledButton"
+                        room.players.length === 0
+                          ? "delteButton"
+                          : "disabledButton"
                       }
                       onClick={
                         room.players.length === 0
@@ -46,7 +47,9 @@ export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
                       <span className="buttonTxt">delete</span>
                     </button>
                   ) : (
-                    <p>Host: {room.host.user_name}</p>
+                    <p className="hostButton">
+                      <span>Host: {room.host.user_name}</span>
+                    </p>
                   )}
                 </div>
                 <div className="peopleInfo">
