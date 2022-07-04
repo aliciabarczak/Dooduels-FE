@@ -3,6 +3,7 @@ import "../../Styling/Game-page.css";
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { getRoomById } from "../../db/utils.js";
+import { GameDisplay } from "./GameDisplay.js";
 
 export default function Gamepage() {
   const { room_id } = useParams();
@@ -16,9 +17,11 @@ export default function Gamepage() {
   console.log(room, "<<<room in gamepage");
   return (
     <>
-      <h1>This will be a game page</h1>
       {typeof room === "object" ? (
-        <Canvas room_id={room_id} room={room} />
+        <section id="game-page">
+          <GameDisplay host={room.host} players={room.players} />
+          <Canvas room_id={room_id} room={room} />
+        </section>
       ) : null}
     </>
   );
