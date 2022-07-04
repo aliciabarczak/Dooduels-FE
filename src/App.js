@@ -12,7 +12,7 @@ import Gamepage from "./Components/Gamepage/Gamepage.js";
 
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
-  const [loggedUser, setLoggedUser] = useState("");
+  const [loggedUser, setLoggedUser] = useState({});
   const [users, setUsers] = useState([]);
   useEffect(() => {
     getAllUsers(setUsers);
@@ -21,10 +21,7 @@ function App() {
   return (
     <userContext.Provider
       value={{ loggedUser, setLoggedUser, users, showPopUp, setShowPopUp }}>
-      <div
-        className={
-          showPopUp || !Object.keys(loggedUser).length ? "blackOutApp" : "App"
-        }>
+      <div className={showPopUp || !loggedUser ? "blackOutApp" : "App"}>
         <Header />
         <main>
           <Routes>

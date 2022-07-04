@@ -21,11 +21,6 @@
   transform-style: preserve-3d;
   margin-right: 0px;
   margin-left: 0px;
-  @for $i from 1 through 5 {
-    &:nth-child(#{$i}) {
-      animation-delay: 140ms * $i;
-    }
-  }
 }
 
 @keyframes scaling {
@@ -87,7 +82,7 @@
 
 .graphic-header span:nth-child(4),
 .graphic-header span:nth-child(5) {
-  background-color: #8fc8d9;
+  background-color: #0040ff;
   padding: 8px;
 }
 
@@ -95,7 +90,7 @@
 .graphic-header span:nth-child(7),
 .graphic-header span:nth-child(8),
 .graphic-header span:nth-child(9) {
-  background-color: #99468a;
+  background-color: #da62c4;
   padding: 8px;
 }
 
@@ -104,6 +99,6 @@
 .graphic-header span:nth-child(13),
 .graphic-header span:nth-child(14),
 .graphic-header span:nth-child(15) {
-  background-color: #338536;
+  background-color: #21d927;
   padding: 8px;
 }
