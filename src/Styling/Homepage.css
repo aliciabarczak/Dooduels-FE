@@ -305,7 +305,7 @@ input {
 }
 
 .disabledButton {
-  border: solid grey;
+  border: solid black;
   background-color: rgb(220, 220, 220);
 }
 

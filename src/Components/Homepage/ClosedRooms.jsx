@@ -20,7 +20,7 @@ export default function ClosedRooms({ rooms }) {
                   <p className="mode">{room.mode}</p>
                 </div>
                 <div className="buttons">
-                  <button className="enterButton">
+                  <button className="disabledButton">
                     <span className="buttonTxt">enter</span>
                   </button>
                   {loggedUser.user_id === room.host.user_id ? (
