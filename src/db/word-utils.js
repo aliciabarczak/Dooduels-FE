@@ -73,19 +73,12 @@ export function getWordSetWord(room_id) {
 
     const wordsArray = [];
 
-    console.log(words, "<<from snapsjot");
-
-    console.log(room_id, "<<<roomid");
-
     for (let word in words) {
       wordsArray.push(words[word]);
     }
 
-    console.log(wordsArray);
     let randWord = wordsArray[Math.floor(Math.random() * wordsArray.length)];
     let filteredWords = wordsArray.filter((words) => words !== randWord);
-
-    console.log(randWord, room_id);
 
     set(currWordRef, randWord);
     set(allWordsRef, filteredWords);

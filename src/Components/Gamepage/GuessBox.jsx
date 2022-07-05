@@ -69,7 +69,6 @@ const GuessBox = ({ room_id, room }) => {
     "motorcycle",
   ];
   const [currWord, setCurrWord] = useState("");
-
   const [input, setInput] = useState("");
   const [regex, setRegex] = useState("");
   const { loggedUser } = useContext(userContext);
@@ -80,25 +79,17 @@ const GuessBox = ({ room_id, room }) => {
       setIsHost(true);
     }
 
-    getWordSetWord(room_id).then((word) => {
-      setCurrWord(word);
-      console.log(word, "<<from submit");
-    });
-
     setRegex(new RegExp(currWord, "gi"));
   }, [currWord]);
 
   useEffect(() => {
-    const currentWordRef = ref(db, `rooms/${room_id}/CurrentWord`);
-
-    onValue(currentWordRef, (snapshot) => {
-      const wordFromDb = snapshot.val();
-      setCurrWord(wordFromDb);
-      console.log(wordFromDb, "<<<fromDB");
-    });
-  }, [currWord]);
-
-  console.log(currWord);
+    const interval = setInterval(() => {
+      getCurrentWord(room_id).then((word) => {
+        setCurrWord(word);
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleChange = (event) => {
     setInput(event.target.value);
@@ -109,7 +100,6 @@ const GuessBox = ({ room_id, room }) => {
     if (regex.test(input)) {
       getWordSetWord(room_id).then((word) => {
         setCurrWord(word);
-        console.log(word, "<<from submit");
       });
     }
   };

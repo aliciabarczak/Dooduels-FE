@@ -50,13 +50,13 @@ export default function Gamepage() {
   return (
     <>
     <div className="gamepage">
-      <div class="base-timer">
+      <div className="base-timer">
         <svg
-          class="base-timer__svg"
+          className="base-timer__svg"
           viewBox="0 0 100 100"
           xmlns="http://www.w3.org/2000/svg">
-          <g class="base-timer__circle">
-            <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45" />
+          <g className="base-timer__circle">
+            <circle className="base-timer__path-elapsed" cx="50" cy="50" r="45" />
           </g>
         </svg>
         <span id="timer">{formatTime(timeLeft)}</span>
@@ -66,7 +66,6 @@ export default function Gamepage() {
       {typeof room === "object" ? (
         <section id="game-page">
           <GameDisplay host={room.host} players={room.players} />
-          <Canvas room_id={room_id} room={room} />
         </section>
       ) : null}
       <GuessBox room_id={room_id} room={room} />
