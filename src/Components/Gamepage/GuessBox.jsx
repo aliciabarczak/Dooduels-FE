@@ -112,8 +112,17 @@ const GuessBox = ({ room_id, room }) => {
       });
     };
   };
+  
+   //   const playerGuessRef = ref(
+ //     db,
+ //     `rooms/${room_id}/players/${loggedUser.user_id}/guess`
+ //   );
+ //  set(playerGuessRef, input);
+ //   setPoints(seconds);
+ // };
 
   return (
+  <>
     <section className="guess-box">
       {isHost ? (
         <p>{currWord}</p>
@@ -126,6 +135,25 @@ const GuessBox = ({ room_id, room }) => {
         </form>
       )}
     </section>
+
+//    <>
+//      <div className="seconds">
+//        {seconds <= 0 ? <p>time up!</p> : <p>{seconds}</p>}
+//      </div>
+//      <section className="guess-box">
+//        <p>{currWord}</p>
+//        <form onSubmit={handleSubmit}>
+//          <label>Guess the word!</label>
+//          <input
+//            onChange={(event) => {
+ //             setInput(event.target.value);
+//            }}
+//          />
+//          <button type="submit">Submit</button>
+//        </form>
+//      </section>
+//    </>
+   </>
   );
 };
 

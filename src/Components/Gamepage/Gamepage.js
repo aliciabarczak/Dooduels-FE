@@ -77,7 +77,6 @@ export default function Gamepage() {
         <span id="timer">{formatTime(timeLeft)}</span>
       </div>
       <h1>This will be a game page</h1>
-
       {typeof room === "object" ? (
         <section id="game-page">
           <GameDisplay host={room.host} playersRoom={playersRoom} />

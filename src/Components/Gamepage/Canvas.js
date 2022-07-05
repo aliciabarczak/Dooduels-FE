@@ -2,7 +2,6 @@ import { onValue, ref, set } from "firebase/database";
 import { useContext, useEffect, useRef, useState } from "react";
 import userContext from "../../contexts/userContext.js";
 import db from "../../db/db.js";
-
 import "../../Styling/Game-page.css";
 
 export default function Canvas({ room_id, room }) {
@@ -108,13 +107,9 @@ export default function Canvas({ room_id, room }) {
           onMouseUp={finishDrawing}
           onMouseMove={draw}
           ref={canvasRef}
-          onChange={handleChange}
-        ></canvas>
+          onChange={handleChange}></canvas>
       ) : (
-        <canvas
-          ref={secondCanvasRef}
-          style={{ height: "301px", width: "602px", border: "1px solid red" }}
-        ></canvas>
+        <canvas ref={secondCanvasRef}></canvas>
       )}
     </>
   );

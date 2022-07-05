@@ -2,6 +2,7 @@ import { BsPeopleFill } from "react-icons/bs";
 import { useContext } from "react";
 import userContext from "../../contexts/userContext.js";
 import { deleteRoom } from "../../db/utils.js";
+import "../../Styling/Roompage.css";
 
 export default function ClosedRooms({ rooms }) {
   const { loggedUser } = useContext(userContext);

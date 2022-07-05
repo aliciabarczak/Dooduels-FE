@@ -1,151 +1,78 @@
-
-
-#game-page{
-    display: grid;
-    grid-template-areas: "display canvas";
-    grid-template-columns: 30% auto;
-    grid-template-rows: auto auto;
-
-}
-
-#game-display {
-    grid-area: display;
-    padding-top: none;
-}
-
-#canvas {
-    grid-area: canvas;
-    border: 1px solid;
-    margin: auto
-}
-
-#host-display {
-    border: 2px solid;
-    border-radius: 10px;
-    padding-top: 5px;
-    background-color: rgb(0, 102, 255);
-}
-
-#players-display {
-    background-color: yellow;
-    border: 2px solid;
-    border-radius: 10px;
-    padding-top: 5px;
-}
-
-#display--name {
-    color: white;
-    margin: 0;
-    text-shadow: -1px 1px 0 #000,
-    1px 2px 0 #000,
-    1px -1px 0 #000,
-    -1px -1px 0 #000;
-}
-
-#display--points {
-    color: white;
-    text-shadow: -1px 1px 0 #000,
-    1px 2px 0 #000,
-    1px -1px 0 #000,
-    -1px -1px 0 #000;
-}
 .gamepage {
-  display: flex;
-  flex-direction: column;
-}
-#canvas {
-  border: 1px solid;
-}
-
-/* Sets the containers height and width */
-.base-timer {
-  position: relative;
-  height: 120px;
-  width: 120px;
-  color: white;
+  padding-left: -150px;
+  padding-right: -150px;
+  display: grid;
+  grid-template-areas:
+    "seconds seconds"
+    "canvas canvas"
+    "guess-box guess-box";
 }
 
-/* Removes SVG styling that would hide the time label */
-.base-timer__circle {
-  fill: none;
-  stroke: none;
-  color: white;
-}
-
-/* The SVG path that displays the timer's progress */
-.base-timer__path-elapsed {
-  stroke-width: 5px;
-  stroke: grey;
-  color: white;
-}
-
-#timer {
-  position: absolute;
-
-  /* Size should match the parent container */
-  width: 120px;
-  height: 120px;
-
-  /* Keep the label aligned to the top */
-  top: 0;
-
-  /* Create a flexible box that centers content vertically and horizontally */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  /* Sort of an arbitrary number; adjust to your liking */
-  font-size: 40px;
-  color: white;
-}
-
-#game-display {
-  grid-area: display;
-  padding-top: none;
-  width: 200px;
-}
-
-#canvas {
-  grid-area: canvas;
-  border: 1px solid;
+.guess-box {
+  grid-area: guess-box;
+  background-color: yellow;
+  border-radius: 20px;
+  padding: 2rem;
+  width: 350px;
   margin: auto;
 }
 
+.guess-box form {
+  font-size: 35px;
+}
+
+.guess-box form input {
+  font-size: 25px;
+  border: solid black;
+  border-radius: 20px;
+}
+
+.guess-box form button {
+  font-size: 20px;
+  padding: 0.5rem;
+  margin-left: 10px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+#game-display {
+  position: absolute;
+  padding-top: none;
+  width: 200px;
+  margin-left: -155px;
+  font-size: 25px;
+}
+
 #host-display {
-    border: 2px solid;
-    border-radius: 10px;
-    padding-top: 5px;
-    max-width: 100px;
-    background-color: rgb(0, 102, 255);
+  border: 2px solid;
+  border-radius: 10px;
+  padding-top: 5px;
+  background-color: rgb(0, 102, 255);
+  margin-bottom: 20px;
 }
 
 #players-display {
-    background-color: yellow;
-    border: 2px solid;
-    border-radius: 10px;
-    max-width: 100px;
-    padding-top: 5px;
+  background-color: yellow;
+  border: 2px solid;
+  border-radius: 10px;
+  padding-top: 5px;
 }
 
 #display--name {
-    color: white;
-    margin: 0;
-    text-shadow: -1px 1px 0 #000,
-    1px 2px 0 #000,
-    1px -1px 0 #000,
+  color: white;
+  margin: 0;
+  text-shadow: -1px 1px 0 #000, 1px 2px 0 #000, 1px -1px 0 #000,
     -1px -1px 0 #000;
 }
 
 #display--points {
-    color: white;
-    text-shadow: -1px 1px 0 #000,
-    1px 2px 0 #000,
-    1px -1px 0 #000,
+  color: white;
+  text-shadow: -1px 1px 0 #000, 1px 2px 0 #000, 1px -1px 0 #000,
     -1px -1px 0 #000;
 }
 
 #players-display {
-  background-color: yellow
+  background-color: rgb(106, 181, 2);
 }
 
 #display--name {
@@ -158,6 +85,16 @@
 
 .seconds {
   color: white;
-  grid-area: countdown;
+  grid-area: seconds;
+  font-size: 50px;
+  color: yellow;
 }
 
+canvas {
+  grid-area: canvas;
+  width: 660px;
+  margin-left: 50px;
+  border: solid black;
+  border-radius: 20px;
+  margin-bottom: 50px;
+}

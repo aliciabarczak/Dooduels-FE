@@ -12,8 +12,8 @@ const Header = () => {
   const handleClick = () => {
     updateUserStatus(loggedUser.user_id, "Offline");
     setLoggedUser("");
-    window.localStorage.setItem("loggedUser", JSON.stringify(""))
-  }
+    window.localStorage.setItem("loggedUser", JSON.stringify(""));
+  };
 
   if (location.pathname === `/users/${loggedUser.user_id}`) {
     return (
