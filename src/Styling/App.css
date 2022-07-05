@@ -16,10 +16,10 @@
 
 .profile-pic,
 .home-profile-pic {
-  width: 55px;
-  height: 50px;
+  width: 65px;
+  height: 60px;
   border-radius: 100%;
-  border: solid 1px;
+  border: solid 2px black;
 }
 
 .form {
@@ -48,10 +48,12 @@
 
 .playerboard,
 .leaderboard {
-  border: 3px solid white;
+  border: 3px solid black;
+  border-radius: 15px;
+  background-color: rgb(0, 102, 255);
   padding: 1rem;
   padding-top: 0px;
-  margin-bottom: 50px;
+  margin-bottom: 1rem;
   overflow-y: scroll;
   height: 250px;
 }
@@ -85,8 +87,13 @@
 }
 
 .home-username {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: bold;
+  color: white;
+  text-shadow: -1px 1px 0 #000,
+  1px 2px 0 #000,
+  1px -1px 0 #000,
+  -1px -1px 0 #000;
   margin-top: 0px;
 }
 
@@ -102,7 +109,7 @@ b,
   align-items: center;
   padding: 1rem;
   height: 100vh;
-  color: white;
+  color: black;
 }
 
 .user-main-section {
@@ -113,6 +120,7 @@ b,
 .user-profile-pic {
   width: 200px;
   height: 200px;
+  border:  6px solid black;
   border-radius: 100%;
 }
 
@@ -120,6 +128,11 @@ b,
   font-size: 35px;
   margin: 0;
   margin-top: 10px;
+  color: white;
+  text-shadow: -1px 1px 0 #000,
+  1px 4px 0 #000,
+  1px -1px 0 #000,
+  -1px -1px 0 #000;
 }
 
 .user-status {
@@ -128,13 +141,21 @@ b,
 }
 
 .user-description {
-  border: solid;
+  border: solid black;
+  border-radius: 15px;
   padding: 1rem;
   text-align: left;
   margin: 0.5rem;
   position: relative;
   height: 400px;
   width: 250px;
+  background-color: yellow;
+  font-size: 20px;
+  color: white;
+  text-shadow: -1px 1px 0 #000,
+  1px 2px 0 #000,
+  1px -1px 0 #000,
+  -1px -1px 0 #000;
 }
 
 .user-points {
@@ -142,13 +163,29 @@ b,
   font-size: 30px;
   margin: 0;
   font-weight: 700;
-  color: red;
+  color: rgb(0, 102, 255);
+  text-shadow: -1px 1px 0 #000,
+  1px 3px 0 #000,
+  1px -1px 0 #000,
+  -1px -1px 0 #000;
 }
 
 .user-friend-section {
-  border: solid;
+  border: solid black;
+  border-radius: 15px;
   padding: 1rem;
+  text-align: left;
   margin: 0.5rem;
+  position: relative;
+  height: 400px;
+  width: 250px;
+  background-color: yellow;
+  font-size: 20px;
+  color: white;
+  text-shadow: -1px 1px 0 #000,
+  1px 2px 0 #000,
+  1px -1px 0 #000,
+  -1px -1px 0 #000;
 }
 
 .user-friend-title {
@@ -160,8 +197,11 @@ b,
 }
 
 .back-button {
-  border: solid;
-  margin-top: 0.5rem;
+  width: 100px;
+  color: white;
+  background-color: red;
+  border: solid black;
+  border-radius: 15px;
 }
 
 .error-message {
@@ -190,7 +230,7 @@ b,
 }
 
 li.leaderboard-list {
-  background-color: yellow;
+  background-color: rgb(0, 102, 255);
   padding: 0.5rem;
 }
 
