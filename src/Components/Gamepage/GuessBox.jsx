@@ -2,7 +2,7 @@ import { onValue, ref } from "firebase/database";
 import { useContext, useEffect, useState } from "react";
 import userContext from "../../contexts/userContext";
 import db from "../../db/db";
-import { getCurrentWord, getWordSetWord, hideWord } from "../../db/word-utils";
+import { getCurrentWord, getWordSetWord } from "../../db/word-utils";
 
 const GuessBox = ({ room_id, room }) => {
   let words = [
@@ -72,7 +72,6 @@ const GuessBox = ({ room_id, room }) => {
 
   const [input, setInput] = useState("");
   const [regex, setRegex] = useState("");
-  const [hiddenWord, setHiddenWord] = useState("");
   const { loggedUser } = useContext(userContext);
   const [isHost, setIsHost] = useState(false);
 
