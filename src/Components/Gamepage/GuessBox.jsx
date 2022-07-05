@@ -6,69 +6,6 @@ import { awardPointsToUser } from "../../db/utils";
 import { getCurrentWord, getWordSetWord } from "../../db/word-utils";
 
 const GuessBox = ({ room_id, room }) => {
-  let words = [
-    "dog",
-    "cat",
-    "hippo",
-    "snake",
-    "zebra",
-    "spider",
-    "axolotl",
-    "dragon",
-    "monkey",
-    "ostrich",
-    "penguin",
-    "elephant",
-    "reindeer",
-    "swordfish",
-    "armadillo",
-    "gong",
-    "harp",
-    "piano",
-    "drums",
-    "guitar",
-    "violin",
-    "trumpet",
-    "ukulele",
-    "clarinet",
-    "bagpipes",
-    "saxophone",
-    "harmonica",
-    "running",
-    "jumping",
-    "dancing",
-    "flying",
-    "sitting",
-    "walking",
-    "waving",
-    "washing",
-    "writing",
-    "driving",
-    "reading",
-    "talking",
-    "sky",
-    "tree",
-    "lake",
-    "rock",
-    "river",
-    "cloud",
-    "flower",
-    "forest",
-    "bonfire",
-    "mountain",
-    "cliffside",
-    "waterfall",
-    "car",
-    "bus",
-    "bicycle",
-    "caravan",
-    "hospital",
-    "motorway",
-    "building",
-    "ambulance",
-    "firetruck",
-    "motorcycle",
-  ];
   const [currWord, setCurrWord] = useState("");
   const [input, setInput] = useState("");
   const [regex, setRegex] = useState("");
@@ -100,8 +37,11 @@ const GuessBox = ({ room_id, room }) => {
     event.preventDefault();
     if (regex.test(input)) {
       awardPointsToUser(10, loggedUser.user_id);
-      const playerPointsRef = ref(db, `rooms/${room_id}/players/${loggedUser.user_id}/points`);
-      get(playerPointsRef).then(snapshot => {
+      const playerPointsRef = ref(
+        db,
+        `rooms/${room_id}/players/${loggedUser.user_id}/points`
+      );
+      get(playerPointsRef).then((snapshot) => {
         const playerPoints = snapshot.val();
         console.log(playerPoints);
         set(playerPointsRef, playerPoints + 10);
@@ -110,19 +50,10 @@ const GuessBox = ({ room_id, room }) => {
         setCurrWord(word);
         setInput("");
       });
-    };
+    }
   };
-  
-   //   const playerGuessRef = ref(
- //     db,
- //     `rooms/${room_id}/players/${loggedUser.user_id}/guess`
- //   );
- //  set(playerGuessRef, input);
- //   setPoints(seconds);
- // };
 
   return (
-  <>
     <section className="guess-box">
       {isHost ? (
         <p>{currWord}</p>
@@ -135,25 +66,6 @@ const GuessBox = ({ room_id, room }) => {
         </form>
       )}
     </section>
-
-//    <>
-//      <div className="seconds">
-//        {seconds <= 0 ? <p>time up!</p> : <p>{seconds}</p>}
-//      </div>
-//      <section className="guess-box">
-//        <p>{currWord}</p>
-//        <form onSubmit={handleSubmit}>
-//          <label>Guess the word!</label>
-//          <input
-//            onChange={(event) => {
- //             setInput(event.target.value);
-//            }}
-//          />
-//          <button type="submit">Submit</button>
-//        </form>
-//      </section>
-//    </>
-   </>
   );
 };
 
