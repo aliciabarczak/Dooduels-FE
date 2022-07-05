@@ -47,3 +47,36 @@
   font-size: 40px;
   color: white;
 }
+
+#game-display {
+  grid-area: display;
+  padding-top: none;
+  width: 200px;
+}
+
+#canvas {
+  grid-area: canvas;
+  border: 1px solid;
+  margin: auto;
+}
+
+#host-display {
+  background-color: rgb(228, 76, 236);
+}
+
+#players-display {
+  background-color: rgb(106, 181, 2);
+}
+
+#display--name {
+  color: white;
+}
+
+#display--points {
+  color: white;
+}
+
+.seconds {
+  color: white;
+  grid-area: countdown;
+}
