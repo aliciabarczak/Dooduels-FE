@@ -9,10 +9,16 @@ import GuessBox from "./GuessBox.jsx";
 export default function Gamepage() {
   const { room_id } = useParams();
   const [room, setRoom] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getRoomById(room_id, setRoom);
+    getRoomById(room_id).then((room) => {
+      setRoom(room);
+      setIsLoading(false);
+    });
   }, []);
+
+  if (isLoading) return <p>Loading...</p>;
 
   return (
     <>
@@ -22,7 +28,7 @@ export default function Gamepage() {
           <Canvas room_id={room_id} room={room} />
         </section>
       ) : null}
-      <GuessBox />
+      <GuessBox room_id={room_id} room={room} />
     </>
   );
 }

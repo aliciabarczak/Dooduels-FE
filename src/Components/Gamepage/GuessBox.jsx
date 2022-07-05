@@ -1,46 +1,134 @@
-import { useEffect, useState } from "react";
+import { onValue, ref } from "firebase/database";
+import { useContext, useEffect, useState } from "react";
+import userContext from "../../contexts/userContext";
+import db from "../../db/db";
+import { getCurrentWord, getWordSetWord, hideWord } from "../../db/word-utils";
 
-const GuessBox = () => {
-    const [ words, setWords ] = useState(["cat", "dog", "bird"]);
-    const [ currWord, setCurrWord ] = useState(words[Math.floor(Math.random() * words.length)]);
-    const [ input, setInput ] = useState("");
-    const [ regex, setRegex ] = useState(new RegExp(currWord, "gi"));
+const GuessBox = ({ room_id, room }) => {
+  let words = [
+    "dog",
+    "cat",
+    "hippo",
+    "snake",
+    "zebra",
+    "spider",
+    "axolotl",
+    "dragon",
+    "monkey",
+    "ostrich",
+    "penguin",
+    "elephant",
+    "reindeer",
+    "swordfish",
+    "armadillo",
+    "gong",
+    "harp",
+    "piano",
+    "drums",
+    "guitar",
+    "violin",
+    "trumpet",
+    "ukulele",
+    "clarinet",
+    "bagpipes",
+    "saxophone",
+    "harmonica",
+    "running",
+    "jumping",
+    "dancing",
+    "flying",
+    "sitting",
+    "walking",
+    "waving",
+    "washing",
+    "writing",
+    "driving",
+    "reading",
+    "talking",
+    "sky",
+    "tree",
+    "lake",
+    "rock",
+    "river",
+    "cloud",
+    "flower",
+    "forest",
+    "bonfire",
+    "mountain",
+    "cliffside",
+    "waterfall",
+    "car",
+    "bus",
+    "bicycle",
+    "caravan",
+    "hospital",
+    "motorway",
+    "building",
+    "ambulance",
+    "firetruck",
+    "motorcycle",
+  ];
+  const [currWord, setCurrWord] = useState("");
 
-    console.log(words)
+  const [input, setInput] = useState("");
+  const [regex, setRegex] = useState("");
+  const [hiddenWord, setHiddenWord] = useState("");
+  const { loggedUser } = useContext(userContext);
+  const [isHost, setIsHost] = useState(false);
 
-    useEffect(() => {
-        setWords(words.filter(filterWords));
-        setRegex(new RegExp(currWord, "gi"));
-    }, [currWord]);
+  useEffect(() => {
+    if (loggedUser.user_id === room.host.user_id) {
+      setIsHost(true);
+    }
 
-    const filterWords = (word) => {
-        if (word !== currWord) {
-            return word;
-        };
-    };
+    getWordSetWord(room_id).then((word) => {
+      setCurrWord(word);
+      console.log(word, "<<from submit");
+    });
 
-    const handleChange = (event) => {
-        setInput(event.target.value);
-    };
+    setRegex(new RegExp(currWord, "gi"));
+  }, [currWord]);
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if (regex.test(input)) {
-            console.log("You guessed correctly!");
-            setCurrWord(words[Math.floor(Math.random() * words.length)]);
-        };
-    };
- 
-    return (
-        <section className="guess-box">
-            <p>{currWord}</p>
-            <form onSubmit={handleSubmit}>
-                <label>Guess the word!</label>
-                <input onChange={handleChange}/>
-                <button type="submit">Submit</button>
-            </form>
-        </section>
-    )
+  useEffect(() => {
+    const currentWordRef = ref(db, `rooms/${room_id}/CurrentWord`);
+
+    onValue(currentWordRef, (snapshot) => {
+      const wordFromDb = snapshot.val();
+      setCurrWord(wordFromDb);
+      console.log(wordFromDb, "<<<fromDB");
+    });
+  }, [currWord]);
+
+  console.log(currWord);
+
+  const handleChange = (event) => {
+    setInput(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (regex.test(input)) {
+      getWordSetWord(room_id).then((word) => {
+        setCurrWord(word);
+        console.log(word, "<<from submit");
+      });
+    }
+  };
+
+  return (
+    <section className="guess-box">
+      {isHost ? (
+        <p>{currWord}</p>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          <p>{currWord}</p>
+          <label>Guess the word!</label>
+          <input onChange={handleChange} />
+          <button type="submit">Submit</button>
+        </form>
+      )}
+    </section>
+  );
 };
 
 export default GuessBox;
