@@ -11,6 +11,33 @@ export default function Gamepage() {
   const [room, setRoom] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
+  function formatTime(time) {
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    if (seconds < 10) {
+      seconds = `0${seconds}`;
+    }
+    return `${minutes}:${seconds}`;
+  }
+
+  const TIME_LIMIT = 60;
+  let timePassed = 0;
+  let timeLeft = TIME_LIMIT;
+
+  let timerInterval = null;
+  function startTimer() {
+    timerInterval = setInterval(() => {
+      if (timeLeft === 0) {
+        document.getElementById("timer").innerHTML = "TIME IS UP";
+        timePassed = 60;
+        return;
+      }
+      timePassed = timePassed += 1;
+      timeLeft = TIME_LIMIT - timePassed;
+      document.getElementById("timer").innerHTML = formatTime(timeLeft);
+    }, 1000);
+  }
+
   useEffect(() => {
     getRoomById(room_id).then((room) => {
       setRoom(room);
