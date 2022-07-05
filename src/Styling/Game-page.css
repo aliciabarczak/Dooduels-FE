@@ -1,25 +1,67 @@
+.gamepage {
+  display: flex;
+  flex-direction: column;
+}
+#canvas {
+  border: 1px solid;
+}
 
+/* Sets the containers height and width */
+.base-timer {
+  position: relative;
+  height: 120px;
+  width: 120px;
+  color: white;
+}
 
-#game-page{
-    display: grid;
-    grid-template-areas: "display canvas";
-    grid-template-columns: 30% auto;
-    grid-template-rows: auto auto;
+/* Removes SVG styling that would hide the time label */
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+  color: white;
+}
 
+/* The SVG path that displays the timer's progress */
+.base-timer__path-elapsed {
+  stroke-width: 5px;
+  stroke: grey;
+  color: white;
+}
+
+#timer {
+  position: absolute;
+
+  /* Size should match the parent container */
+  width: 120px;
+  height: 120px;
+
+  /* Keep the label aligned to the top */
+  top: 0;
+
+  /* Create a flexible box that centers content vertically and horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Sort of an arbitrary number; adjust to your liking */
+  font-size: 40px;
+  color: white;
 }
 
 #game-display {
-    grid-area: display;
-    padding-top: none;
+  grid-area: display;
+  padding-top: none;
+  width: 200px;
 }
 
 #canvas {
-    grid-area: canvas;
-    border: 1px solid;
-    margin: auto
+  grid-area: canvas;
+  border: 1px solid;
+  margin: auto;
 }
 
 #host-display {
+
     border: 2px solid;
     border-radius: 10px;
     padding-top: 5px;
@@ -49,3 +91,24 @@
     1px -1px 0 #000,
     -1px -1px 0 #000;
 }
+=======
+  background-color: rgb(228, 76, 236);
+}
+
+#players-display {
+  background-color: rgb(106, 181, 2);
+}
+
+#display--name {
+  color: white;
+}
+
+#display--points {
+  color: white;
+}
+
+.seconds {
+  color: white;
+  grid-area: countdown;
+}
+

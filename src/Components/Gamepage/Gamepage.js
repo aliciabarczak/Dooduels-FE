@@ -15,7 +15,7 @@ export default function Gamepage() {
   }, []);
 
   return (
-    <>
+    <div className="gamepage">
       {typeof room === "object" ? (
         <section id="game-page">
           <GameDisplay host={room.host} players={room.players} />
@@ -23,6 +23,6 @@ export default function Gamepage() {
         </section>
       ) : null}
       <GuessBox />
-    </>
+    </div>
   );
 }
