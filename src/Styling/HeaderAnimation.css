@@ -9,7 +9,8 @@
   flex-direction: column;
 }
 .wrapper p {
-  font-size: 45px;
+  font-size: 75px;
+  letter-spacing: 45px;
   font-family: Bowlby One SC, sans-serif;
   transform: scale(0.9, 1) rotatey(-10deg) translatey(0px);
   animation: 2.2s scaling cubic-bezier(0.45, 0, 0.55, 1) infinite;
@@ -30,7 +31,7 @@
   }
   40% {
     transform: scale(0.9, 2) translatey(16px);
-    text-shadow: -10px 0px red, -20px 0 red, -30px 0 #0040ff;
+    text-shadow: -10px 0px red, -20px 0 red, -40px 0 #0040ff;
   }
   60% {
     transform: scale(0.9, 1) rotatey(-5deg);
@@ -38,7 +39,7 @@
   }
   80% {
     transform: scale(0.9, 2) translatey(16px);
-    text-shadow: 10px 0px red, 20px 0 red, 30px 0 #0040ff;
+    text-shadow: 10px 0px red, 20px 0 red, 40px 0 #0040ff;
   }
 }
 @keyframes jump {
@@ -70,20 +71,23 @@
 }
 
 .graphic-header span {
-  background-color: red;
+  background-color: rgb(0, 255, 183);
   padding: 8px;
+  width: 60px;
 }
 
 .graphic-header span:nth-child(2),
 .graphic-header span:nth-child(3) {
-  background-color: red;
+  background-color: rgb(0, 255, 183);
   padding: 8px;
+  width: 60px;
 }
 
 .graphic-header span:nth-child(4),
 .graphic-header span:nth-child(5) {
   background-color: #0040ff;
   padding: 8px;
+  width: 60px;
 }
 
 .graphic-header span:nth-child(6),
@@ -92,6 +96,7 @@
 .graphic-header span:nth-child(9) {
   background-color: #da62c4;
   padding: 8px;
+  width: 60px;
 }
 
 .graphic-header span:nth-child(11),
@@ -101,4 +106,9 @@
 .graphic-header span:nth-child(15) {
   background-color: #21d927;
   padding: 8px;
+  width: 60px;
+}
+
+.topBorder {
+  margin-top: 0px;
 }

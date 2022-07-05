@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  padding-left: 200px;
+  padding-right: 200px;
 }
 
 .HeaderBackout,
@@ -56,12 +58,17 @@
   margin-bottom: 1rem;
   overflow-y: scroll;
   height: 250px;
+  width: 400px;
+  margin: auto;
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 .leaderboard-user {
   justify-content: space-between;
   margin: 10px;
-  color: black;
+  color: white;
+  font-size: 20px;
 }
 
 .userInfo {
@@ -87,19 +94,17 @@
 }
 
 .home-username {
-  font-size: 17px;
+  font-size: 25px;
   font-weight: bold;
   color: white;
-  text-shadow: -1px 1px 0 #000,
-  1px 2px 0 #000,
-  1px -1px 0 #000,
-  -1px -1px 0 #000;
+  text-shadow: -1px 1px 0 #000, 1px 2px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
   margin-top: 0px;
 }
 
 b,
 .home-user {
-  margin-top: 13px;
+  margin-top: 25px;
   margin-right: 0px;
 }
 
@@ -120,19 +125,17 @@ b,
 .user-profile-pic {
   width: 200px;
   height: 200px;
-  border:  6px solid black;
+  border: 6px solid black;
   border-radius: 100%;
 }
 
 .user-username {
-  font-size: 35px;
+  font-size: 55px;
   margin: 0;
   margin-top: 10px;
   color: white;
-  text-shadow: -1px 1px 0 #000,
-  1px 4px 0 #000,
-  1px -1px 0 #000,
-  -1px -1px 0 #000;
+  text-shadow: -1px 1px 0 #000, 1px 4px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
 }
 
 .user-status {
@@ -147,27 +150,23 @@ b,
   text-align: left;
   margin: 0.5rem;
   position: relative;
-  height: 400px;
-  width: 250px;
+  height: 650px;
+  width: 550px;
   background-color: yellow;
   font-size: 20px;
   color: white;
-  text-shadow: -1px 1px 0 #000,
-  1px 2px 0 #000,
-  1px -1px 0 #000,
-  -1px -1px 0 #000;
+  text-shadow: -1px 1px 0 #000, 1px 2px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
 }
 
 .user-points {
   padding: 1rem;
-  font-size: 30px;
+  font-size: 40px;
   margin: 0;
   font-weight: 700;
   color: rgb(0, 102, 255);
-  text-shadow: -1px 1px 0 #000,
-  1px 3px 0 #000,
-  1px -1px 0 #000,
-  -1px -1px 0 #000;
+  text-shadow: -1px 1px 0 #000, 1px 3px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
 }
 
 .user-friend-section {
@@ -182,10 +181,8 @@ b,
   background-color: yellow;
   font-size: 20px;
   color: white;
-  text-shadow: -1px 1px 0 #000,
-  1px 2px 0 #000,
-  1px -1px 0 #000,
-  -1px -1px 0 #000;
+  text-shadow: -1px 1px 0 #000, 1px 2px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
 }
 
 .user-friend-title {
@@ -202,6 +199,8 @@ b,
   background-color: red;
   border: solid black;
   border-radius: 15px;
+  font-size: 25px;
+  margin-top: 15px;
 }
 
 .error-message {
@@ -240,4 +239,17 @@ div.home-user {
 
 .guess-box {
   background-color: white;
+}
+
+button.button {
+  font-size: 25px;
+  width: 100px;
+}
+
+.user-description p {
+  font-size: 25px;
+}
+
+section.user-friend-section {
+  width: 550px;
 }

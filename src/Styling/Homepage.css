@@ -14,6 +14,7 @@ body {
 
 .enterButton span {
   font-family: "Bebas Neue", cursive;
+  font-size: 35px;
 }
 
 .blackOutApp,
@@ -49,7 +50,7 @@ img {
 
 .App {
   background-color: rgb(255, 0, 111);
-  height: 201vh;
+  height: 255vh;
 }
 
 .App a {
@@ -91,7 +92,7 @@ section.Room {
 .hostButton,
 .enterButton span {
   color: black;
-  font-size: 15px;
+  font-size: 25px;
 }
 
 .enterButton span {
@@ -105,19 +106,21 @@ section.Room {
 
 .hostButton span {
   color: white;
+  font-size: 25px;
 }
 
 .addButton {
-  width: 100px;
+  width: 300px;
   color: white;
   background-color: red;
   border: solid black;
   border-radius: 15px;
+  padding: 1rem;
 }
 
 .addButton span {
   font-family: "Bebas Neue", cursive;
-  font-size: 18px;
+  font-size: 25px;
 }
 
 .searchBox {
@@ -139,7 +142,12 @@ section.Room {
 }
 
 .Homepage-Options form input {
-  padding: 0.5rem;
+  padding: 1.2rem;
+  width: 250px;
+}
+
+.Homepage-Options {
+  margin-top: 40px;
 }
 
 .OpenRoomList,
@@ -222,17 +230,6 @@ form {
   background-color: white;
 }
 
-.LogInBox {
-  height: 300px;
-  width: 350px;
-  border: solid 2px black;
-  margin: auto;
-
-  z-index: 9;
-  position: fixed;
-  background-color: rgb(255, 0, 111);
-}
-
 .login-submit-button {
   border: 2px solid black;
   border-radius: 15px;
@@ -244,20 +241,18 @@ form {
 
 label.login-label {
   color: white;
-  text-shadow: -1px 1px 0 #000,
-  1px 2px 0 #000,
-  1px -1px 0 #000,
-  -1px -1px 0 #000;
+  text-shadow: -1px 1px 0 #000, 1px 2px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
 }
 
 h2 {
-  font-size: 38px;
+  font-size: 50px;
   color: yellow;
   margin: 1rem;
-  text-shadow: -1px 1px 0 #000,
-  1px 5px 0 #000,
-  1px -1px 0 #000,
-  -1px -1px 0 #000;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-shadow: -1px 1px 0 #000, 1px 5px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
 }
 
 .submitBtn {
@@ -292,19 +287,17 @@ input {
 }
 
 .peopleIcon {
-  font-size: 18px;
+  font-size: 35px;
   margin-top: 5px;
   margin-right: 3px;
 }
 
 .BriefIns {
   margin-top: -10px;
-  font-size: 25px;
+  font-size: 35px;
   color: yellow;
-  text-shadow: -1px 1px 0 #000,
-  1px 3px 0 #000,
-  1px -1px 0 #000,
-  -1px -1px 0 #000;
+  text-shadow: -1px 1px 0 #000, 1px 3px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
   font-weight: 400;
 }
 
@@ -324,7 +317,7 @@ button {
   border-radius: 15px;
   background-color: #0040ff;
   color: rgb(255, 244, 87);
-  font-size: 22px;
+  font-size: 35px;
   margin-top: 32px;
   font-weight: 500;
 }
@@ -347,7 +340,7 @@ ul.OpenRoomList {
 }
 
 .roomInfo {
-  font-size: 15px;
+  font-size: 35px;
   display: flex;
   flex-direction: column;
   margin-top: 13px;
@@ -359,7 +352,7 @@ ul.OpenRoomList {
 
 .roomInfo li {
   font-weight: bold;
-  font-size: 25px;
+  font-size: 35px;
 }
 
 .dark {
@@ -377,4 +370,22 @@ ul.OpenRoomList {
 
 canvas {
   background-color: white;
+}
+
+.LogInBox {
+  border: solid 2px black;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  position: fixed;
+  background-color: rgb(255, 0, 111);
+}
+
+img.home-profile-pic {
+  width: 100px;
+  height: auto;
+}
+
+.home-user {
+  margin-right: 50px;
 }

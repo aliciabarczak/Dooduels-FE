@@ -5,6 +5,7 @@ import userContext from "../../contexts/userContext.js";
 import { onValue, ref } from "firebase/database";
 import db from "../../db/db.js";
 import newRound from "../../helpers/newRound.js";
+import "../../Styling/Game-page.css";
 
 const GuessBox = () => {
   const [words, setWords] = useState(["cat", "dog", "bird"]);

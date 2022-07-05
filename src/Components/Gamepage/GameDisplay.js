@@ -1,3 +1,4 @@
+import "../../Styling/Game-page.css";
 export function GameDisplay({ host, players }) {
   console.log("host>>>", host);
   console.log("players>>>>", players);
