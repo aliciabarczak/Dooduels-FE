@@ -1,6 +1,70 @@
 import { ref, get, push, set, goOffline, remove } from "firebase/database";
 import db from "./db.js";
 
+const wordsArray = [
+  "dog",
+  "cat",
+  "hippo",
+  "snake",
+  "zebra",
+  "spider",
+  "axolotl",
+  "dragon",
+  "monkey",
+  "ostrich",
+  "penguin",
+  "elephant",
+  "reindeer",
+  "swordfish",
+  "armadillo",
+  "gong",
+  "harp",
+  "piano",
+  "drums",
+  "guitar",
+  "violin",
+  "trumpet",
+  "ukulele",
+  "clarinet",
+  "bagpipes",
+  "saxophone",
+  "harmonica",
+  "running",
+  "jumping",
+  "dancing",
+  "flying",
+  "sitting",
+  "walking",
+  "waving",
+  "washing",
+  "writing",
+  "driving",
+  "reading",
+  "talking",
+  "sky",
+  "tree",
+  "lake",
+  "rock",
+  "river",
+  "cloud",
+  "flower",
+  "forest",
+  "bonfire",
+  "mountain",
+  "cliffside",
+  "waterfall",
+  "car",
+  "bus",
+  "bicycle",
+  "caravan",
+  "hospital",
+  "motorway",
+  "building",
+  "ambulance",
+  "firetruck",
+  "motorcycle",
+];
+
 export function getAllUsers(setState) {
   const allUsersRef = ref(db, "users/");
   get(allUsersRef)
@@ -61,9 +125,9 @@ export function getUserByUsername(user_name, setState) {
   });
 }
 
-export function getRoomById(room_id, setState) {
+export function getRoomById(room_id) {
   const oneRoomRef = ref(db, "rooms/" + room_id);
-  get(oneRoomRef).then((snapshot) => {
+  return get(oneRoomRef).then((snapshot) => {
     const room = snapshot.val();
 
     if (room === null) {
@@ -75,6 +139,7 @@ export function getRoomById(room_id, setState) {
     if (!Object.keys(room).length) {
       return;
     }
+
     const playersArray = [];
     if (room.hasOwnProperty("players")) {
       for (let player in room.players) {
@@ -84,7 +149,7 @@ export function getRoomById(room_id, setState) {
     room.players = playersArray;
     room.room_id = snapshot.key;
 
-    setState(room);
+    return room;
   });
 }
 
@@ -162,6 +227,8 @@ export function addRoom(host, room_name, mode) {
           players: [],
           full: false,
           mode,
+          currentWord: wordsArray[Math.floor(Math.random() * wordsArray.length)],
+          words: wordsArray
         });
       }
     }

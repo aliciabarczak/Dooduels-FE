@@ -1,93 +1,159 @@
-import { set } from "firebase/database";
-import { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router";
-import userContext from "../../contexts/userContext.js";
-import { onValue, ref } from "firebase/database";
-import db from "../../db/db.js";
-import newRound from "../../helpers/newRound.js";
-import "../../Styling/Game-page.css";
+import { get, onValue, ref, set } from "firebase/database";
+import { useContext, useEffect, useState } from "react";
+import userContext from "../../contexts/userContext";
+import db from "../../db/db";
+import { awardPointsToUser } from "../../db/utils";
+import { getCurrentWord, getWordSetWord } from "../../db/word-utils";
 
-const GuessBox = () => {
-  const [words, setWords] = useState(["cat", "dog", "bird"]);
-  const [currWord, setCurrWord] = useState(
-    words[Math.floor(Math.random() * words.length)]
-  );
-
-  const { loggedUser } = useContext(userContext);
+const GuessBox = ({ room_id, room }) => {
+  let words = [
+    "dog",
+    "cat",
+    "hippo",
+    "snake",
+    "zebra",
+    "spider",
+    "axolotl",
+    "dragon",
+    "monkey",
+    "ostrich",
+    "penguin",
+    "elephant",
+    "reindeer",
+    "swordfish",
+    "armadillo",
+    "gong",
+    "harp",
+    "piano",
+    "drums",
+    "guitar",
+    "violin",
+    "trumpet",
+    "ukulele",
+    "clarinet",
+    "bagpipes",
+    "saxophone",
+    "harmonica",
+    "running",
+    "jumping",
+    "dancing",
+    "flying",
+    "sitting",
+    "walking",
+    "waving",
+    "washing",
+    "writing",
+    "driving",
+    "reading",
+    "talking",
+    "sky",
+    "tree",
+    "lake",
+    "rock",
+    "river",
+    "cloud",
+    "flower",
+    "forest",
+    "bonfire",
+    "mountain",
+    "cliffside",
+    "waterfall",
+    "car",
+    "bus",
+    "bicycle",
+    "caravan",
+    "hospital",
+    "motorway",
+    "building",
+    "ambulance",
+    "firetruck",
+    "motorcycle",
+  ];
+  const [currWord, setCurrWord] = useState("");
   const [input, setInput] = useState("");
-  const [regex, setRegex] = useState(new RegExp(currWord, "gi"));
-  const { room_id } = useParams();
-  const [seconds, setSeconds] = useState(60);
-  const [currentInterval, setCurrentInterval] = useState(null);
-  const [points, setPoints] = useState(60);
+  const [regex, setRegex] = useState("");
+  const { loggedUser } = useContext(userContext);
+  const [isHost, setIsHost] = useState(false);
 
   useEffect(() => {
-    setWords(words.filter(filterWords));
-    setRegex(new RegExp(currWord, "gi"));
-    const playersRef = ref(db, `rooms/${room_id}/players`);
-    onValue(playersRef, (snapshot) => {
-      const players = snapshot.val();
-      for (let key in players) {
-        if (
-          players[key].hasOwnProperty("guess") &&
-          players[key].guess.toLowerCase() === currWord.toLowerCase()
-        ) {
-          setCurrWord(words[Math.floor(Math.random() * words.length)]);
-          setSeconds(60);
-          // newRound(timeRemaining, guesser);
-        }
-      }
-    });
-
-    if (!currentInterval) {
-      const interval = setInterval(() => {
-        setSeconds((currSeconds) => currSeconds - 1);
-      }, 1000);
-      setCurrentInterval(interval);
+    if (loggedUser.user_id === room.host.user_id) {
+      setIsHost(true);
     }
+
+    setRegex(new RegExp(currWord, "gi"));
   }, [currWord]);
 
   useEffect(() => {
-    if (seconds === 0) {
-      clearInterval(currentInterval);
-      setCurrentInterval(null);
-    }
-  }, [seconds]);
+    const interval = setInterval(() => {
+      getCurrentWord(room_id).then((word) => {
+        setCurrWord(word);
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
-  const filterWords = (word) => {
-    if (word !== currWord) {
-      return word;
-    }
+  const handleChange = (event) => {
+    setInput(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const playerGuessRef = ref(
-      db,
-      `rooms/${room_id}/players/${loggedUser.user_id}/guess`
-    );
-    set(playerGuessRef, input);
-    setPoints(seconds);
+    if (regex.test(input)) {
+      awardPointsToUser(10, loggedUser.user_id);
+      const playerPointsRef = ref(db, `rooms/${room_id}/players/${loggedUser.user_id}/points`);
+      get(playerPointsRef).then(snapshot => {
+        const playerPoints = snapshot.val();
+        console.log(playerPoints);
+        set(playerPointsRef, playerPoints + 10);
+      });
+      getWordSetWord(room_id).then((word) => {
+        setCurrWord(word);
+        setInput("");
+      });
+    };
   };
+  
+   //   const playerGuessRef = ref(
+ //     db,
+ //     `rooms/${room_id}/players/${loggedUser.user_id}/guess`
+ //   );
+ //  set(playerGuessRef, input);
+ //   setPoints(seconds);
+ // };
 
   return (
-    <>
-      <div className="seconds">
-        {seconds <= 0 ? <p>time up!</p> : <p>{seconds}</p>}
-      </div>
-      <section className="guess-box">
+  <>
+    <section className="guess-box">
+      {isHost ? (
         <p>{currWord}</p>
+      ) : (
         <form onSubmit={handleSubmit}>
+          <p>{currWord}</p>
           <label>Guess the word!</label>
-          <input
-            onChange={(event) => {
-              setInput(event.target.value);
-            }}
-          />
+          <input onChange={handleChange} />
           <button type="submit">Submit</button>
         </form>
-      </section>
-    </>
+      )}
+    </section>
+
+//    <>
+//      <div className="seconds">
+//        {seconds <= 0 ? <p>time up!</p> : <p>{seconds}</p>}
+//      </div>
+//      <section className="guess-box">
+//        <p>{currWord}</p>
+//        <form onSubmit={handleSubmit}>
+//          <label>Guess the word!</label>
+//          <input
+//            onChange={(event) => {
+ //             setInput(event.target.value);
+//            }}
+//          />
+//          <button type="submit">Submit</button>
+//        </form>
+//      </section>
+//    </>
+   </>
   );
 };
 
