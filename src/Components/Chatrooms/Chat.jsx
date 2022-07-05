@@ -44,14 +44,14 @@ export default function Chat({ roomID }) {
             : null}
         </ul>
       </section>
-
       <input
+        className="chatInput"
         value={messageText}
         type="text"
         onChange={(event) => {
           setMessageText(event.target.value);
         }}></input>
-      <button onClick={handleMessage}>SEND</button>
+      <button className="chatBttn" onClick={handleMessage}>SEND</button>
       <div></div>
     </div>
   );

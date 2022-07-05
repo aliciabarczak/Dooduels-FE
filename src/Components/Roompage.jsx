@@ -32,9 +32,9 @@ const Roompage = () => {
           <Link to={`/games/${roomID}`}>
             <button className="ready-button">Start</button>
           </Link>
-          <button className="exit-button">
-            <Link to="/"> Exit</Link>
-          </button>
+          <Link to="/"> 
+            <button className="exit-button">Exit</button>
+          </Link>
         </div>
         <h2>Players</h2>
         {Object.keys(roompageRoom).length ? (

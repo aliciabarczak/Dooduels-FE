@@ -13,9 +13,9 @@
   font-family: Bowlby One SC, sans-serif;
   transform: scale(0.9, 1) rotatey(-10deg) translatey(0px);
   animation: 2.2s scaling cubic-bezier(0.45, 0, 0.55, 1) infinite;
-  text-shadow: 0 0 yellow, 0 0 yellow, 0 0 #0040ff;
+  text-shadow: 0 0 red, 0 0 red, 0 0 #0040ff;
   transform-origin: 50% 100%;
-  color: red;
+  color: yellow;
   position: relative;
   top: 6%;
   transform-style: preserve-3d;
@@ -25,20 +25,20 @@
 
 @keyframes scaling {
   20% {
-    text-shadow: 0px 0 yellow, 0px 0 yellow, 0px 0 #0040ff;
+    text-shadow: 0px 0 red, 0px 0 red, 0px 0 #0040ff;
     transform: scale(0.9, 1) rotatey(-10deg);
   }
   40% {
     transform: scale(0.9, 2) translatey(16px);
-    text-shadow: -10px 0px yellow, -20px 0 yellow, -30px 0 #0040ff;
+    text-shadow: -10px 0px red, -20px 0 red, -30px 0 #0040ff;
   }
   60% {
     transform: scale(0.9, 1) rotatey(-5deg);
-    text-shadow: 0px 0 yellow, 0px 0 yellow, 0px 0 #0040ff;
+    text-shadow: 0px 0 red, 0px 0 red, 0px 0 #0040ff;
   }
   80% {
     transform: scale(0.9, 2) translatey(16px);
-    text-shadow: 10px 0px yellow, 20px 0 yellow, 30px 0 #0040ff;
+    text-shadow: 10px 0px red, 20px 0 red, 30px 0 #0040ff;
   }
 }
 @keyframes jump {

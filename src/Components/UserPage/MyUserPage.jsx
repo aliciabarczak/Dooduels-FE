@@ -37,9 +37,8 @@ const MyUserPage = () => {
               <AiFillEdit className="edit-description-icon" />
             </button>
           </section>
-          <b className="user-points">Points {loggedUser.points}</b>
+          <p className="user-points">Friends</p>
           <section className="user-friend-section">
-            <p className="user-friend-title">Friends</p>
             {loggedUser.friends ? (
               loggedUser.friends.map((friend) => {
                 return (
@@ -59,7 +58,7 @@ const MyUserPage = () => {
               <p>This user does not have any friends yet!</p>
             )}
           </section>
-          <Link className="button" to={`/`}>
+          <Link className="back-button" to={`/`}>
             Back
           </Link>
         </div>

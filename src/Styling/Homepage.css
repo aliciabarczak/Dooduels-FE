@@ -48,7 +48,7 @@ img {
 }
 
 .App {
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(255, 0, 111);
   height: 201vh;
 }
 
@@ -85,30 +85,33 @@ section.Room {
 }
 
 .enterButton {
-  background-color: #0040ff;
-  border: 0px;
+  background-color: rgb(0, 102, 255);
 }
 
 .hostButton,
 .enterButton span {
-  color: white;
+  color: black;
   font-size: 15px;
+}
+
+.enterButton span {
+  color: white;
 }
 
 .hostButton {
   border-radius: 15px;
-  background-color: white;
+  background-color: rgb(255, 0, 111);
 }
 
 .hostButton span {
-  color: black;
+  color: white;
 }
 
 .addButton {
   width: 100px;
   color: white;
   background-color: red;
-  border: red;
+  border: solid black;
   border-radius: 15px;
 }
 
@@ -142,6 +145,7 @@ section.Room {
 .OpenRoomList,
 .RoomList {
   border: solid;
+  border-radius: 15px;
   overflow-y: scroll;
   height: 310px;
   padding-top: 1rem;
@@ -245,6 +249,11 @@ label.login-label {
 h2 {
   font-size: 38px;
   color: yellow;
+  margin: 1rem;
+  text-shadow: -1px 1px 0 #000,
+  1px 5px 0 #000,
+  1px -1px 0 #000,
+  -1px -1px 0 #000;
 }
 
 .submitBtn {
@@ -287,7 +296,11 @@ input {
 .BriefIns {
   margin-top: -10px;
   font-size: 25px;
-  color: white;
+  color: yellow;
+  text-shadow: -1px 1px 0 #000,
+  1px 3px 0 #000,
+  1px -1px 0 #000,
+  -1px -1px 0 #000;
   font-weight: 400;
 }
 
@@ -303,7 +316,7 @@ button {
 .KeyInfo {
   display: flex;
   justify-content: space-around;
-  border: 3px solid;
+  border: 3px solid black;
   border-radius: 15px;
   background-color: #0040ff;
   color: rgb(255, 244, 87);
@@ -346,7 +359,7 @@ ul.OpenRoomList {
 }
 
 .dark {
-  background-color: rgba(184, 184, 184, 0.3);
+  background-color: rgba(184, 184, 184, 0.302);
 }
 
 .OpenRooms {
@@ -356,10 +369,6 @@ ul.OpenRoomList {
 
 .closedRoomsHeader {
   margin-bottom: 18px;
-}
-
-.leaderboardHeader {
-  color: white;
 }
 
 canvas {
