@@ -94,8 +94,6 @@ export function getWordSetWord(room_id) {
   });
 }
 
-// getWordSetWord("-N5inSbxbOXYXHjX6HjP", console.log);
-
 export function addWords(room_id, word) {
   const wordsRef = ref(db, "rooms/" + room_id + "/words");
 
@@ -141,5 +139,3 @@ export function getCurrentWord(room_id) {
     return currentWord;
   });
 }
-
-addWords("-N5in_AeALIKkDX-ZKnN", words);
