@@ -39,8 +39,8 @@ const UserPage = () => {
           This user does not have a description.
         </p>
       )}
+      <p className="user-points">Friends</p>
       <section className="user-friend-section">
-        <p className="user-friend-title">Friends</p>
         {currUser.friends ? (
           currUser.friends.map((friend) => {
             return (

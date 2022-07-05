@@ -11,23 +11,32 @@
 
 .ready-button,
 .exit-button {
+  border: solid black;
   width: 150px;
   padding: 1rem;
   font-size: 18px;
   color: white;
+  border-radius: 15px;
+  text-shadow: -1px 1px 0 #000,
+  1px 2px 0 #000,
+  1px -1px 0 #000,
+  -1px -1px 0 #000;
 }
 
 .ready-button {
-  background-color: green;
+  background-color: rgb(136, 201, 39);
 }
 
 .exit-button {
   background-color: red;
+  
 }
 
 .chat {
-  border: solid;
-  height: 250px;
+  border: solid black;
+  border-radius: 15px;
+  background-color: white;
+  max-height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -43,13 +52,41 @@ p.modeRoompage {
   width: 100px;
   margin-left: 33%;
   padding: 0.2rem;
+  text-shadow: -1px 1px 0 #000,
+  1px 1px 0 #000,
+  1px -1px 0 #000,
+  -1px -1px 0 #000;
 }
 
 .roomTitle {
-  font-size: 32px;
+  font-size: 50px;
+  margin: 0;
+  color: yellow;
+  text-shadow: -1px 1px 0 #000,
+  1px 5px 0 #000,
+  1px -1px 0 #000,
+  -1px -1px 0 #000;
 }
 
 #Logbox {
   position: absolute;
   margin-bottom: 100px;
+}
+
+.chatInput {
+  border: 2px solid black;
+  border-radius: 15px;
+}
+
+.chatBttn {
+  border: solid black;
+  padding: 5px;
+  margin: 10px;
+  color: white;
+  background-color: red;
+  border-radius: 15px;
+  text-shadow: -1px 1px 0 #000,
+  1px 2px 0 #000,
+  1px -1px 0 #000,
+  -1px -1px 0 #000;
 }
