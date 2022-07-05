@@ -67,7 +67,7 @@ let words = [
 
 export function getWordSetWord(room_id) {
   const allWordsRef = ref(db, "rooms/" + room_id + "/words");
-  const currWordRef = ref(db, "rooms/" + room_id + "/CurrentWord");
+  const currWordRef = ref(db, "rooms/" + room_id + "/currentWord");
   return get(allWordsRef).then((snapshot) => {
     const words = snapshot.val();
 
@@ -125,7 +125,7 @@ export function hideWord(word, setState) {
 }
 
 export function getCurrentWord(room_id) {
-  const currWordRef = ref(db, "rooms/" + room_id + "/CurrentWord");
+  const currWordRef = ref(db, "rooms/" + room_id + "/currentWord");
 
   return get(currWordRef).then((snapshot) => {
     const currentWord = snapshot.val();

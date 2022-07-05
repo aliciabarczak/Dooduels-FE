@@ -1,4 +1,11 @@
-export function GameDisplay({ host, players }) {
+import { useState } from "react";
+
+export function GameDisplay({ host, playersRoom }) {
+  const playersArray = [];
+  for (let player in playersRoom) {
+    playersArray.push(playersRoom[player]);
+  };
+
   return (
     <section id="game-display">
       <div id="host-display">
@@ -7,12 +14,12 @@ export function GameDisplay({ host, players }) {
       </div>
 
       <div id="players-display">
-        {players.map((player) => {
+        {playersArray.map((player) => {
           const currentPoints = player.points;
           return (
             <li key={player.user_id}>
               <p id="display--name">{player.user_name}</p>
-              <p id="display--points">{player.points - currentPoints}</p>
+              <p id="display--points">{player.points}</p>
             </li>
           );
         })}

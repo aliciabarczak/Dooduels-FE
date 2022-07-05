@@ -5,11 +5,14 @@ import { useEffect, useState } from "react";
 import { getRoomById } from "../../db/utils.js";
 import { GameDisplay } from "./GameDisplay.js";
 import GuessBox from "./GuessBox.jsx";
+import { get, onValue, ref, set } from "firebase/database";
+import db from "../../db/db.js";
 
 export default function Gamepage() {
   const { room_id } = useParams();
   const [room, setRoom] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [playersRoom, setPlayersRoom] = useState()
 
   function formatTime(time) {
     const minutes = Math.floor(time / 60);
@@ -39,10 +42,22 @@ export default function Gamepage() {
   }
 
   useEffect(() => {
+    const playersRef = ref(db, `rooms/${room_id}/players`);
     getRoomById(room_id).then((room) => {
       setRoom(room);
       setIsLoading(false);
+      room.players.forEach(player => {
+        const playerPointsRef = ref(db, `rooms/${room_id}/players/${player.user_id}/points`)
+        set(playerPointsRef, 0);
+      });
+      get(playersRef).then(snapshot => {
+        const players = snapshot.val();
+        setPlayersRoom(players);
+      })
     });
+    onValue(playersRef, (snapshot) => {
+      setPlayersRoom(snapshot.val())
+    })
   }, []);
 
   if (isLoading) return <p>Loading...</p>;
@@ -65,7 +80,8 @@ export default function Gamepage() {
 
       {typeof room === "object" ? (
         <section id="game-page">
-          <GameDisplay host={room.host} players={room.players} />
+          <GameDisplay host={room.host} playersRoom={playersRoom} />
+          <Canvas room_id={room_id} room={room} />
         </section>
       ) : null}
       <GuessBox room_id={room_id} room={room} />
