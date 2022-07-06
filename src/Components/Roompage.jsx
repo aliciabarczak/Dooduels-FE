@@ -16,7 +16,10 @@ const Roompage = () => {
   const roomID = location.pathname.split("/")[2];
   const [roompageRoom, setRoompageRoom] = useState({});
   useEffect(() => {
-    getRoomById(roomID, setRoompageRoom);
+    getRoomById(roomID)
+    .then(room => {
+      setRoompageRoom(room)
+    });
     if (loggedUser) {
       addPlayerToRoom(loggedUser, roomID);
     }
