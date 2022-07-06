@@ -117,6 +117,7 @@ const GuessBox = ({ room_id, room }) => {
 
 
   return (
+    <>
     <section className="guess-box">
       {isHost ? (
         <p>{currWord}</p>
@@ -132,10 +133,10 @@ const GuessBox = ({ room_id, room }) => {
     <section className="timer">
       <p>{seconds}</p>
     </section>
+
     { alertShowing ? <section className="alertMessage">
       <p>{alertMessage}</p>
     </section> : null}
-
    </>
   );
 };
