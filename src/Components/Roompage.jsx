@@ -6,22 +6,36 @@ import { useLocation, Link } from "react-router-dom";
 import { getRoomById, addPlayerToRoom } from "../db/utils.js";
 import Playerboard from "./Roompage/Playerboard";
 import Chat from "./Chatrooms/Chat";
+import { get, onValue, ref, set } from "firebase/database";
+import db from "../db/db";
 
 // import BottomBorder from "../Components/Homepage/BottomBorder.jsx";
 
 const Roompage = () => {
   const { loggedUser } = useContext(userContext);
-  const [isLoading, setIsLoading] = useState(true);
-
+  const [ isLoading, setIsLoading ] = useState(true)
   const location = useLocation();
   const roomID = location.pathname.split("/")[2];
   const [roompageRoom, setRoompageRoom] = useState({});
   const [readyButton, setReadyButton] = useState("Start");
+  const [playerList, setPlayerList] = useState({});
 
   useEffect(() => {
     getRoomById(roomID).then((room) => {
       setRoompageRoom(room);
+      window.localStorage.setItem("lastRoomId", roomID);
       setIsLoading(false);
+      const playersRef = ref(db, `rooms/${roomID}/players`);
+      get(playersRef).then((snapshot) => {
+        const players = snapshot.val();
+        setPlayerList(players);
+      });
+      onValue(playersRef, (snapshot) => {
+        setPlayerList(snapshot.val());
+      });
+      if (loggedUser && loggedUser.user_id !== room.host.user_id) {
+        addPlayerToRoom(loggedUser, roomID);
+      };
     });
   }, []);
 
@@ -52,10 +66,8 @@ const Roompage = () => {
           </div>
         )}
 
-        <h2>Players</h2>
-
         {Object.keys(roompageRoom).length ? (
-          <Playerboard roompageRoom={roompageRoom} />
+          <Playerboard roompageRoom={roompageRoom} playerList={playerList} />
         ) : null}
         <h2>Chat</h2>
         <div className="chat">
