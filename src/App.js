@@ -24,7 +24,16 @@ function App() {
 
   return (
     <userContext.Provider
-      value={{ loggedUser, setLoggedUser, users, showPopUp, setShowPopUp, lastRoomId, setLastRoomId }}>
+      value={{
+        loggedUser,
+        setLoggedUser,
+        users,
+        showPopUp,
+        setShowPopUp,
+        lastRoomId,
+        setLastRoomId,
+      }}
+    >
       {showPopUp ? (
         <AddRoomBox showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
       ) : null}
@@ -52,7 +61,6 @@ function App() {
                 <Route path="/games/ar/:room_id" element={<ARGamepage />} />
               </Routes>
             </main>{" "}
-            
           </>
         )}
       </div>
