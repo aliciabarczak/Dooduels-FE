@@ -3,10 +3,10 @@ import "../../Styling/Game-page.css";
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { getRoomById } from "../../db/utils.js";
-import { GameDisplay } from "./GameDisplay.js";
 import GuessBox from "./GuessBox.jsx";
 import { get, onValue, ref, set } from "firebase/database";
 import db from "../../db/db.js";
+import GameDisplay from "./GameDisplay.js";
 
 export default function Gamepage() {
   const { room_id } = useParams();
@@ -88,7 +88,7 @@ export default function Gamepage() {
       <div className="gamepage">
         {typeof room === "object" ? (
           <section id="game-page">
-            <GameDisplay host={room.host} playersRoom={playersRoom} />
+            <GameDisplay roomHost={roomHost} playersRoom={playersRoom} />
 
             <Canvas room_id={room_id} room={room} />
           </section>

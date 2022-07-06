@@ -14,7 +14,7 @@ const GuessBox = ({ room_id, room }) => {
   const { loggedUser } = useContext(userContext);
   const [isHost, setIsHost] = useState(false);
   const [currentTimer, setCurrentTimer] = useState(null)
-  const [seconds, setSeconds] = useState(60)
+  const [seconds, setSeconds] = useState(0)
   const [alertMessage, setAlertMessage] = useState("START")
   const [alertShowing, setAlertShowing] = useState(false)
   const alertRef = ref(db, `rooms/${room_id}/alert`)
@@ -74,14 +74,6 @@ const GuessBox = ({ room_id, room }) => {
     setRegex(new RegExp(currWord, "gi"));
   }, [currWord]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      getCurrentWord(room_id).then((word) => {
-        setCurrWord(word);
-      });
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   const handleChange = (event) => {
     setInput(event.target.value);
