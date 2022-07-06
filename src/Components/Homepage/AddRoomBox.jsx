@@ -1,6 +1,6 @@
 import "./../../Styling/Homepage.css";
 import { AiOutlineClose } from "react-icons/ai";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import userContext from "../../contexts/userContext";
 import { addRoom } from "./../../db/utils.js";
 

@@ -48,7 +48,7 @@ const Roompage = () => {
           </div>
         ) : (
           <div className="RoomPageButtons">
-            <button className="ready-button">Waiting for host...</button>
+            <button className="waitForHost-button">Waiting for host...</button>
             <Link to="/">
               <button className="exit-button">Exit</button>
             </Link>{" "}

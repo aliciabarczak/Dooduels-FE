@@ -4,22 +4,10 @@ import { Link } from "react-router-dom";
 import userContext from "../../contexts/userContext.js";
 import { deleteRoom } from "../../db/utils.js";
 import Options from "./Options.jsx";
+import { useEffect } from "react";
 
-export default function OpenRooms({
-  rooms,
-  showPopUp,
-  setShowPopUp,
-  setRooms,
-}) {
+export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
   const { loggedUser } = useContext(userContext);
-  const handleDelete = (room, index) => {
-    deleteRoom(room.room_id);
-    // setRooms((currRooms) => {
-    //   const newRooms = [...currRooms];
-    //   newRooms.splice(index, 1);
-    //   return newRooms;
-    // });
-  };
 
   return loggedUser.user_id && rooms ? (
     <>
@@ -52,7 +40,7 @@ export default function OpenRooms({
                         }
                         onClick={
                           room.players.length === 0
-                            ? handleDelete(room, index)
+                            ? deleteRoom(room.room_id)
                             : null
                         }>
                         <span>delete</span>

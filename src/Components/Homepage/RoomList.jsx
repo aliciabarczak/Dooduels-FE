@@ -19,7 +19,6 @@ export default function RoomList({ showPopUp, setShowPopUp }) {
     <>
       <OpenRooms
         rooms={rooms}
-        setRooms={setRooms}
         showPopUp={showPopUp}
         setShowPopUp={setShowPopUp}
       />
