@@ -43,7 +43,7 @@ const Roompage = () => {
             <button className="exit-button">Exit</button>
           </Link>
         </div>
-        <h2>Players</h2>
+        
         {Object.keys(roompageRoom).length ? (
           <Playerboard roompageRoom={roompageRoom} />
         ) : null}
