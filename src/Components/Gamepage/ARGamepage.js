@@ -1,5 +1,4 @@
 import ARCanvas from "./ARCanvas.js";
-import "../../Styling/Game-page.css";
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { getRoomById } from "../../db/utils.js";
@@ -90,7 +89,7 @@ export default function Gamepage() {
 
   return (
     <>
-      <div className="gamepage">
+      <div className="ARgamepage">
         {typeof room === "object" ? (
           <section id="game-page">
             <GameDisplay roomHost={roomHost} playersRoom={playersRoom} hostPoints={hostPoints} />
