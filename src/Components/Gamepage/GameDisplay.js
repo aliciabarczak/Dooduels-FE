@@ -7,6 +7,7 @@ export function GameDisplay({ roomHost, playersRoom }) {
   };
 
   return roomHost && playersRoom ? (
+
     <section id="game-display">
       <div id="host-display">
         <p id="display--name">{roomHost.user_name}</p>
@@ -15,16 +16,13 @@ export function GameDisplay({ roomHost, playersRoom }) {
 
       <div id="players-display">
         {playersArray.map((player) => {
-          const currentPoints = player.points;
           return (
             <li key={player.user_id}>
               <p id="display--name">{player.user_name}</p>
               <p id="display--points">{player.points}</p>
             </li>
-            )
-            })
-        }
-        
+          );
+        })}
       </div>
     </section>
   ): null;
