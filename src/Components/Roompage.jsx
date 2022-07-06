@@ -11,21 +11,18 @@ import Chat from "./Chatrooms/Chat";
 
 const Roompage = () => {
   const { loggedUser } = useContext(userContext);
+  const [isLoading, setIsLoading] = useState(true);
 
   const location = useLocation();
   const roomID = location.pathname.split("/")[2];
   const [roompageRoom, setRoompageRoom] = useState({});
   const [readyButton, setReadyButton] = useState("Start");
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getRoomById(roomID).then((room) => {
       setRoompageRoom(room);
       setIsLoading(false);
     });
-    if (loggedUser) {
-      addPlayerToRoom(loggedUser, roomID);
-    }
   }, []);
 
   if (isLoading) return <p>Loading...</p>;
@@ -56,6 +53,7 @@ const Roompage = () => {
         )}
 
         <h2>Players</h2>
+
         {Object.keys(roompageRoom).length ? (
           <Playerboard roompageRoom={roompageRoom} />
         ) : null}

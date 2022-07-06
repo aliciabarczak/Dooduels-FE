@@ -6,7 +6,7 @@ import { awardPointsToUser } from "../../db/utils";
 import { getCurrentWord, getWordSetWord } from "../../db/word-utils";
 import words from "../../helpers/words.js";
 
-const GuessBox = ({ room_id, room }) => {
+const GuessBox = ({ room_id, room , setHostPoints}) => {
 
   const [currWord, setCurrWord] = useState("");
   const [input, setInput] = useState("");
@@ -14,10 +14,21 @@ const GuessBox = ({ room_id, room }) => {
   const { loggedUser } = useContext(userContext);
   const [isHost, setIsHost] = useState(false);
   const [currentTimer, setCurrentTimer] = useState(null)
-  const [seconds, setSeconds] = useState(60)
+  const [seconds, setSeconds] = useState(0)
   const [alertMessage, setAlertMessage] = useState("START")
   const [alertShowing, setAlertShowing] = useState(false)
   const alertRef = ref(db, `rooms/${room_id}/alert`)
+
+  useEffect(()=> {
+    setInterval(()=>{
+      getCurrentWord(room_id)
+      .then((word) => {
+        setCurrWord(word)
+      })
+    }, 1000)
+  },[])
+
+
 
   useEffect(()=> {
     if (!currentTimer) {
@@ -74,14 +85,6 @@ const GuessBox = ({ room_id, room }) => {
     setRegex(new RegExp(currWord, "gi"));
   }, [currWord]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      getCurrentWord(room_id).then((word) => {
-        setCurrWord(word);
-      });
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   const handleChange = (event) => {
     setInput(event.target.value);
@@ -90,6 +93,9 @@ const GuessBox = ({ room_id, room }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (regex.test(input)) {
+      setHostPoints(current => {
+        return current + seconds
+      })
       awardPointsToUser(seconds, loggedUser.user_id);
       awardPointsToUser(seconds, room.host.user_id)
       const playerPointsRef = ref(db, `rooms/${room_id}/players/${loggedUser.user_id}/points`);
