@@ -10,7 +10,7 @@ export default function Playerboard({ roompageRoom, playerList }) {
               <b style={{color: 'yellow'}}>{roompageRoom.host.user_name}</b>
               <p style={{color: 'yellow'}}>points: {roompageRoom.host.points}</p>
             </div>
-        {roompageRoom.players.map((player, index) => {
+        {Object.values(playerList).map((player, index) => {
           return (
             <div className="playerInfo" key={index}>
               <img src={player.avatar_url} className="profile-pic" />
