@@ -11,7 +11,7 @@ export default function ClosedRooms({ rooms }) {
       <h2 className="closedRoomsHeader">Closed Rooms</h2>
       <ul className="RoomList">
         {rooms.map((room, index) => {
-          if (room.full)
+          if (room.players.length === 5)
             return (
               <section
                 key={index}
