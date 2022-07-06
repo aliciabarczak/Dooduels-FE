@@ -150,6 +150,7 @@ section.Room {
 .Homepage-Options form input {
   padding: 1.2rem;
   width: 250px;
+  font-size: 20px;
 }
 
 .Homepage-Options {
