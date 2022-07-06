@@ -14,6 +14,8 @@ export default function Gamepage() {
   const [isLoading, setIsLoading] = useState(true);
   const [playersRoom, setPlayersRoom] = useState()
   const [roomHost, setRoomHost] = useState()
+  const [hostPoints, setHostPoints] = useState(0)
+  const hostRef = ref(db, `rooms/${room_id}/host`)
 
   function formatTime(time) {
     const minutes = Math.floor(time / 60);
@@ -54,6 +56,17 @@ export default function Gamepage() {
         );
         set(playerPointsRef, 0);
       });
+
+      const hostPointsRef = ref(db, `rooms/${room_id}/host/points`)
+      set(hostPointsRef, 0)
+
+    
+      get(hostRef).then(snapshot => {
+        const thisHost = snapshot.val()
+        console.log(thisHost)
+        setRoomHost(thisHost)
+      })
+
       get(playersRef).then((snapshot) => {
         const players = snapshot.val();
         setPlayersRoom(players);
@@ -62,23 +75,14 @@ export default function Gamepage() {
     onValue(playersRef, (snapshot) => {
       setPlayersRoom(snapshot.val());
     });
-
+    
   }, []);
 
-  useEffect(()=>{
-    const hostPointsRef = ref(db, `rooms/${room_id}/host/points`)
-    set(hostPointsRef, 0)
+  
 
-    const hostRef = ref(db, `rooms/${room_id}/host`)
-    get(hostRef).then(snapshot => {
-      const thisHost = snapshot.val()
-      console.log(thisHost)
-      setRoomHost(thisHost)
-    })
-    onValue(hostRef, (snapshot) => {
-      console.log("change detected in host on db")
-      setRoomHost(snapshot.val())
-    })
+  useEffect(()=>{
+    
+   
   },[])
 
   if (isLoading) return <p>Loading...</p>;
@@ -88,12 +92,12 @@ export default function Gamepage() {
       <div className="gamepage">
         {typeof room === "object" ? (
           <section id="game-page">
-            <GameDisplay roomHost={roomHost} playersRoom={playersRoom} />
+            <GameDisplay roomHost={roomHost} playersRoom={playersRoom} hostPoints={hostPoints} />
 
             <Canvas room_id={room_id} room={room} />
           </section>
         ) : null}
-        <GuessBox room_id={room_id} room={room} />
+        <GuessBox room_id={room_id} room={room} setHostPoints={setHostPoints} />
       </div>
     </>
   );
