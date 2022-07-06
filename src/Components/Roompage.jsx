@@ -11,8 +11,7 @@ import Chat from "./Chatrooms/Chat";
 
 const Roompage = () => {
   const { loggedUser } = useContext(userContext);
-  const [isLoading, setIsLoading] = useState(true);
-
+  const [ isLoading, setIsLoading ] = useState(true)
   const location = useLocation();
   const roomID = location.pathname.split("/")[2];
   const [roompageRoom, setRoompageRoom] = useState({});
@@ -51,8 +50,6 @@ const Roompage = () => {
             </Link>{" "}
           </div>
         )}
-
-        <h2>Players</h2>
 
         {Object.keys(roompageRoom).length ? (
           <Playerboard roompageRoom={roompageRoom} />
