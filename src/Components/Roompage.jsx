@@ -15,14 +15,20 @@ const Roompage = () => {
   const location = useLocation();
   const roomID = location.pathname.split("/")[2];
   const [roompageRoom, setRoompageRoom] = useState({});
+  const [readyButton, setReadyButton] = useState("Start");
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     getRoomById(roomID).then((room) => {
       setRoompageRoom(room);
+      setIsLoading(false);
     });
     if (loggedUser) {
       addPlayerToRoom(loggedUser, roomID);
     }
   }, []);
+
+  if (isLoading) return <p>Loading...</p>;
 
   return (
     <section>
@@ -30,14 +36,25 @@ const Roompage = () => {
       <div className="Roompage">
         <h1 className="roomTitle">{roompageRoom.room_name}</h1>
         <p className="modeRoompage">mode: {roompageRoom.mode}</p>
-        <div className="RoomPageButtons">
-          <Link to={`/games/${roomID}`}>
-            <button className="ready-button">Start</button>
-          </Link>
-          <Link to="/">
-            <button className="exit-button">Exit</button>
-          </Link>
-        </div>
+
+        {loggedUser.user_id === roompageRoom.host.user_id ? (
+          <div className="RoomPageButtons">
+            <Link to={`/games/${roomID}`}>
+              <button className="ready-button">Start</button>
+            </Link>
+            <Link to="/">
+              <button className="exit-button">Exit</button>
+            </Link>
+          </div>
+        ) : (
+          <div className="RoomPageButtons">
+            <button className="ready-button">Waiting for host...</button>
+            <Link to="/">
+              <button className="exit-button">Exit</button>
+            </Link>{" "}
+          </div>
+        )}
+
         <h2>Players</h2>
         {Object.keys(roompageRoom).length ? (
           <Playerboard roompageRoom={roompageRoom} />
