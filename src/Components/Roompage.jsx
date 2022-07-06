@@ -16,9 +16,8 @@ const Roompage = () => {
   const roomID = location.pathname.split("/")[2];
   const [roompageRoom, setRoompageRoom] = useState({});
   useEffect(() => {
-    getRoomById(roomID)
-    .then(room => {
-      setRoompageRoom(room)
+    getRoomById(roomID).then((room) => {
+      setRoompageRoom(room);
     });
     if (loggedUser) {
       addPlayerToRoom(loggedUser, roomID);
@@ -35,7 +34,7 @@ const Roompage = () => {
           <Link to={`/games/${roomID}`}>
             <button className="ready-button">Start</button>
           </Link>
-          <Link to="/"> 
+          <Link to="/">
             <button className="exit-button">Exit</button>
           </Link>
         </div>
@@ -45,7 +44,7 @@ const Roompage = () => {
         ) : null}
         <h2>Chat</h2>
         <div className="chat">
-          <Chat />
+          <Chat roomID={roomID} />
         </div>
       </div>
       {/* <BottomBorder /> */}
