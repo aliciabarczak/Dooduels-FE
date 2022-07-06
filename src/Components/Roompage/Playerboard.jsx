@@ -1,6 +1,6 @@
 import "./../../Styling/Roompage.css";
 
-export default function Playerboard({ roompageRoom }) {
+export default function Playerboard({ roompageRoom, playerList }) {
   return (
     <>
     <h2>Players</h2>
@@ -18,7 +18,7 @@ export default function Playerboard({ roompageRoom }) {
               <p>points: {player.points}</p>
             </div>
           );
-        })}
+        })};
       </div>
     </>
   );
