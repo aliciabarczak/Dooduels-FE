@@ -81,7 +81,7 @@ section.Room {
 .button {
   border: solid;
   padding: 0.5rem;
-  width: 80px;
+  width: 90px;
   border-radius: 15px;
 }
 
@@ -89,6 +89,7 @@ section.Room {
   background-color: rgb(0, 102, 255);
 }
 
+.disabledButton,
 .hostButton,
 .enterButton span {
   color: black;
@@ -122,6 +123,7 @@ section.Room {
   padding: 1rem;
 }
 
+.disabledButton,
 .addButton span {
   font-family: "Bebas Neue", cursive;
   font-size: 25px;
