@@ -20,7 +20,8 @@ export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
             return (
               <section
                 key={index}
-                className={index % 2 === 1 ? "Room dark" : "Room"}>
+                className={index % 2 === 1 ? "Room dark" : "Room"}
+              >
                 <div className="roomInfo">
                   <li>{room.room_name}</li>
                   <p className="mode">{room.mode}</p>
@@ -39,11 +40,12 @@ export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
                             ? "OpenRoomsDeleteButton"
                             : "OpenRoomsDisabledButton"
                         }
-                        onClick={
-                          room.players.length === 0
+                        onClick={() => {
+                          return room.players.length === 0
                             ? deleteRoom(room.room_id)
-                            : null
-                        }>
+                            : null;
+                        }}
+                      >
                         <span>delete</span>
                       </button>
                     ) : (

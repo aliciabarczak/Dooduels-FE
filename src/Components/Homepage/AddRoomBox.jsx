@@ -13,6 +13,9 @@ export default function AddRoomBox({ showPopUp, setShowPopUp }) {
     addRoom(loggedUser, newRoomName, newRoomMode);
   };
 
+  console.log(newRoomName, "<<roomName");
+  console.log(newRoomMode, "<<roomMode");
+
   return (
     <div className="AddRoomBox" id={showPopUp ? "blackAddRoomBox" : null}>
       <h2>Add Room</h2>
@@ -23,7 +26,8 @@ export default function AddRoomBox({ showPopUp, setShowPopUp }) {
           value={newRoomMode}
           onChange={(event) => {
             setNewRoomMode(event.target.value);
-          }}>
+          }}
+        >
           <option value="Easy">Easy</option>
           <option value="Medium"> Medium</option>
           <option value="Hard">Hard</option>

@@ -227,8 +227,9 @@ export function addRoom(host, room_name, mode) {
           players: [],
           full: false,
           mode,
-          currentWord: wordsArray[Math.floor(Math.random() * wordsArray.length)],
-          words: wordsArray
+          currentWord:
+            wordsArray[Math.floor(Math.random() * wordsArray.length)],
+          words: wordsArray,
         });
       }
     }
@@ -242,6 +243,7 @@ export function addPlayerToRoom(user, room_id) {
   get(oneRoomRef)
     .then((snapshot) => {
       const room = snapshot.val();
+      console.log(room, ",, ROOM``");
 
       if (room.players) {
         if (Object.keys(room.players).length < 5) {
