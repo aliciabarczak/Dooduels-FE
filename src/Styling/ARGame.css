@@ -1,26 +1,10 @@
 .ARCanvas {
-    text-align: center;
+  
   }
-  
-  
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-  
-  .App-link {
-    color: #61dafb;
-  }
-  
+
   
   #Webcam {
-    position: absolute;
+    grid-area:canvas;
     margin-right: auto;
     margin-left: auto;
     left: 0;
@@ -33,7 +17,7 @@
   }
   
   canvas {
-    position: absolute;
+    grid-area: canvas;
     margin-right: auto;
     margin-left: auto;
     left: 0;
@@ -44,31 +28,21 @@
     height: 480;
   }
   
-  #coordinates-display {
-    background-color: yellow;
-    position: absolute;
-    right: 10%;
-    margin: auto;
-  }
-  
   #WebCam {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
   }
   
-  #canvas {
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-  }
+  
 
-  .gamepage {
-    padding-left: -150px;
-    padding-right: -150px;
-    display: grid;
+  .ARgamepage {
+    /* padding-left: -150px;
+    padding-right: -150px; */
+    /* display: grid;
     grid-template-areas:
       "seconds seconds"
       "canvas canvas"
-      "guess-box guess-box";
+      "guess-box guess-box"; */
   }
   
   .guess-box {
@@ -78,6 +52,7 @@
     padding: 2rem;
     width: 350px;
     margin: auto;
+    margin-top: 800px;
   }
   
   .guess-box form {
@@ -112,6 +87,8 @@
     padding-top: 5px;
     background-color: rgb(0, 102, 255);
     margin-bottom: 20px;
+    position: absolute;
+    left:0;
   }
   
   #players-display {
@@ -119,6 +96,7 @@
     border: 2px solid;
     border-radius: 10px;
     padding-top: 5px;
+    margin-left: 0;
   }
   
   #display--name {
@@ -153,12 +131,30 @@
     color: yellow;
   }
   
-  /* canvas {
-    margin-left: 50px;
-    border: solid black;
-    border-radius: 20px;
-    margin-bottom: 50px;
-  } */
+
+  video {
+    grid-area: canvas;
+    position: absolute;
+    top: 16em;
+  }
+  
+  
+  .ARCanvas {
+    grid-area: canvas;
+    
+    
+  }
+
+  #canvas1 {
+    grid-area: canvas;
+    position: absolute;
+    top: 16em;
+  }
+
+  #canvas2 {
+    position: absolute;
+    top: 16em;
+  }
   
   
   
