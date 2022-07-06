@@ -85,22 +85,22 @@ export default function ARCanvas({room_id, room}) {
       // secondContextRef.current = secondCanvasContext;
 
       if(loggedUser.user_id !== room.host.user_id) {
-        // onValue(roomCanvasRef, (snapshot) => {
-        //   const tracker = snapshot.val();
+        onValue(roomCanvasRef, (snapshot) => {
+          const tracker = snapshot.val();
           
   
-        //   if (tracker.x0 && tracker.y0) {
-        //     secondCanvasContext.beginPath();
-        //     secondCanvasContext.moveTo(tracker.x0, tracker.y0);
-        //     secondCanvasContext.lineTo(tracker.x1, tracker.y1);
-        //     secondCanvasContext.strokeStyle = tracker.color;
-        //     secondCanvasContext.lineWidth = tracker.lineWidth;
-        //     secondCanvasContext.lineJoin = "normal";
-        //     secondCanvasContext.stroke();
-        //     secondCanvasContext.closePath();
+          if (tracker.x0 && tracker.y0) {
+            secondCanvasContext.beginPath();
+            secondCanvasContext.moveTo(tracker.x0 * 2, tracker.y0 * 2);
+            secondCanvasContext.lineTo(tracker.x1  * 2, tracker.y1  * 2);
+            secondCanvasContext.strokeStyle = tracker.color;
+            secondCanvasContext.lineWidth = tracker.lineWidth;
+            secondCanvasContext.lineJoin = "normal";
+            secondCanvasContext.stroke();
+            secondCanvasContext.closePath();
   
-        //   }
-        // });
+          }
+        });
       }
     },[])
   
@@ -125,8 +125,10 @@ export default function ARCanvas({room_id, room}) {
         minDetectionConfidence: 0.9,
         minTrackingConfidence: 0.9
       });
-  
-      hands.onResults(handleResults)
+      if(loggedUser.user_id === room.host.user_id) {
+        hands.onResults(handleResults)
+      }
+      
   
       if (typeof webcamRef.current !== "undefined" && typeof webcamRef.current !== "null" && webcamRef.current.video !== "undefined" && webcamRef.current.video !== "null") {
         console.dir(webcamRef.current.video)
@@ -192,9 +194,9 @@ export default function ARCanvas({room_id, room}) {
           height: 720, 
           'WebkitTransform': 'scaleX(-1)',
           'transform': 'scaleX(-1)'}}
-        hidden={loggedUser.user_id === room.host.user_id ? false : true}
+        // hidden={loggedUser.user_id === room.host.user_id ? false : true}
             />
-            <canvas id="canvas" ref={canvasRef} style={{
+            <canvas id="canvas1" ref={canvasRef} style={{
           width: 1280, 
           height: 720, 
           zIndex: 1,
@@ -203,11 +205,12 @@ export default function ARCanvas({room_id, room}) {
           </>
       
           <canvas
+          id="canvas1"
           ref={secondCanvasRef}
           style={{
             width: 1280, 
             height: 720, 
-            
+            opacity: 0.9,
             'transform': 'scaleX(-1)'}}
         ></canvas>
       </div>
