@@ -13,29 +13,34 @@ import db from "../db/db";
 
 const Roompage = () => {
   const { loggedUser } = useContext(userContext);
-  const [ isLoading, setIsLoading ] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
   const roomID = location.pathname.split("/")[2];
   const [roompageRoom, setRoompageRoom] = useState({});
   const [readyButton, setReadyButton] = useState("Start");
   const [playerList, setPlayerList] = useState({});
+  const playersRef = ref(db, `rooms/${roomID}/players`);
 
   useEffect(() => {
     getRoomById(roomID).then((room) => {
       setRoompageRoom(room);
       window.localStorage.setItem("lastRoomId", roomID);
       setIsLoading(false);
-      const playersRef = ref(db, `rooms/${roomID}/players`);
+
       get(playersRef).then((snapshot) => {
         const players = snapshot.val();
         setPlayerList(players);
       });
-      onValue(playersRef, (snapshot) => {
-        setPlayerList(snapshot.val());
-      });
+
       if (loggedUser && loggedUser.user_id !== room.host.user_id) {
         addPlayerToRoom(loggedUser, roomID);
-      };
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    onValue(playersRef, (snapshot) => {
+      setPlayerList(snapshot.val());
     });
   }, []);
 

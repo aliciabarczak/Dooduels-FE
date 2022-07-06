@@ -16,8 +16,8 @@ export default function Homepage({ showPopUp, setShowPopUp }) {
     setLastRoomId(data);
     if (loggedUser) {
       removePlayerFromRoom(loggedUser.user_id, lastRoomId);
-    } ;
-  });
+    }
+  }, []);
 
   return (
     <div className="Homepage">

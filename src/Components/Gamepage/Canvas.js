@@ -11,9 +11,8 @@ export default function Canvas({ room_id, room }) {
   const secondContextRef = useRef(null);
   const secondCanvasRef = useRef(null);
   const roomCanvasRef = ref(db, `rooms/${room_id}/canvas`);
+  const clearCanvasRef = ref(db, `rooms/${room_id}/clearCanvas`);
   const { loggedUser } = useContext(userContext);
-
-  const [toggle, setToggle] = useState(true);
 
   const [lineWidth, setLineWidth] = useState(5);
   const [lineColor, setLineColor] = useState("black");
@@ -27,11 +26,20 @@ export default function Canvas({ room_id, room }) {
     lineWidth: lineWidth,
   };
 
+  // Initialize on mount
+  useEffect(() => {
+    set(clearCanvasRef, false);
+  }, []);
+
+  function sendCanvasToDb(data) {
+    set(roomCanvasRef, data);
+  }
+
   const [isDrawing, setIsDrawing] = useState(false);
 
   // Initialization for when the component mounts for the first time.
   useEffect(() => {
-    //get the 'current' property of the canvas element
+    //IF HOST DO THIS:
     if (loggedUser.user_name === room.host.user_name) {
       const canvas = canvasRef.current;
       const context = canvas.getContext("2d"); //declare 2d 'context' of the canvas
@@ -44,29 +52,36 @@ export default function Canvas({ room_id, room }) {
       context.strokeStyle = lineColor;
       context.lineWidth = lineWidth;
     } else {
+      // IF NOT HOST DO THIS:
       onValue(roomCanvasRef, (snapshot) => {
         const tracker = snapshot.val();
         const secondCanvas = secondCanvasRef.current;
         const secondCanvasContext = secondCanvas.getContext("2d");
         secondContextRef.current = secondCanvasContext;
 
-        if (tracker.x0 && tracker.y0) {
-          secondCanvasContext.beginPath();
-          secondCanvasContext.moveTo(tracker.x0, tracker.y0);
-          secondCanvasContext.lineTo(tracker.x1, tracker.y1);
-          secondCanvasContext.strokeStyle = tracker.color;
-          secondCanvasContext.lineWidth = tracker.lineWidth;
-          secondCanvasContext.lineJoin = "normal";
-          secondCanvasContext.stroke();
-          secondCanvasContext.closePath();
-
-          // secondContextRef.current.clearRect(
-          //   0,
-          //   0,
-          //   secondCanvasRef.current.width,
-          //   secondCanvasRef.current.height
-          // );
-        }
+        if (
+          onValue(clearCanvasRef, (snapshot) => {
+            const clearCanvasState = snapshot.val();
+            if (clearCanvasState === true) {
+              secondContextRef.current.clearRect(
+                0,
+                0,
+                secondCanvasRef.current.width,
+                secondCanvasRef.current.height
+              );
+            }
+          })
+        )
+          if (tracker.x0 && tracker.y0) {
+            secondCanvasContext.beginPath();
+            secondCanvasContext.moveTo(tracker.x0, tracker.y0);
+            secondCanvasContext.lineTo(tracker.x1, tracker.y1);
+            secondCanvasContext.strokeStyle = tracker.color;
+            secondCanvasContext.lineWidth = tracker.lineWidth;
+            secondCanvasContext.lineJoin = "normal";
+            secondCanvasContext.stroke();
+            secondCanvasContext.closePath();
+          }
       });
     }
 
@@ -87,10 +102,6 @@ export default function Canvas({ room_id, room }) {
   function finishDrawing() {
     contextRef.current.closePath();
     setIsDrawing(false);
-  }
-
-  function sendCanvasToDb(data) {
-    set(roomCanvasRef, data);
   }
 
   function draw({ nativeEvent }) {
@@ -120,9 +131,8 @@ export default function Canvas({ room_id, room }) {
       canvasRef.current.width,
       canvasRef.current.height
     );
-    setToggle((currBool) => {
-      return !currBool;
-    });
+
+    set(clearCanvasRef, true);
   }
 
   return (
