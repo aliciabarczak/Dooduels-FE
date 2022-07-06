@@ -11,13 +11,12 @@ import Chat from "./Chatrooms/Chat";
 
 const Roompage = () => {
   const { loggedUser } = useContext(userContext);
-  const [ isLoading, setIsLoading ] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
   const location = useLocation();
   const roomID = location.pathname.split("/")[2];
   const [roompageRoom, setRoompageRoom] = useState({});
   const [readyButton, setReadyButton] = useState("Start");
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getRoomById(roomID).then((room) => {
@@ -29,7 +28,6 @@ const Roompage = () => {
   if (isLoading) return <p>Loading...</p>;
 
   return (
-
     <section>
       {!Object.keys(loggedUser).length ? <LogInPopUpBox /> : null}
       <div className="Roompage">
