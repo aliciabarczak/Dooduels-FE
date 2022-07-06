@@ -36,9 +36,16 @@ const Roompage = () => {
 
         {loggedUser.user_id === roompageRoom.host.user_id ? (
           <div className="RoomPageButtons">
+            {
+            roompageRoom.mode === "h-AR-d" ? 
+            <Link to={`/games/ar/${roomID}`}>
+            <button className="ready-button">Start</button>
+            </Link>
+            :
             <Link to={`/games/${roomID}`}>
               <button className="ready-button">Start</button>
             </Link>
+            }
             <Link to="/">
               <button className="exit-button">Exit</button>
             </Link>
