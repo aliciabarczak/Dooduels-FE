@@ -106,12 +106,14 @@
 }
 
 canvas {
+  display: flex;
+  justify-content: center;
   margin-left: 50px;
   border: solid black;
   border-radius: 20px;
   margin-bottom: 50px;
-  max-width: 850px;
-  max-height: 750px;
+  /* max-width: 850px;
+  max-height: 750px; */
 }
 
 .Menu {
