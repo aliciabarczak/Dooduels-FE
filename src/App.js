@@ -11,6 +11,7 @@ import { getAllUsers } from "./db/utils.js";
 import Gamepage from "./Components/Gamepage/Gamepage.js";
 import LogInPopUpBox from "./Components/Homepage/LogInPopUpBox.jsx";
 import AddRoomBox from "./Components/Homepage/AddRoomBox.jsx";
+import ARGamepage from "./Components/Gamepage/ARGamepage.js";
 
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
@@ -47,6 +48,7 @@ function App() {
                 <Route path="/rooms/:room_id" element={<Roompage />} />
                 <Route path="/profile_pic" element={<ProfilePic />} />
                 <Route path="/games/:room_id" element={<Gamepage />} />
+                <Route path="/games/ar/:room_id" element={<ARGamepage />} />
               </Routes>
             </main>{" "}
           </>
