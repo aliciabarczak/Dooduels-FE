@@ -112,14 +112,11 @@ const GuessBox = ({ room_id, room }) => {
         setCurrWord(word);
         setInput("");
       });
-      
-      
-    };
+    }
   };
 
 
   return (
-  <>
     <section className="guess-box">
       {isHost ? (
         <p>{currWord}</p>
@@ -138,7 +135,7 @@ const GuessBox = ({ room_id, room }) => {
     { alertShowing ? <section className="alertMessage">
       <p>{alertMessage}</p>
     </section> : null}
-    
+
    </>
   );
 };

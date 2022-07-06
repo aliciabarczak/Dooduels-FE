@@ -3,59 +3,75 @@ import { useContext, useEffect, useRef, useState } from "react";
 import userContext from "../../contexts/userContext.js";
 import db from "../../db/db.js";
 import "../../Styling/Game-page.css";
+import CanvasMenu from "./CanvasMenu.jsx";
 
 export default function Canvas({ room_id, room }) {
   const canvasRef = useRef(null);
   const contextRef = useRef(null);
+  const secondContextRef = useRef(null);
   const secondCanvasRef = useRef(null);
   const roomCanvasRef = ref(db, `rooms/${room_id}/canvas`);
   const { loggedUser } = useContext(userContext);
 
-  let canvasFromDb;
-  let xyTracker = { x0: 0, y0: 0, x1: 0, y1: 0 };
+  const [toggle, setToggle] = useState(true);
+
+  const [lineWidth, setLineWidth] = useState(5);
+  const [lineColor, setLineColor] = useState("black");
+
+  let xyTracker = {
+    x0: 0,
+    y0: 0,
+    x1: 0,
+    y1: 0,
+    color: lineColor,
+    lineWidth: lineWidth,
+  };
 
   const [isDrawing, setIsDrawing] = useState(false);
 
+  // Initialization for when the component mounts for the first time.
   useEffect(() => {
     //get the 'current' property of the canvas element
     if (loggedUser.user_name === room.host.user_name) {
       const canvas = canvasRef.current;
+      const context = canvas.getContext("2d"); //declare 2d 'context' of the canvas
 
-      //declare various properties of the canvas 'current'
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight * 1.22;
-      canvas.style.width = `${window.innerWidth / 2}px`;
-      canvas.style.height = `600px`;
-
-      //declare 2d 'context' of the canvas
-      const context = canvas.getContext("2d");
       contextRef.current = context;
 
       //declare various properties of the 2d context
       context.lineCap = "round";
-      context.strokeStyle = "black";
-      context.lineWidth = 5;
-      context.scale(2, 2);
+      context.lineJoin = "normal";
+      context.strokeStyle = lineColor;
+      context.lineWidth = lineWidth;
     } else {
       onValue(roomCanvasRef, (snapshot) => {
         const tracker = snapshot.val();
         const secondCanvas = secondCanvasRef.current;
         const secondCanvasContext = secondCanvas.getContext("2d");
+        secondContextRef.current = secondCanvasContext;
 
         if (tracker.x0 && tracker.y0) {
           secondCanvasContext.beginPath();
           secondCanvasContext.moveTo(tracker.x0, tracker.y0);
           secondCanvasContext.lineTo(tracker.x1, tracker.y1);
-          secondCanvasContext.strokeStyle = "black";
-          secondCanvasContext.lineWidth = 2;
+          secondCanvasContext.strokeStyle = tracker.color;
+          secondCanvasContext.lineWidth = tracker.lineWidth;
+          secondCanvasContext.lineJoin = "normal";
           secondCanvasContext.stroke();
           secondCanvasContext.closePath();
+
+          // secondContextRef.current.clearRect(
+          //   0,
+          //   0,
+          //   secondCanvasRef.current.width,
+          //   secondCanvasRef.current.height
+          // );
         }
       });
     }
 
     //declare listener for changes in db/<this room>/canvas
-  }, [loggedUser]);
+  }, [loggedUser, lineColor, lineWidth]);
 
   function startDrawing({ nativeEvent }) {
     const { offsetX, offsetY } = nativeEvent;
@@ -78,9 +94,8 @@ export default function Canvas({ room_id, room }) {
   }
 
   function draw({ nativeEvent }) {
-    if (!isDrawing) {
-      return;
-    }
+    if (!isDrawing) return;
+
     const { offsetX, offsetY } = nativeEvent;
     contextRef.current.lineTo(offsetX, offsetY);
     contextRef.current.stroke();
@@ -98,18 +113,45 @@ export default function Canvas({ room_id, room }) {
     console.log("change detected");
   }
 
+  function clearCanvas() {
+    contextRef.current.clearRect(
+      0,
+      0,
+      canvasRef.current.width,
+      canvasRef.current.height
+    );
+    setToggle((currBool) => {
+      return !currBool;
+    });
+  }
+
   return (
     <>
       {loggedUser.user_id === room.host.user_id ? (
-        <canvas
-          id="canvas"
-          onMouseDown={startDrawing}
-          onMouseUp={finishDrawing}
-          onMouseMove={draw}
-          ref={canvasRef}
-          onChange={handleChange}></canvas>
+        <section>
+          <CanvasMenu
+            setLineColor={setLineColor}
+            setLineWidth={setLineWidth}
+            lineWidth={lineWidth}
+            clearCanvas={clearCanvas}
+          />
+          <canvas
+            id="canvas"
+            onMouseDown={startDrawing}
+            onMouseUp={finishDrawing}
+            onMouseMove={draw}
+            ref={canvasRef}
+            onChange={handleChange}
+            width={`1280px`}
+            height={`720px`}
+          ></canvas>
+        </section>
       ) : (
-        <canvas ref={secondCanvasRef}></canvas>
+        <canvas
+          ref={secondCanvasRef}
+          width={`1280px`}
+          height={`720px`}
+        ></canvas>
       )}
     </>
   );
