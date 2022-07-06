@@ -22,6 +22,8 @@ export default function Chat({ roomID }) {
       let allMessages = snapshot.val();
       let messagesArray = [];
       for (let message in allMessages) {
+        let message_id = message;
+        allMessages[message].message_id = message_id;
         messagesArray.push(allMessages[message]);
       }
       setMessages(messagesArray);
@@ -34,10 +36,13 @@ export default function Chat({ roomID }) {
       <section id="chat-window" ref={chatWindow}>
         <ul>
           {messages.length
-            ? messages.map((msg) => {
+            ? messages.map((msg, index) => {
                 return (
-                  <li key="index">
-                    {msg.sender}: {msg.message}
+                  <li
+                    key={msg.message_id}
+                    className={index % 2 === 0 ? "lightInput" : "darkInput"}>
+                    <span id="msgSender">{msg.sender} :</span>
+                    <span id="msg">{msg.message}</span>
                   </li>
                 );
               })
@@ -51,7 +56,9 @@ export default function Chat({ roomID }) {
         onChange={(event) => {
           setMessageText(event.target.value);
         }}></input>
-      <button className="chatBttn" onClick={handleMessage}>SEND</button>
+      <button className="chatBttn" onClick={handleMessage}>
+        SEND
+      </button>
       <div></div>
     </div>
   );

@@ -1,5 +1,4 @@
 import "./../../Styling/Homepage.css";
-import AddRoomBox from "./AddRoomBox";
 import { useContext } from "react";
 import userContext from "../../contexts/userContext.js";
 
@@ -29,9 +28,6 @@ const Options = ({ showPopUp, setShowPopUp, searchTerm, setSearchTerm }) => {
           </label>
         </form>
       </div>
-      {showPopUp ? (
-        <AddRoomBox showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
-      ) : null}
     </>
   );
 };

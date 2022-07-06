@@ -4,9 +4,6 @@ main {
   padding-left: 2rem;
   padding-right: 2rem;
 }
-.blackOutApp {
-  z-index: 1;
-}
 
 body {
   font-family: "Bebas Neue", cursive;
@@ -34,10 +31,6 @@ img {
   text-decoration: none;
   border: 1px solid;
   padding: 0.5rem;
-}
-
-.blackOutApp button {
-  filter: brightness(20%);
 }
 
 .blackOutApp .submitBtn {
@@ -77,9 +70,11 @@ section.Room {
 
 .enterButton,
 .deleteButton,
+.OpenRoomsDisabledButton,
 .disabledButton,
 .showButton,
 .addButton,
+.OpenRoomsDeleteButton,
 .button {
   border: solid;
   padding: 0.5rem;
@@ -92,6 +87,8 @@ section.Room {
 }
 
 .disabledButton,
+.OpenRoomsDeleteButton,
+.OpenRoomsDisabledButton,
 .hostButton,
 .enterButton span {
   color: black;
@@ -126,6 +123,8 @@ section.Room {
 }
 
 .disabledButton,
+.OpenRoomsDeleteButton,
+.OpenRoomsDisabledButton,
 .addButton span {
   font-family: "Bebas Neue", cursive;
   font-size: 25px;
@@ -231,15 +230,25 @@ form {
   height: 500px;
   width: 400px;
   border: solid;
-  margin-top: -390px;
-  margin-left: 430px;
+  margin-left: 500px;
+  margin-top: 200px;
   z-index: 9;
   position: fixed;
   background-color: rgb(255, 0, 111);
 }
 
+.AddRoomBox h2 {
+  padding: 0.01rem;
+  margin-left: 120px;
+}
+
 form.dropdown {
   font-size: 35px;
+  align-items: center;
+}
+
+div.RoomName {
+  align-items: center;
 }
 
 select.dropDownMenu {
@@ -332,6 +341,7 @@ input {
   font-weight: 400;
 }
 
+.OpenRoomsDisabledButton,
 .disabledButton {
   border: solid black;
   background-color: rgb(220, 220, 220);
@@ -421,6 +431,18 @@ img.home-profile-pic {
   margin-right: 50px;
 }
 
+.blackOutApp {
+  filter: brightness(20%);
+}
+
+.blackOutApp main {
+  background-color: rgb(255, 0, 111);
+}
+
+.blackOutApp header {
+  background-color: rgb(255, 0, 111);
+}
+
 .blackOutApp,
 img {
   z-index: 1;
@@ -440,18 +462,6 @@ img {
   padding: 0.5rem;
 }
 
-.blackOutApp button {
-  filter: brightness(20%);
-}
-
-.blackOutApp .submitBtn {
-  filter: brightness(100%);
-}
-
-.blackOutApp .login-submit-button {
-  filter: brightness(100%);
-}
-
-.blackOutApp .header {
-  filter: brightness(100%);
+#chat-window {
+  height: 250px;
 }
