@@ -51,6 +51,7 @@ function App() {
                 <Route path="/games/ar/:room_id" element={<ARGamepage />} />
               </Routes>
             </main>{" "}
+            
           </>
         )}
       </div>
