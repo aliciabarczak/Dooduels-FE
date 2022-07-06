@@ -12,7 +12,8 @@ export default function Gamepage() {
   const { room_id } = useParams();
   const [room, setRoom] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [playersRoom, setPlayersRoom] = useState();
+  const [playersRoom, setPlayersRoom] = useState()
+  const [roomHost, setRoomHost] = useState()
 
   function formatTime(time) {
     const minutes = Math.floor(time / 60);
@@ -61,31 +62,30 @@ export default function Gamepage() {
     onValue(playersRef, (snapshot) => {
       setPlayersRoom(snapshot.val());
     });
+
   }, []);
+
+  useEffect(()=>{
+    const hostPointsRef = ref(db, `rooms/${room_id}/host/points`)
+    set(hostPointsRef, 0)
+
+    const hostRef = ref(db, `rooms/${room_id}/host`)
+    get(hostRef).then(snapshot => {
+      const thisHost = snapshot.val()
+      console.log(thisHost)
+      setRoomHost(thisHost)
+    })
+    onValue(hostRef, (snapshot) => {
+      console.log("change detected in host on db")
+      setRoomHost(snapshot.val())
+    })
+  },[])
 
   if (isLoading) return <p>Loading...</p>;
 
   return (
     <>
       <div className="gamepage">
-        <div className="base-timer">
-          <svg
-            className="base-timer__svg"
-            viewBox="0 0 100 100"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g className="base-timer__circle">
-              <circle
-                className="base-timer__path-elapsed"
-                cx="50"
-                cy="50"
-                r="45"
-              />
-            </g>
-          </svg>
-          <span id="timer">{formatTime(timeLeft)}</span>
-        </div>
-        <h1>This will be a game page</h1>
         {typeof room === "object" ? (
           <section id="game-page">
             <GameDisplay host={room.host} playersRoom={playersRoom} />
