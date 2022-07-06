@@ -461,3 +461,7 @@ img {
   border: 1px solid;
   padding: 0.5rem;
 }
+
+#chat-window {
+  height: 250px;
+}

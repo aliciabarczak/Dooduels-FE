@@ -36,10 +36,13 @@ export default function Chat({ roomID }) {
       <section id="chat-window" ref={chatWindow}>
         <ul>
           {messages.length
-            ? messages.map((msg) => {
+            ? messages.map((msg, index) => {
                 return (
-                  <li key={msg.message_id}>
-                    {msg.sender}: {msg.message}
+                  <li
+                    key={msg.message_id}
+                    className={index % 2 === 0 ? "lightInput" : "darkInput"}>
+                    <span id="msgSender">{msg.sender} :</span>
+                    <span id="msg">{msg.message}</span>
                   </li>
                 );
               })
@@ -52,8 +55,7 @@ export default function Chat({ roomID }) {
         type="text"
         onChange={(event) => {
           setMessageText(event.target.value);
-        }}
-      ></input>
+        }}></input>
       <button className="chatBttn" onClick={handleMessage}>
         SEND
       </button>
