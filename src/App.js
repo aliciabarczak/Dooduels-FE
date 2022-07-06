@@ -10,6 +10,7 @@ import ProfilePic from "./Components/UserPage/ProfilePic.jsx";
 import { getAllUsers } from "./db/utils.js";
 import Gamepage from "./Components/Gamepage/Gamepage.js";
 import LogInPopUpBox from "./Components/Homepage/LogInPopUpBox.jsx";
+import AddRoomBox from "./Components/Homepage/AddRoomBox.jsx";
 
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
@@ -22,6 +23,9 @@ function App() {
   return (
     <userContext.Provider
       value={{ loggedUser, setLoggedUser, users, showPopUp, setShowPopUp }}>
+      {showPopUp ? (
+        <AddRoomBox showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
+      ) : null}
       <div className={showPopUp || loggedUser === "" ? "blackOutApp" : "App"}>
         {!loggedUser ? (
           <LogInPopUpBox />

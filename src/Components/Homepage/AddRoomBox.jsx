@@ -12,10 +12,9 @@ export default function AddRoomBox({ showPopUp, setShowPopUp }) {
   const handleSubmit = () => {
     addRoom(loggedUser, newRoomName, newRoomMode);
   };
-  console.log(loggedUser, newRoomName, newRoomMode);
 
   return (
-    <div className="AddRoomBox">
+    <div className="AddRoomBox" id={showPopUp ? "blackAddRoomBox" : null}>
       <h2>Add Room</h2>
       <form className="dropdown" onSubmit={handleSubmit}>
         <label>Select Mode:</label>
@@ -24,8 +23,7 @@ export default function AddRoomBox({ showPopUp, setShowPopUp }) {
           value={newRoomMode}
           onChange={(event) => {
             setNewRoomMode(event.target.value);
-          }}
-        >
+          }}>
           <option value="Easy">Easy</option>
           <option value="Medium"> Medium</option>
           <option value="Hard">Hard</option>
