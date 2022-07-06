@@ -99,10 +99,6 @@ section.Room {
   color: white;
 }
 
-.enterButton span {
-  color: white;
-}
-
 .hostButton {
   border-radius: 15px;
   background-color: rgb(255, 0, 111);
@@ -120,6 +116,7 @@ section.Room {
   border: solid black;
   border-radius: 15px;
   padding: 1rem;
+  font-size: 25px;
 }
 
 .disabledButton,

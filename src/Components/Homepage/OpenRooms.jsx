@@ -5,8 +5,21 @@ import userContext from "../../contexts/userContext.js";
 import { deleteRoom } from "../../db/utils.js";
 import Options from "./Options.jsx";
 
-export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
+export default function OpenRooms({
+  rooms,
+  showPopUp,
+  setShowPopUp,
+  setRooms,
+}) {
   const { loggedUser } = useContext(userContext);
+  const handleDelete = (room, index) => {
+    deleteRoom(room.room_id);
+    // setRooms((currRooms) => {
+    //   const newRooms = [...currRooms];
+    //   newRooms.splice(index, 1);
+    //   return newRooms;
+    // });
+  };
 
   return loggedUser.user_id && rooms ? (
     <>
@@ -18,8 +31,7 @@ export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
             return (
               <section
                 key={index}
-                className={index % 2 === 1 ? "Room dark" : "Room"}
-              >
+                className={index % 2 === 1 ? "Room dark" : "Room"}>
                 <div className="roomInfo">
                   <li>{room.room_name}</li>
                   <p className="mode">{room.mode}</p>
@@ -40,10 +52,9 @@ export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
                         }
                         onClick={
                           room.players.length === 0
-                            ? () => deleteRoom(room.room_id)
+                            ? handleDelete(room, index)
                             : null
-                        }
-                      >
+                        }>
                         <span>delete</span>
                       </button>
                     ) : (
