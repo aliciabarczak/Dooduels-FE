@@ -98,3 +98,23 @@ canvas {
   border-radius: 20px;
   margin-bottom: 50px;
 }
+
+.timer p {
+  border: solid black;
+  background-color: rgb(248, 84, 245);
+  border-radius: 50%;
+  width:120px;
+  height: 100px;
+  font-size: 70px;
+  padding-top: 18px;
+  margin: auto;
+  margin-top: 1em;
+}
+
+.alertMessage {
+  background-color: yellow;
+  border: 2px solid;
+  border-radius: 10px;
+  padding-top: 5px;
+  font-size: 40px;
+}
