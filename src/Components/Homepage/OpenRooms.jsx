@@ -6,7 +6,6 @@ import userContext from "../../contexts/userContext.js";
 import db from "../../db/db.js";
 import { deleteRoom } from "../../db/utils.js";
 import Options from "./Options.jsx";
-import { useEffect } from "react";
 
 export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
   const { loggedUser } = useContext(userContext);
