@@ -1,7 +1,9 @@
-import { useContext } from "react";
+import { get, onValue, ref } from "firebase/database";
+import { useContext, useEffect, useState } from "react";
 import { BsPeopleFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import userContext from "../../contexts/userContext.js";
+import db from "../../db/db.js";
 import { deleteRoom } from "../../db/utils.js";
 import Options from "./Options.jsx";
 
@@ -38,11 +40,11 @@ export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
                             ? "OpenRoomsDeleteButton"
                             : "OpenRoomsDisabledButton"
                         }
-                        onClick={
-                          room.players.length === 0
-                            ? () => deleteRoom(room.room_id)
-                            : null
-                        }
+                        onClick={() => {
+                          return room.players.length === 0
+                            ? deleteRoom(room.room_id)
+                            : null;
+                        }}
                       >
                         <span>delete</span>
                       </button>

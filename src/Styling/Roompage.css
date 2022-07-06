@@ -4,6 +4,7 @@
 }
 
 .ready-button,
+.waitForHost-button,
 .exit-button {
   border: solid black;
   width: 150px;
@@ -13,6 +14,7 @@
   border-radius: 15px;
   text-shadow: -1px 1px 0 #000, 1px 2px 0 #000, 1px -1px 0 #000,
     -1px -1px 0 #000;
+  height: 90px;
 }
 
 .ready-button {
@@ -21,6 +23,10 @@
 
 .exit-button {
   background-color: red;
+}
+
+.waitForHost-button {
+  background-color: orange;
 }
 
 .chat {
@@ -103,6 +109,8 @@ div.RoomPageButtons button {
 div.RoomPageButtons {
   margin-top: 50px;
   margin-bottom: 50px;
+  display: flex;
+  align-items: center;
 }
 
 .disabledButton {
@@ -125,7 +133,8 @@ div.chat {
 
 section #chat-window li {
   list-style: none;
-  margin-left: -280px;
+  width: 410px;
+  margin-left: -40px;
   font-size: 20px;
 }
 
@@ -147,5 +156,12 @@ section #chat-window li {
 }
 #msg {
   color: rgb(47, 47, 47);
+
   margin-left: 10px;
+}
+
+section #chat-window li {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 35px;
 }

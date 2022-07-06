@@ -227,8 +227,9 @@ export function addRoom(host, room_name, mode) {
           players: [],
           full: false,
           mode,
-          currentWord: wordsArray[Math.floor(Math.random() * wordsArray.length)],
-          words: wordsArray
+          currentWord:
+            wordsArray[Math.floor(Math.random() * wordsArray.length)],
+          words: wordsArray,
         });
       }
     }

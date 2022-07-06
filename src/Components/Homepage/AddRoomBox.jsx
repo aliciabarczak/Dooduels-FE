@@ -1,6 +1,6 @@
 import "./../../Styling/Homepage.css";
 import { AiOutlineClose } from "react-icons/ai";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import userContext from "../../contexts/userContext";
 import { addRoom } from "./../../db/utils.js";
 
@@ -12,6 +12,9 @@ export default function AddRoomBox({ showPopUp, setShowPopUp }) {
   const handleSubmit = () => {
     addRoom(loggedUser, newRoomName, newRoomMode);
   };
+
+  console.log(newRoomName, "<<roomName");
+  console.log(newRoomMode, "<<roomMode");
 
   return (
     <div className="AddRoomBox" id={showPopUp ? "blackAddRoomBox" : null}>

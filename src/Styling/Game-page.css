@@ -1,20 +1,34 @@
 .gamepage {
-  padding-left: -150px;
-  padding-right: -150px;
+  width: fit-content;
   display: grid;
   grid-template-areas:
+    "guess-box guess-box"
     "seconds seconds"
-    "canvas canvas"
-    "guess-box guess-box";
+    "canvas canvas";
 }
 
 .guess-box {
+  display: flex;
   grid-area: guess-box;
   background-color: yellow;
   border-radius: 20px;
-  padding: 2rem;
-  width: 350px;
+  width: 50vw;
   margin: auto;
+  font-size: 50px;
+  margin-left: 16%;
+  margin-bottom: 40px;
+  align-items: baseline;
+  justify-content: center;
+  height: 160px;
+}
+
+.timer {
+  margin-left: 20%;
+  margin-top: -8%;
+}
+
+.guess-box p {
+  font-size: 50px;
 }
 
 .guess-box form {
@@ -41,6 +55,7 @@
   width: 200px;
   margin-left: -155px;
   font-size: 25px;
+  list-style: none;
 }
 
 #host-display {
@@ -95,9 +110,9 @@ canvas {
   border: solid black;
   border-radius: 20px;
   margin-bottom: 50px;
+  max-width: 850px;
+  max-height: 750px;
 }
-
-
 
 .Menu {
   width: 650px;
@@ -115,7 +130,7 @@ canvas {
   border: solid black;
   background-color: rgb(248, 84, 245);
   border-radius: 50%;
-  width:120px;
+  width: 120px;
   height: 100px;
   font-size: 70px;
   padding-top: 18px;
@@ -124,10 +139,27 @@ canvas {
 }
 
 .alertMessage {
-  background-color: yellow;
-  border: 2px solid;
-  border-radius: 10px;
-  padding-top: 5px;
   font-size: 40px;
+  position: absolute;
+  margin-left: 12%;
+  height: fit-content;
+  padding: 2rem;
+  width: 40vw;
+  height: 100px;
+  background-color: rgb(255, 0, 0);
+  border-radius: 20px;
+  border: solid white;
+  color: white;
+}
 
+.Menu {
+  margin-bottom: 20px;
+}
+
+#hide {
+  background-color: inherit;
+  color: rgb(255, 0, 111);
+  border: rgb(255, 0, 111);
+  background-color: rgb(255, 0, 111);
+  border: none;
 }

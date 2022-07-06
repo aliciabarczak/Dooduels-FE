@@ -44,7 +44,7 @@ img {
 .blackOutApp,
 .App {
   background-color: rgb(255, 0, 111);
-  height: 255vh;
+  height: 225vh;
 }
 
 .blackOutApp,
@@ -99,10 +99,6 @@ section.Room {
   color: white;
 }
 
-.enterButton span {
-  color: white;
-}
-
 .hostButton {
   border-radius: 15px;
   background-color: rgb(255, 0, 111);
@@ -120,6 +116,7 @@ section.Room {
   border: solid black;
   border-radius: 15px;
   padding: 1rem;
+  font-size: 25px;
 }
 
 .disabledButton,
@@ -191,6 +188,7 @@ ul.RoomList {
   color: red;
   height: 300px;
   width: 300px;
+  margin-bottom: 100px;
 }
 
 .RoomName,
@@ -286,7 +284,7 @@ label.login-label {
 }
 
 h2 {
-  font-size: 50px;
+  font-size: 60px;
   color: yellow;
   margin: 1rem;
   margin-top: 50px;
@@ -334,7 +332,8 @@ input {
 
 .BriefIns {
   margin-top: -10px;
-  font-size: 35px;
+  margin-bottom: 5px;
+  font-size: 45px;
   color: yellow;
   text-shadow: -1px 1px 0 #000, 1px 3px 0 #000, 1px -1px 0 #000,
     -1px -1px 0 #000;
@@ -359,7 +358,8 @@ button {
   background-color: #0040ff;
   color: rgb(255, 244, 87);
   font-size: 35px;
-  margin-top: 32px;
+  margin-top: 62px;
+  margin-bottom: 62px;
   font-weight: 500;
 }
 
