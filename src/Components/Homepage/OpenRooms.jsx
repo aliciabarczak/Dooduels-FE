@@ -7,8 +7,7 @@ import Options from "./Options.jsx";
 
 export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
   const { loggedUser } = useContext(userContext);
-  console.log(loggedUser);
-  console.log(rooms);
+
   return loggedUser.user_id && rooms ? (
     <>
       <h2 className="OpenRooms">Open Rooms</h2>
@@ -19,7 +18,8 @@ export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
             return (
               <section
                 key={index}
-                className={index % 2 === 1 ? "Room dark" : "Room"}>
+                className={index % 2 === 1 ? "Room dark" : "Room"}
+              >
                 <div className="roomInfo">
                   <li>{room.room_name}</li>
                   <p className="mode">{room.mode}</p>
@@ -42,7 +42,8 @@ export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
                           room.players.length === 0
                             ? () => deleteRoom(room.room_id)
                             : null
-                        }>
+                        }
+                      >
                         <span>delete</span>
                       </button>
                     ) : (
