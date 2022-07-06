@@ -33,10 +33,6 @@ img {
   padding: 0.5rem;
 }
 
-.blackOutApp button {
-  filter: brightness(20%);
-}
-
 .blackOutApp .submitBtn {
   filter: brightness(100%);
 }
@@ -74,9 +70,11 @@ section.Room {
 
 .enterButton,
 .deleteButton,
+.OpenRoomsDisabledButton,
 .disabledButton,
 .showButton,
 .addButton,
+.OpenRoomsDeleteButton,
 .button {
   border: solid;
   padding: 0.5rem;
@@ -89,6 +87,8 @@ section.Room {
 }
 
 .disabledButton,
+.OpenRoomsDeleteButton,
+.OpenRoomsDisabledButton,
 .hostButton,
 .enterButton span {
   color: black;
@@ -123,6 +123,8 @@ section.Room {
 }
 
 .disabledButton,
+.OpenRoomsDeleteButton,
+.OpenRoomsDisabledButton,
 .addButton span {
   font-family: "Bebas Neue", cursive;
   font-size: 25px;
@@ -339,6 +341,7 @@ input {
   font-weight: 400;
 }
 
+.OpenRoomsDisabledButton,
 .disabledButton {
   border: solid black;
   background-color: rgb(220, 220, 220);

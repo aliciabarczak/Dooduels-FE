@@ -1,5 +1,4 @@
 import "./../../Styling/Homepage.css";
-
 import { useContext } from "react";
 import userContext from "../../contexts/userContext.js";
 

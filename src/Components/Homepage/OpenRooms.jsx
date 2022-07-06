@@ -35,8 +35,8 @@ export default function OpenRooms({ rooms, showPopUp, setShowPopUp }) {
                       <button
                         className={
                           room.players.length === 0
-                            ? "deleteButton"
-                            : "disabledButton"
+                            ? "OpenRoomsDeleteButton"
+                            : "OpenRoomsDisabledButton"
                         }
                         onClick={
                           room.players.length === 0
