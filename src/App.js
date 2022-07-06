@@ -15,6 +15,7 @@ import AddRoomBox from "./Components/Homepage/AddRoomBox.jsx";
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
   const [loggedUser, setLoggedUser] = useState("");
+  const [lastRoomId, setLastRoomId] = useState("");
   const [users, setUsers] = useState([]);
   useEffect(() => {
     getAllUsers(setUsers);
@@ -22,7 +23,7 @@ function App() {
 
   return (
     <userContext.Provider
-      value={{ loggedUser, setLoggedUser, users, showPopUp, setShowPopUp }}>
+      value={{ loggedUser, setLoggedUser, users, showPopUp, setShowPopUp, lastRoomId, setLastRoomId }}>
       {showPopUp ? (
         <AddRoomBox showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
       ) : null}
