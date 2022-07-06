@@ -2,6 +2,7 @@
   text-align: center;
   padding-left: 200px;
   padding-right: 200px;
+  padding-bottom: 100px;
 }
 
 .HeaderBackout,
@@ -57,7 +58,7 @@
   padding-top: 0px;
   margin-bottom: 1rem;
   overflow-y: scroll;
-  height: 250px;
+  height: 350px;
   width: 400px;
   margin: auto;
   margin-bottom: 50px;
@@ -252,4 +253,8 @@ button.button {
 
 section.user-friend-section {
   width: 550px;
+}
+
+.bottomBorder {
+  margin-top: 19.5%;
 }

@@ -133,7 +133,8 @@ div.chat {
 
 section #chat-window li {
   list-style: none;
-  margin-left: -280px;
+  width: 410px;
+  margin-left: -40px;
   font-size: 20px;
 }
 
@@ -155,5 +156,12 @@ section #chat-window li {
 }
 #msg {
   color: rgb(47, 47, 47);
+
   margin-left: 10px;
+}
+
+section #chat-window li {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 35px;
 }
