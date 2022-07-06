@@ -138,24 +138,25 @@ export default function Canvas({ room_id, room }) {
   return (
     <>
       {loggedUser.user_id === room.host.user_id ? (
-        <section>
-          <CanvasMenu
-            setLineColor={setLineColor}
-            setLineWidth={setLineWidth}
-            lineWidth={lineWidth}
-            clearCanvas={clearCanvas}
-          />
-          <canvas
-            id="canvas"
-            onMouseDown={startDrawing}
-            onMouseUp={finishDrawing}
-            onMouseMove={draw}
-            ref={canvasRef}
-            onChange={handleChange}
-            width={`1280px`}
-            height={`720px`}
-          ></canvas>
-        </section>
+       <section>
+        <CanvasMenu
+          setLineColor={setLineColor}
+          setLineWidth={setLineWidth}
+          lineWidth={lineWidth}
+          clearCanvas={clearCanvas}
+        />
+        <canvas
+          id="canvas"
+          onMouseDown={startDrawing}
+          onMouseUp={finishDrawing}
+          onMouseMove={draw}
+          ref={canvasRef}
+          onChange={handleChange}
+          width={`1280px`}
+          height={`720px`}
+        ></canvas>
+      </section>
+        
       ) : (
         <canvas
           ref={secondCanvasRef}

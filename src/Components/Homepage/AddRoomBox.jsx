@@ -26,11 +26,9 @@ export default function AddRoomBox({ showPopUp, setShowPopUp }) {
           value={newRoomMode}
           onChange={(event) => {
             setNewRoomMode(event.target.value);
-          }}
-        >
-          <option value="Easy">Easy</option>
-          <option value="Medium"> Medium</option>
-          <option value="Hard">Hard</option>
+          }}>
+          <option value="normal">normal</option>
+          <option value="h-AR-d">h-AR-d</option>
         </select>
         <div className="RoomName">
           <label> Room name</label>

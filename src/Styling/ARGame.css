@@ -1,0 +1,192 @@
+.ARCanvas {
+  
+  }
+
+  
+  #Webcam {
+    grid-area:canvas;
+    margin-right: auto;
+    margin-left: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 1;
+    width: 640;
+    height: 480;
+    opacity: 0.2;
+  }
+  
+  canvas {
+    grid-area: canvas;
+    margin-right: auto;
+    margin-left: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 0;
+    width: 640;
+    height: 480;
+  }
+  
+  #WebCam {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+  
+  
+
+  .ARgamepage {
+    /* padding-left: -150px;
+    padding-right: -150px; */
+    /* display: grid;
+    grid-template-areas:
+      "seconds seconds"
+      "canvas canvas"
+      "guess-box guess-box"; */
+  }
+  
+  .guess-box {
+    grid-area: guess-box;
+    background-color: yellow;
+    border-radius: 20px;
+    padding: 2rem;
+    width: 350px;
+    margin: auto;
+    margin-top: 800px;
+  }
+  
+  .guess-box form {
+    font-size: 35px;
+  }
+  
+  .guess-box form input {
+    font-size: 25px;
+    border: solid black;
+    border-radius: 20px;
+  }
+  
+  .guess-box form button {
+    font-size: 20px;
+    padding: 0.5rem;
+    margin-left: 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
+  
+  #game-display {
+    position: absolute;
+    padding-top: none;
+    width: 200px;
+    margin-left: -155px;
+    font-size: 25px;
+  }
+  
+  #host-display {
+    border: 2px solid;
+    border-radius: 10px;
+    padding-top: 5px;
+    background-color: rgb(0, 102, 255);
+    margin-bottom: 20px;
+    position: absolute;
+    left:0;
+  }
+  
+  #players-display {
+    background-color: yellow;
+    border: 2px solid;
+    border-radius: 10px;
+    padding-top: 5px;
+    margin-left: 0;
+  }
+  
+  #display--name {
+    color: white;
+    margin: 0;
+    text-shadow: -1px 1px 0 #000, 1px 2px 0 #000, 1px -1px 0 #000,
+      -1px -1px 0 #000;
+  }
+  
+  #display--points {
+    color: white;
+    text-shadow: -1px 1px 0 #000, 1px 2px 0 #000, 1px -1px 0 #000,
+      -1px -1px 0 #000;
+  }
+  
+  #players-display {
+    background-color: rgb(106, 181, 2);
+  }
+  
+  #display--name {
+    color: white;
+  }
+  
+  #display--points {
+    color: white;
+  }
+  
+  .seconds {
+    color: white;
+    grid-area: seconds;
+    font-size: 50px;
+    color: yellow;
+  }
+  
+
+  video {
+    grid-area: canvas;
+    position: absolute;
+    top: 16em;
+  }
+  
+  
+  .ARCanvas {
+    grid-area: canvas;
+    
+    
+  }
+
+  #canvas1 {
+    grid-area: canvas;
+    position: absolute;
+    top: 16em;
+  }
+
+  #canvas2 {
+    position: absolute;
+    top: 16em;
+  }
+  
+  
+  
+  .Menu {
+    width: 650px;
+    height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    align-items: center;
+    background-color: #ffffff;
+    margin: auto;
+    margin-top: 10px;
+  }
+  
+  .timer p {
+    border: solid black;
+    background-color: rgb(248, 84, 245);
+    border-radius: 50%;
+    width:120px;
+    height: 100px;
+    font-size: 70px;
+    padding-top: 18px;
+    margin: auto;
+    margin-top: 1em;
+  }
+  
+  .alertMessage {
+    background-color: yellow;
+    border: 2px solid;
+    border-radius: 10px;
+    padding-top: 5px;
+    font-size: 40px;
+  
+  }
