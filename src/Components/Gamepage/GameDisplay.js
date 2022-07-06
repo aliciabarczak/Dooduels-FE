@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../../Styling/Game-page.css";
-export default function GameDisplay({ roomHost, playersRoom }) {
+export default function GameDisplay({ roomHost, playersRoom, hostPoints}) {
   const playersArray = [];
   for (let player in playersRoom) {
     playersArray.push(playersRoom[player]);
@@ -12,7 +12,7 @@ export default function GameDisplay({ roomHost, playersRoom }) {
       
       <div id="host-display">
         <p id="display--name">{roomHost.user_name}</p>
-        <p id="display--points">{roomHost.points}</p>
+        <p id="display--points">{hostPoints}</p>
       </div>
 
       <div id="players-display">
