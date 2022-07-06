@@ -53,23 +53,23 @@ const Roompage = () => {
         <h1 className="roomTitle">{roompageRoom.room_name}</h1>
         <p className="modeRoompage">mode: {roompageRoom.mode}</p>
 
-        {loggedUser.user_id === roompageRoom.host.user_id ? (
-          <div className="RoomPageButtons">
-            <Link to={`/games/${roomID}`}>
-              <button className="ready-button">Start</button>
-            </Link>
-            <Link to="/">
-              <button className="exit-button">Exit</button>
-            </Link>
-          </div>
-        ) : (
+        {/* {loggedUser.user_id === roompageRoom.host.user_id ? ( */}
+        <div className="RoomPageButtons">
+          <Link to={`/games/${roomID}`}>
+            <button className="ready-button">Start</button>
+          </Link>
+          <Link to="/">
+            <button className="exit-button">Exit</button>
+          </Link>
+        </div>
+        {/* ) : (
           <div className="RoomPageButtons">
             <button className="waitForHost-button">Waiting for host...</button>
             <Link to="/">
               <button className="exit-button">Exit</button>
             </Link>{" "}
           </div>
-        )}
+        )} */}
 
         {Object.keys(roompageRoom).length ? (
           <Playerboard roompageRoom={roompageRoom} playerList={playerList} />

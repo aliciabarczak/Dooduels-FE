@@ -243,7 +243,6 @@ export function addPlayerToRoom(user, room_id) {
   get(oneRoomRef)
     .then((snapshot) => {
       const room = snapshot.val();
-      console.log(room, ",, ROOM``");
 
       if (room.players) {
         if (Object.keys(room.players).length < 5) {
