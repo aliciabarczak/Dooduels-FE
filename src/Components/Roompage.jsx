@@ -39,9 +39,11 @@ const Roompage = () => {
   }, []);
 
   useEffect(() => {
-    onValue(playersRef, (snapshot) => {
-      setPlayerList(snapshot.val());
-    });
+    setInterval(() => {
+      onValue(playersRef, (snapshot) => {
+        setPlayerList(snapshot.val());
+      });
+    }, 1000);
   }, []);
 
   if (isLoading) return <p>Loading...</p>;
