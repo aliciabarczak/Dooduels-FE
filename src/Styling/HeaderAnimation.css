@@ -4,6 +4,10 @@
   align-items: flex-start;
 }
 
+.backoutAnimatedHeader {
+  color: black;
+}
+
 .animatedHeader {
   font-display: flex;
   flex-direction: column;

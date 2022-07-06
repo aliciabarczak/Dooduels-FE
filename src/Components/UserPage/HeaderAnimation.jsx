@@ -1,8 +1,8 @@
 import "./../../Styling/HeaderAnimation.css";
-export default function HeaderAnimation() {
+export default function HeaderAnimation({ showPopUp }) {
   return (
-    <div className="animatedHeader">
-      <div className="graphic-header">
+    <div className={showPopUp ? "balckoutAnimatedHeader" : "animatedHeader"}>
+      <div className={showPopUp ? "balckoutAnimatedHeader" : "graphic-header"}>
         <span></span>
         <span></span>
         <span></span>
@@ -19,7 +19,7 @@ export default function HeaderAnimation() {
         <span></span>
         <span></span>
       </div>
-      <div className="wrapper">
+      <div className={showPopUp ? "balckoutAnimatedHeader" : "wrapper"}>
         <p>D</p>
         <p>O</p>
         <p>O</p>

@@ -5,7 +5,7 @@ import "../Styling/HeaderAnimation.css";
 import HeaderAnimation from "./../Components/UserPage/HeaderAnimation.jsx";
 import { updateUserStatus } from "../db/utils";
 
-const Header = () => {
+const Header = ({ showPopUp }) => {
   const location = useLocation();
   const { loggedUser, setLoggedUser } = useContext(userContext);
 
@@ -17,7 +17,7 @@ const Header = () => {
 
   if (location.pathname === `/users/${loggedUser.user_id}`) {
     return (
-      <header className="header">
+      <header className={showPopUp ? "backoutHeader" : "header"}>
         <HeaderAnimation />
         <button onClick={handleClick} className="button">
           Logout
@@ -29,7 +29,7 @@ const Header = () => {
   if (!loggedUser) {
     return (
       <header className="header">
-        <HeaderAnimation />
+        <HeaderAnimation showPopUp={showPopUp} />
       </header>
     );
   }
