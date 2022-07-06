@@ -11,6 +11,7 @@ import Chat from "./Chatrooms/Chat";
 
 const Roompage = () => {
   const { loggedUser } = useContext(userContext);
+  const [ isLoading, setIsLoading ] = useState(true)
 
   const location = useLocation();
   const roomID = location.pathname.split("/")[2];
@@ -18,14 +19,17 @@ const Roompage = () => {
   useEffect(() => {
     getRoomById(roomID)
     .then(room => {
+      console.log("room>>>", room)
       setRoompageRoom(room)
+      console.log(room.host.user_id)
+      if (loggedUser && loggedUser.user_id !== room.host.user_id) {
+        addPlayerToRoom(loggedUser, roomID);
+      }
+      setIsLoading(false)
     });
-    if (loggedUser) {
-      addPlayerToRoom(loggedUser, roomID);
-    }
   }, []);
 
-  return (
+  return isLoading ? <p>loading...</p> : (
     <section>
       {!Object.keys(loggedUser).length ? <LogInPopUpBox /> : null}
       <div className="Roompage">
