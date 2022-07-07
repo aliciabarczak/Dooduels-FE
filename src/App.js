@@ -32,37 +32,29 @@ function App() {
         setShowPopUp,
         lastRoomId,
         setLastRoomId,
-      }}
-    >
+      }}>
       {showPopUp ? (
         <AddRoomBox showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
       ) : null}
-      <div className={showPopUp || loggedUser === "" ? "blackOutApp" : "App"}>
-        {!loggedUser ? (
-          <LogInPopUpBox />
-        ) : (
-          <>
-            <Header showPopUp={showPopUp} />
-            <main>
-              <Routes>
-                <Route
-                  path="/"
-                  element={
-                    <Homepage
-                      showPopUp={showPopUp}
-                      setShowPopUp={setShowPopUp}
-                    />
-                  }
-                />
-                <Route path="/users/:user_id" element={<UserPage />} />
-                <Route path="/rooms/:room_id" element={<Roompage />} />
-                <Route path="/profile_pic" element={<ProfilePic />} />
-                <Route path="/games/:room_id" element={<Gamepage />} />
-                <Route path="/games/ar/:room_id" element={<ARGamepage />} />
-              </Routes>
-            </main>{" "}
-          </>
-        )}
+      <div className={showPopUp ? "blackOutApp" : "App"}>
+        <>
+          <Header showPopUp={showPopUp} />
+          <main>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Homepage showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
+                }
+              />
+              <Route path="/users/:user_id" element={<UserPage />} />
+              <Route path="/rooms/:room_id" element={<Roompage />} />
+              <Route path="/profile_pic" element={<ProfilePic />} />
+              <Route path="/games/:room_id" element={<Gamepage />} />
+              <Route path="/games/ar/:room_id" element={<ARGamepage />} />
+            </Routes>
+          </main>{" "}
+        </>
       </div>
     </userContext.Provider>
   );
