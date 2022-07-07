@@ -1,102 +1,173 @@
-.gamepage {
-  width: fit-content;
-  display: grid;
-  grid-template-areas:
-    "guess-box guess-box"
-    "seconds seconds"
-    "canvas canvas";
+.gamepage-mother-component {
+  height: 700px;
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+#game-page {
+  height: 500px;
+  width: 700px;
+  display: flex;
+  
+}
+
+.canvas-menu {
+  width: 700px;
+  height: 50px;
+  display: flex;
+  border: solid black;
+  border-radius: 20px;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  align-items: center;
+  background-color: #ffffff;
+  margin: auto;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+#canvas {
+  margin-top: 0px;
+  height: 520px;
+  width: 700px;
+  display: flex;
+  justify-content: space-around;
+  border: solid black;
+  border-radius: 20px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+
+#display-canvas-container{
+display:flex;
+align-content: space-between;
+
+}
+
+#game-display-container {
+  height: 520px;
+  width: 100px;
+  padding-top:0px;
+  font-size: 25px;
+  list-style: none;
+  margin-right: 10px;
+
+}
+
+#host {
+  height: 100px;
+  width: 100px;
+  font-size: 22px;
+  background-color: blue;
+  border-radius: 10px;
+  border: 2px solid;
+  margin-bottom: 5px;
+}
+
+#players {
+  width: 100px;
+  font-size: 22px;
+  height: 400px;
+  background-color: rgb(106, 181, 2);
+  border-radius: 10px;
+  border: 2px solid
+} 
+
+
+#display--name--host {
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  text-shadow: -1px 1px 0 #000, 1px 2px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
+
+
+#display--name--players {
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-shadow: -1px 1px 0 #000, 1px 2px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
+
+#display--points {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: white;
+  text-shadow: -1px 1px 0 #000, 1px 2px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
+
+
+#current-word {
+  margin-left: 50px;
+
 }
 
 .guess-box {
   display: flex;
-  grid-area: guess-box;
+  justify-content: space-between;
   background-color: yellow;
   border-radius: 20px;
-  width: 50vw;
-  margin: auto;
+  width: 700px;
+  margin-top: 100px;
   font-size: 50px;
   margin-left: 16%;
   margin-bottom: 40px;
-  align-items: baseline;
-  justify-content: center;
+
+
   height: 160px;
 }
-
-.timer {
-  margin-left: 20%;
-  margin-top: -8%;
-}
-
-.guess-box p {
-  font-size: 50px;
-}
-
-.guess-box form {
-  font-size: 35px;
-}
-
-.guess-box form input {
-  font-size: 25px;
-  border: solid black;
-  border-radius: 20px;
-}
-
 .guess-box form button {
+  font-weight:bold;
   font-size: 20px;
+  border: solid black;
   padding: 0.5rem;
   margin-left: 10px;
   border-radius: 20px;
   margin-top: 10px;
 }
 
-#game-display {
-  position: absolute;
-  padding-top: none;
-  width: 200px;
-  margin-left: -155px;
-  font-size: 25px;
-  list-style: none;
+#player-guess-box {
+  padding-bottom: 10px;
+
 }
 
-#host-display {
-  border: 2px solid;
-  border-radius: 10px;
-  padding-top: 5px;
-  background-color: rgb(0, 102, 255);
+
+#guess-the-word {
+  margin-bottom: 0px;
+
+  
+
+}
+
+#input-and-submit {
+  margin-left: 50px;
   margin-bottom: 20px;
 }
 
-#players-display {
-  background-color: yellow;
-  border: 2px solid;
-  border-radius: 10px;
-  padding-top: 5px;
+#guess-submit-button {
+  margin-left: 20px;
 }
 
-#display--name {
-  color: white;
-  margin: 0;
-  text-shadow: -1px 1px 0 #000, 1px 2px 0 #000, 1px -1px 0 #000,
-    -1px -1px 0 #000;
+.timer {
+  margin-right: 30px;
+  margin-top: -8%;
 }
 
-#display--points {
-  color: white;
-  text-shadow: -1px 1px 0 #000, 1px 2px 0 #000, 1px -1px 0 #000,
-    -1px -1px 0 #000;
-}
 
-#players-display {
-  background-color: rgb(106, 181, 2);
-}
 
-#display--name {
-  color: white;
-}
 
-#display--points {
-  color: white;
-}
+
+
+
+
+
 
 .seconds {
   color: white;
@@ -105,28 +176,13 @@
   color: yellow;
 }
 
-canvas {
-  display: flex;
-  justify-content: center;
-  margin-left: 50px;
-  border: solid black;
-  border-radius: 20px;
-  margin-bottom: 50px;
-  /* max-width: 850px;
-  max-height: 750px; */
-}
 
-.Menu {
-  width: 650px;
-  height: 50px;
-  display: flex;
-  justify-content: space-evenly;
-  border-radius: 5px;
-  align-items: center;
-  background-color: #ffffff;
-  margin: auto;
-  margin-top: 10px;
-}
+
+
+
+ 
+  
+
 
 .timer p {
   border: solid black;
@@ -154,9 +210,7 @@ canvas {
   color: white;
 }
 
-.Menu {
-  margin-bottom: 20px;
-}
+
 
 #hide {
   background-color: inherit;

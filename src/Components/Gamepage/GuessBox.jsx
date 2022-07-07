@@ -125,13 +125,17 @@ const GuessBox = ({ room_id, room, setHostPoints }) => {
     <>
       <section className="guess-box" id={alertShowing ? "hide" : null}>
         {isHost ? (
-          <p>{currWord}</p>
+          <p id="current-word">{currWord}</p>
         ) : (
-          <form onSubmit={handleSubmit}>
-            <p>{currWord}</p>
-            <label>Guess the word!</label>
-            <input onChange={handleChange} />
-            <button type="submit">Submit</button>
+          <form id="player-guess-box" onSubmit={handleSubmit}>
+            {/* <p>{currWord}</p> */}
+            <p id="guess-the-word"> Guess the word!</p>
+            <div id="input-and-submit">
+              <input onChange={handleChange} />
+              <button id="guess-submit-button" type="submit">
+                Submit
+              </button>
+            </div>
           </form>
         )}
         <section className="timer" id={alertShowing ? "hide" : null}>

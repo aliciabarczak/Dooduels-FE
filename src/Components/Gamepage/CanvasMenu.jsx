@@ -2,7 +2,7 @@ import React from "react";
 
 const CanvasMenu = ({ setLineColor, lineWidth, setLineWidth, clearCanvas }) => {
   return (
-    <div className="Menu">
+    <div className="canvas-menu">
       <label>Brush Color </label>
       <input
         type="color"

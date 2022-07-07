@@ -154,15 +154,16 @@ export default function Canvas({ room_id, room }) {
             onMouseMove={draw}
             ref={canvasRef}
             onChange={handleChange}
-            width={`1000px`}
-            height={`720px`}
+            width={`700px`}
+            height={`520px`}
           ></canvas>
         </section>
       ) : (
         <canvas
+          id="canvas"
           ref={secondCanvasRef}
-          width={`1000px`}
-          height={`720px`}
+          width={`700px`}
+          height={`520px`}
         ></canvas>
       )}
     </>
