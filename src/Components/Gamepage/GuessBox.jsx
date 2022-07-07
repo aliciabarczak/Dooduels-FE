@@ -123,7 +123,7 @@ const GuessBox = ({ room_id, room, setHostPoints }) => {
 
   return (
     <>
-      <section className="guess-box" id={alertShowing ? "hide" : null}>
+      <section className="guess-box">
         {isHost ? (
           <p id="current-word">{currWord}</p>
         ) : (
@@ -138,7 +138,7 @@ const GuessBox = ({ room_id, room, setHostPoints }) => {
             </div>
           </form>
         )}
-        <section className="timer" id={alertShowing ? "hide" : null}>
+        <section className="timer">
           <p>{seconds}</p>
         </section>
       </section>

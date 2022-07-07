@@ -11,6 +11,7 @@
   align-items: center;
   justify-content: space-evenly;
   font-size: x-large;
+  padding-left: 50px;
 }
 
 .HeaderBackout {

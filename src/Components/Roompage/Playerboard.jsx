@@ -10,18 +10,17 @@ export default function Playerboard({ roompageRoom, playerList }) {
           <b style={{ color: "yellow" }}>{roompageRoom.host.user_name}</b>
           <p style={{ color: "yellow" }}>points: {roompageRoom.host.points}</p>
         </div>
-        {playerList ? (
-          Object.values(playerList).map((player, index) => {
-            return (
-              <div className="playerInfo" key={index}>
-                <img src={player.avatar_url} className="profile-pic" />
-                <b>{player.user_name}</b>
-                <p>points: {player.points}</p>
-              </div>
-            );
-          })
-        ): null}
-        ;
+        {playerList
+          ? Object.values(playerList).map((player, index) => {
+              return (
+                <div className="playerInfo" key={index}>
+                  <img src={player.avatar_url} className="profile-pic" />
+                  <b>{player.user_name}</b>
+                  <p>points: {player.points}</p>
+                </div>
+              );
+            })
+          : null}
       </div>
     </>
   );

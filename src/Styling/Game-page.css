@@ -4,14 +4,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
 }
 
 #game-page {
   height: 500px;
   width: 700px;
   display: flex;
-  
 }
 
 .canvas-menu {
@@ -29,6 +27,9 @@
   margin-bottom: 5px;
 }
 
+canvas#canvas1,
+video,
+.ARCanvas,
 #canvas {
   margin-top: 0px;
   height: 520px;
@@ -41,21 +42,31 @@
   margin-left: 0px;
 }
 
+canvas#canvas1,
+video,
+.ARCanvas {
+  justify-content: flex-start;
+  border: none;
 
-#display-canvas-container{
-display:flex;
-align-content: space-between;
+  margin-top: -18px;
+}
 
+video {
+  width: 850px;
+}
+
+#display-canvas-container {
+  display: flex;
+  align-content: space-between;
 }
 
 #game-display-container {
   height: 520px;
   width: 100px;
-  padding-top:0px;
+  padding-top: 0px;
   font-size: 25px;
   list-style: none;
   margin-right: 10px;
-
 }
 
 #host {
@@ -74,9 +85,8 @@ align-content: space-between;
   height: 400px;
   background-color: rgb(106, 181, 2);
   border-radius: 10px;
-  border: 2px solid
-} 
-
+  border: 2px solid;
+}
 
 #display--name--host {
   color: white;
@@ -85,7 +95,6 @@ align-content: space-between;
   text-shadow: -1px 1px 0 #000, 1px 2px 0 #000, 1px -1px 0 #000,
     -1px -1px 0 #000;
 }
-
 
 #display--name--players {
   color: white;
@@ -103,10 +112,8 @@ align-content: space-between;
     -1px -1px 0 #000;
 }
 
-
 #current-word {
   margin-left: 50px;
-
 }
 
 .guess-box {
@@ -119,12 +126,10 @@ align-content: space-between;
   font-size: 50px;
   margin-left: 16%;
   margin-bottom: 40px;
-
-
   height: 160px;
 }
 .guess-box form button {
-  font-weight:bold;
+  font-weight: bold;
   font-size: 20px;
   border: solid black;
   padding: 0.5rem;
@@ -135,15 +140,10 @@ align-content: space-between;
 
 #player-guess-box {
   padding-bottom: 10px;
-
 }
-
 
 #guess-the-word {
   margin-bottom: 0px;
-
-  
-
 }
 
 #input-and-submit {
@@ -160,29 +160,12 @@ align-content: space-between;
   margin-top: -8%;
 }
 
-
-
-
-
-
-
-
-
-
 .seconds {
   color: white;
   grid-area: seconds;
   font-size: 50px;
   color: yellow;
 }
-
-
-
-
-
- 
-  
-
 
 .timer p {
   border: solid black;
@@ -197,25 +180,17 @@ align-content: space-between;
 }
 
 .alertMessage {
-  font-size: 40px;
   position: absolute;
-  margin-left: 12%;
   height: fit-content;
   padding: 2rem;
-  width: 40vw;
-  height: 100px;
+  height: 110px;
   background-color: rgb(255, 0, 0);
-  border-radius: 20px;
   border: solid white;
-  color: white;
-}
-
-
-
-#hide {
-  background-color: inherit;
   color: rgb(255, 0, 111);
-  border: rgb(255, 0, 111);
-  background-color: rgb(255, 0, 111);
-  border: none;
+  font-size: 50px;
+  margin: 0;
+  margin-top: -17%;
+  margin-left: 11%;
+  width: 620px;
+  border-radius: 25px;
 }
