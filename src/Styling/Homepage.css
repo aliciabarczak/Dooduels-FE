@@ -253,6 +253,7 @@ select.dropDownMenu {
   font-size: 20px;
   border-radius: 15px;
   border: solid white;
+  width: 120px;
 }
 
 .RoomName input {
