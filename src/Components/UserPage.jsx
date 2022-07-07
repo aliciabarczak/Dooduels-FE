@@ -22,7 +22,6 @@ const UserPage = () => {
 
   return (
     <div className="user-page">
-      {!loggedUser ? <LogInPopUpBox /> : null}
       <img
         src={currUser.avatar_url}
         alt="user profile pic"

@@ -36,7 +36,8 @@ function App() {
       {showPopUp ? (
         <AddRoomBox showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
       ) : null}
-      <div className={showPopUp ? "blackOutApp" : "App"}>
+      {!loggedUser ? <LogInPopUpBox /> : null}
+      <div className={showPopUp || loggedUser === "" ? "blackOutApp" : "App"}>
         <>
           <Header showPopUp={showPopUp} />
           <main>
