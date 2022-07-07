@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./../../Styling/HeaderAnimation.css";
 export default function HeaderAnimation({ showPopUp }) {
   return (
@@ -19,6 +20,7 @@ export default function HeaderAnimation({ showPopUp }) {
         <span></span>
         <span></span>
       </div>
+      <Link to="/">
       <div className={showPopUp ? "balckoutAnimatedHeader" : "wrapper"}>
         <p>D</p>
         <p>O</p>
@@ -29,6 +31,7 @@ export default function HeaderAnimation({ showPopUp }) {
         <p>l</p>
         <p>s</p>
       </div>
+      </Link>
     </div>
   );
 }
