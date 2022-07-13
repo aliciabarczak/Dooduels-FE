@@ -15,7 +15,17 @@ import ARGamepage from "./Components/Gamepage/ARGamepage.js";
 
 function App() {
   const [showPopUp, setShowPopUp] = useState(false);
-  const [loggedUser, setLoggedUser] = useState("");
+  const [loggedUser, setLoggedUser] = useState({
+    avatar_url:
+      "https://vignette.wikia.nocookie.net/mrmen/images/4/4f/MR_JELLY_4A.jpg/revision/latest?cb=20180104121141",
+    description: "A cool lass",
+    friends: [[Object], [Object], [Object]],
+    password: "password123",
+    points: 450,
+    status: "offline",
+    user_name: "Demo",
+    user_id: "-N5_Z_EYyZBrivsr1pdL",
+  });
   const [lastRoomId, setLastRoomId] = useState("");
   const [users, setUsers] = useState([]);
   useEffect(() => {
