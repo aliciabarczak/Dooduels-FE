@@ -6,41 +6,12 @@ import "../../Styling/Roompage.css";
 
 export default function ClosedRooms({ rooms }) {
   const { loggedUser } = useContext(userContext);
-  const demoRooms = [
-    {
-      full: true,
-      host: { user_name: "tomtickle" },
-      messages: {
-        "-N5iVlC-p5xgUItrAMGV": "Hi mum, i'm on TV",
-        "-N5iVo0GHu537d7YNEDg": "hello world",
-        "-N5iVsWCXjTPWzay13ha": "howdy",
-        "-N5iVzxwc9rGrq0LZHNf": "bananas in pjamas",
-      },
-      mode: "'HA-AR-D'",
-      players: ["jessjelly", "sparkles", "sparkles", "alicia", "javier"],
-      room_name: "AR-Only",
-      room_id: "1",
-    },
-    {
-      full: true,
-      host: { user_name: "Jacko" },
-      messages: {
-        "-N5iVlC-p5xgUItrAMGV": "Hi mum, i'm on TV",
-        "-N5iVo0GHu537d7YNEDg": "hello world",
-        "-N5iVsWCXjTPWzay13ha": "howdy",
-        "-N5iVzxwc9rGrq0LZHNf": "bananas in pjamas",
-      },
-      mode: "'Easy'",
-      players: ["jessjelly", "sparkles", "sparkles", "alicia", "javier"],
-      room_name: "Room 5",
-      room_id: "1",
-    },
-  ];
+
   return (
     <>
       <h2 className="closedRoomsHeader">Closed Rooms</h2>
       <ul className="RoomList">
-        {demoRooms.map((room, index) => {
+        {rooms.map((room, index) => {
           if (room.players.length === 5)
             return (
               <section
